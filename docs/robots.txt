@@ -1,0 +1,3 @@
+#Sitemap for www.mergephp.com
+
+Sitemap: https://www.mergephp.com/sitemap.xml

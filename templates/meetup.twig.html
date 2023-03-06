@@ -1,0 +1,40 @@
+{% include('header.twig.html') %}
+
+<main>
+	<header>
+		<h1>{{ meetup.getTitle() }}</h1>
+
+		<img src="{{ meetup.getImage() }}" alt="{{ title }}">
+
+		<time datetime="{{ meetup.getDateTime()|date('c') }}">{{ meetup.getDateTime()|date('F jS, Y') }}</time>
+	</header>
+
+	{% if meetup.getYouTubeLink() %}
+	<aside>
+		<a href="{{ meetup.getYouTubeLink() }}">Watch on YouTube</a>
+	</aside>
+	{% endif %}
+
+	<article>
+		{{ meetup.getDescription()|markdown_to_html }}
+	</article>
+
+	<footer>
+		<h3>Presented by {{ meetup.getSpeakerName() }}</h3>
+
+		<p>{{ meetup.getSpeakerBio()|markdown_to_html }}</p>
+	</footer>
+</main>
+
+{% if previousMeetup or nextMeetup %}
+<nav>
+	{% if previousMeetup %}
+	Previous meetup: <a href="{{ previousMeetup.getPermalink() }}">{{ previousMeetup.getTitle() }}</a>
+	{% endif %}
+	{% if nextMeetup %}
+	Next meetup: <a href="{{ nextMeetup.getPermalink() }}">{{ nextMeetup.getTitle() }}</a>
+	{% endif %}
+</nav>
+{% endif %}
+
+{% include('footer.twig.html') %}

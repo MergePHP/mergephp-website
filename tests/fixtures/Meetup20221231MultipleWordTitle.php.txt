@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+namespace MergePHP\Website\Meetup;
+
+use DateTimeImmutable;
+use DateTimeZone;
+use MergePHP\Website\AbstractMeetup;
+
+class Meetup20221231MultipleWordTitle extends AbstractMeetup
+{
+	public function getTitle(): string
+	{
+		return 'Multiple Word Title';
+	}
+
+	public function getDescription(): string
+	{
+		return 'Multiple word description';
+	}
+
+	public function getDateTime(): DateTimeImmutable
+	{
+		/** @noinspection PhpUnhandledExceptionInspection */
+		return new DateTimeImmutable('2022-12-31 19:00:00', new DateTimeZone('America/New_York'));
+	}
+
+	public function getImage(): string
+	{
+		// phpcs:ignore
+		return 'https://www.example.com/this/entire/url/is/greater/than/102/characters/which/normally/makes/phpcs/unhappy.jpg';
+	}
+
+	public function getSpeakerName(): string
+	{
+		return 'Speaker Name';
+	}
+
+	public function getSpeakerBio(): string
+	{
+		return 'Speaker biography';
+	}
+}

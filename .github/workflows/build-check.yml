@@ -1,0 +1,29 @@
+name: Build check
+
+on: [push]
+
+jobs:
+    build-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+                with:
+                    fetch-depth: 0
+
+            -   name: Install dependencies
+                uses: php-actions/composer@v6
+
+            -   name: Check for uncommitted files
+                uses: php-actions/composer@v6
+                with:
+                    # command assumes all uncommitted changes will be in the docs dir
+                    command: |
+                        composer build
+                        if ! git status --porcelain
+                        then
+                            echo 'You forgot to commit changes to the docs dir!'
+                            echo 'On your local run `git add` with your changes to the docs dir and then `git commit --amend` and `git push --force`'
+                            exit 1
+                        fi

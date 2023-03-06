@@ -1,0 +1,38 @@
+<?php
+
+declare(strict_types=1);
+
+namespace MergePHP\Website\Meetup;
+
+use DateTimeImmutable;
+use DateTimeZone;
+use MergePHP\Website\AbstractMeetup;
+
+class Meetup20230101Title extends AbstractMeetup
+{
+	public function getTitle(): string
+	{
+		return 'Title';
+	}
+
+	public function getDescription(): string
+	{
+		return 'Description';
+	}
+
+	public function getDateTime(): DateTimeImmutable
+	{
+		/** @noinspection PhpUnhandledExceptionInspection */
+		return new DateTimeImmutable('2023-01-01 19:00:00', new DateTimeZone('America/New_York'));
+	}
+
+	public function getSpeakerName(): string
+	{
+		return 'Speaker';
+	}
+
+	public function getSpeakerBio(): string
+	{
+		return 'Bio';
+	}
+}

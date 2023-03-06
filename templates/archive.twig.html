@@ -1,0 +1,38 @@
+{% include('header.twig.html') %}
+
+<h1>{{ year }} Meetups</h1>
+
+{% for meetup in meetups %}
+	<article>
+		<h2>
+			<a href="{{ meetup.getPermalink() }}">{{ meetup.getTitle() }}</a>
+		</h2>
+		<a href="{{ meetup.getPermalink() }}">
+			<img src="{{ meetup.getImage() }}" alt="{{ meetup.getTitle() }}">
+		</a>
+		<time datetime="{{ meetup.getDateTime()|date('c') }}">{{ meetup.getDateTime()|date('F jS, Y') }}</time>
+
+		<p>
+			{{ meetup.getDescription()[:500] }}
+			{% if meetup.getDescription()|length > 500 %}
+			&hellip;
+			{% endif %}
+		</p>
+
+	</article>
+{% endfor %}
+
+<hr>
+
+{% if previousYear or nextYear %}
+<nav>
+	{% if previousYear %}
+		<a href="/meetups/{{ previousYear }}/">&laquo; {{ previousYear }} meetups</a>
+	{% endif %}
+	{% if nextYear %}
+	<a href="/meetups/{{ nextYear }}/">{{ nextYear }} meetups &raquo;</a>
+	{% endif %}
+</nav>
+{% endif %}
+
+{% include('footer.twig.html') %}

@@ -1,0 +1,40 @@
+{% include('header.twig.html') %}
+
+<a href="/">
+	<img alt="MergePHP Logo" src="/logo.jpg">
+</a>
+
+<aside>
+	<ul>
+		<li>Atlanta</li>
+		<li>Austin</li>
+		<li>Boston</li>
+		<li>Kansas City</li>
+		<li>Las Vegas</li>
+		<li>Phoenix</li>
+		<li>San Diego</li>
+		<li>Seattle</li>
+		<li>Utah</li>
+		<li>Vancouver</li>
+	</ul>
+</aside>
+{% if nextMeetup %}
+	<section>
+		Join us on
+		<time datetime="{{ nextMeetup.getDateTime()|date('c') }}" style="display:inline">{{ nextMeetup.getDateTime()|date('F jS, Y') }}</time>
+		as {{ nextMeetup.getSpeakerName() }} presents
+		<a href="{{ nextMeetup.getPermalink() }}"><strong>{{ nextMeetup.getTitle() }}</strong></a>
+		<br>
+		{{ nextMeetup.getDescription() }}
+	</section>
+{% else %}}
+	MergePHP meets the second Tuesday of every month at 19:00 Eastern/16:00 Pacific
+{% endif %}}
+
+<a href="/meetups/{{ archiveYear }}/">View past meetups</a>
+
+<footer>
+	&copy; MergePHP {{ 'now' | date('Y') }}. Source code available <a href="https://www.github.com/mergephp/mergephp-website/">on GitHub</a>
+</footer>
+
+{% include('footer.twig.html') %}

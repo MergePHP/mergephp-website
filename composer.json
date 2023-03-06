@@ -1,0 +1,52 @@
+{
+	"name": "mergephp/mergephp-website",
+	"description": "The website for MergePHP",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Tim Bond",
+			"email": "tim@tim-bond.com",
+			"homepage": "https://www.tim-bond.com/"
+		}
+	],
+	"config": {
+		"platform": {
+			"php": "8.2"
+		}
+	},
+	"require": {
+		"ext-dom": "*",
+		"ext-mbstring": "*",
+		"ext-readline": "*",
+		"ext-simplexml": "*",
+		"league/commonmark": "^2.3",
+		"nette/php-generator": "^4.0.0",
+		"psr/log": "^3.0.0",
+		"squizlabs/php_codesniffer": "3.*",
+		"symfony/console": "^6.1",
+		"twig/markdown-extra": "^3.4",
+		"twig/twig": "^3.0.0"
+	},
+	"require-dev": {
+		"mikey179/vfsstream": "^1.6.11",
+		"phpunit/phpunit": "^10.0.10"
+	},
+	"scripts": {
+		"build": "php console.php build",
+		"coverage": "phpunit --colors=always --testdox tests",
+		"fix-lint-errors": "phpcbf",
+		"generate": "php console.php generate",
+		"lint": "phpcs",
+		"serve": [
+			"Composer\\Config::disableProcessTimeout",
+			"php -S localhost:8000 -t docs/"
+		],
+		"test": "phpunit --colors=always --testdox tests"
+	},
+	"autoload": {
+		"psr-4": {
+			"MergePHP\\Website\\": "src/",
+			"Tests\\": "tests/"
+		}
+	}
+}
