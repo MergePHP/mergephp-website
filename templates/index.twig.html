@@ -6,16 +6,9 @@
 
 <aside>
 	<ul>
-		<li>Atlanta</li>
-		<li>Austin</li>
-		<li>Boston</li>
-		<li>Kansas City</li>
-		<li>Las Vegas</li>
-		<li>Phoenix</li>
-		<li>San Diego</li>
-		<li>Seattle</li>
-		<li>Utah</li>
-		<li>Vancouver</li>
+		{% for meetup in meetups %}
+			<li>{{ meetup }}</li>
+		{% endfor %}
 	</ul>
 </aside>
 {% if nextMeetup %}
@@ -26,10 +19,17 @@
 		<a href="{{ nextMeetup.getPermalink() }}"><strong>{{ nextMeetup.getTitle() }}</strong></a>
 		<br>
 		{{ nextMeetup.getDescription() }}
+		<br>
+		{% if nextMeetup.getMeetupLinks()|length > 0 %}
+			RSVP:
+			{% for name, link in nextMeetup.getMeetupLinks() %}
+				<a href="{{ link }}">{{name}}</a>{% if not loop.last %}, {% endif %}
+			{% endfor %}
+		{% endif %}
 	</section>
-{% else %}}
+{% else %}
 	MergePHP meets the second Tuesday of every month at 19:00 Eastern/16:00 Pacific
-{% endif %}}
+{% endif %}
 
 <a href="/meetups/{{ archiveYear }}/">View past meetups</a>
 
