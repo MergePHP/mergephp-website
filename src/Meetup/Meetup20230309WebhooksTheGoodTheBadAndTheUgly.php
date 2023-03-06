@@ -7,6 +7,7 @@ namespace MergePHP\Website\Meetup;
 use DateTimeImmutable;
 use DateTimeZone;
 use MergePHP\Website\AbstractMeetup;
+use MergePHP\Website\Meetups;
 
 class Meetup20230309WebhooksTheGoodTheBadAndTheUgly extends AbstractMeetup
 {
@@ -50,5 +51,17 @@ class Meetup20230309WebhooksTheGoodTheBadAndTheUgly extends AbstractMeetup
 			'Question at the Library of Congress. His underlying goal is to get good technology into the hands of ' .
 			'good people to do great things. In his spare time, he writes at CaseySoftware.com and lives in the ' .
 			'woods. He is also a co-author of \"A Practical Approach to API Design.\"';
+	}
+
+	public function getMeetupLinks(): array
+	{
+		return [
+			Meetups::Atlanta->value => 'https://www.meetup.com/atlantaphp/events/291892502/',
+			Meetups::Austin->value => 'https://www.meetup.com/austinphp/events/xsbbctyfcfbmb/',
+			Meetups::KansasCity->value => 'https://www.meetup.com/kcphpug/events/zlfpzsyfcfbmb/',
+			Meetups::LasVegas->value => 'https://www.meetup.com/vegas-programmers/events/291655784/',
+			Meetups::Seattle->value => 'https://www.meetup.com/seaphp/events/291540671/',
+			Meetups::Utah->value => 'https://www.meetup.com/utah-php-user-group/events/292010849/',
+		];
 	}
 }

@@ -6,6 +6,7 @@ namespace MergePHP\Website\Builder\Processor;
 
 use DateTimeImmutable;
 use MergePHP\Website\Builder\MeetupCollection;
+use MergePHP\Website\Meetups;
 use Psr\Log\LoggerInterface;
 use Twig\Environment;
 
@@ -26,9 +27,15 @@ class HomepageProcessor extends HTMLProcessor
 		$futureMeetups = $this->meetups->withOnlyFuture();
 		$pastMeetups = $this->meetups->withOnlyPast();
 
+		$meetupLocations = [];
+		foreach (Meetups::cases() as $case) {
+			$meetupLocations[] = $case->value;
+		}
+
 		$data = [
-			'nextMeetup'  => reset($futureMeetups)->instance,
-			'archiveYear' => end($pastMeetups)->instance->getDateTime()->format('Y'),
+			'archiveYear'     => end($pastMeetups)->instance->getDateTime()->format('Y'),
+			'meetupLocations' => $meetupLocations,
+			'nextMeetup'      => reset($futureMeetups)->instance,
 		];
 
 		$this->logger->debug("Building homepage with reference to {$data['nextMeetup']?->getTitle()}");
