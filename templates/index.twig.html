@@ -8,13 +8,14 @@
 	<ul>
 		{% for meetup in meetups %}
 			<li>{{ meetup }}</li>
+
 		{% endfor %}
 	</ul>
 </aside>
 {% if nextMeetup %}
 	<section>
 		Join us on
-		<time datetime="{{ nextMeetup.getDateTime()|date('c') }}" style="display:inline">{{ nextMeetup.getDateTime()|date('F jS, Y') }}</time>
+		<time datetime="{{ nextMeetup.getDateTime().format('c') }}" style="display:inline">{{ nextMeetup.getDateTime()|date('F jS, Y') }}</time>
 		as {{ nextMeetup.getSpeakerName() }} presents
 		<a href="{{ nextMeetup.getPermalink() }}"><strong>{{ nextMeetup.getTitle() }}</strong></a>
 		<br>
@@ -24,6 +25,7 @@
 			RSVP:
 			{% for name, link in nextMeetup.getMeetupLinks() %}
 				<a href="{{ link }}">{{name}}</a>{% if not loop.last %}, {% endif %}
+
 			{% endfor %}
 		{% endif %}
 	</section>
