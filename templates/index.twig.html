@@ -15,7 +15,7 @@
 {% if nextMeetup %}
 	<section>
 		Join us on
-		<time datetime="{{ nextMeetup.getDateTime()|date('c') }}" style="display:inline">{{ nextMeetup.getDateTime()|date('F jS, Y') }}</time>
+		<time datetime="{{ nextMeetup.getDateTime().format('c') }}" style="display:inline">{{ nextMeetup.getDateTime()|date('F jS, Y') }}</time>
 		as {{ nextMeetup.getSpeakerName() }} presents
 		<a href="{{ nextMeetup.getPermalink() }}"><strong>{{ nextMeetup.getTitle() }}</strong></a>
 		<br>

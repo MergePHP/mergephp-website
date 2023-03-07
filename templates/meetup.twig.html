@@ -6,7 +6,7 @@
 
 		<img src="{{ meetup.getImage() }}" alt="{{ title }}">
 
-		<time datetime="{{ meetup.getDateTime()|date('c') }}">{{ meetup.getDateTime()|date('F jS, Y') }}</time>
+		<time datetime="{{ meetup.getDateTime().format('c') }}">{{ meetup.getDateTime()|date('F jS, Y') }}</time>
 	</header>
 
 	{% if meetup.getYouTubeLink() %}
