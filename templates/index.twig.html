@@ -8,6 +8,7 @@
 	<ul>
 		{% for meetup in meetups %}
 			<li>{{ meetup }}</li>
+
 		{% endfor %}
 	</ul>
 </aside>
@@ -24,6 +25,7 @@
 			RSVP:
 			{% for name, link in nextMeetup.getMeetupLinks() %}
 				<a href="{{ link }}">{{name}}</a>{% if not loop.last %}, {% endif %}
+
 			{% endfor %}
 		{% endif %}
 	</section>
