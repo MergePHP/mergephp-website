@@ -54,7 +54,7 @@ class Meetup20210909GetLandoAndGetStuffDone extends AbstractMeetup
 			'Together they have 2 wonderful kids who were both smart enough not to pursue a job in IT.';
 	}
 
-	public function getYouTubeLink(): ?string
+	public function getYouTubeLink(): string
 	{
 		return 'https://www.youtube.com/watch?v=ypppG0A3y5g';
 	}

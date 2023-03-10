@@ -41,4 +41,9 @@ class Meetup20201112WhatsNewInPhp80 extends AbstractMeetup
 			'infrastructure, or speaking at conferences ranging from Cascadia PHP in Portland to PHP Bulgaria in ' .
 			'Sofia. He also helps organize Longhorn PHP Conference, scheduled for early May of next year in Austin.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=Idn_sSnAYPE';
+	}
 }

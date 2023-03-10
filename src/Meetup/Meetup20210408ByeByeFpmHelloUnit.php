@@ -41,4 +41,9 @@ class Meetup20210408ByeByeFpmHelloUnit extends AbstractMeetup
 			'automotive industry. He joined NGINX as a Professional Services Engineer in February 2020 and focuses ' .
 			'on helping customers integrate NGINX products into their solutions.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=EFCzaOJuYAY';
+	}
 }

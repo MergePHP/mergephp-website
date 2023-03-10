@@ -55,7 +55,7 @@ class Meetup20211111TheFutureOfContinuousDelivery extends AbstractMeetup
 			"[https://www.php.net/](https://www.php.net/)";
 	}
 
-	public function getYouTubeLink(): ?string
+	public function getYouTubeLink(): string
 	{
 		return 'https://www.youtube.com/watch?v=dQcRaXdTESc';
 	}

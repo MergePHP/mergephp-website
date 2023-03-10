@@ -45,4 +45,9 @@ class Meetup20200813NewMysqlFeaturesThatYouMayHaveMissed extends AbstractMeetup
 	{
 		return '';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=8yyMn13Eux8';
+	}
 }

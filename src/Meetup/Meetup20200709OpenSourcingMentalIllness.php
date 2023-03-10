@@ -43,4 +43,9 @@ class Meetup20200709OpenSourcingMentalIllness extends AbstractMeetup
 			'is a backend team lead at a healthcare company doing fun things with PHP. You can find him on Twitter ' .
 			'[@matthewtrask](https://twitter.com/matthewtrask)';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=eFy1sYaDYug';
+	}
 }

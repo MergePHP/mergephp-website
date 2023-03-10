@@ -40,4 +40,9 @@ class Meetup20201210TurbochargedDevelopmentWithDockerPhpstormAndXdebug extends A
 		return 'Speaker, Writer, Software Engineer, Developer Relations Strategist, Podcast host. Pushing Developer ' .
 			'Relations forward as an Advocate for Laravel, Partner Jump24 in Birmingham, UK.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=_ve05MVdkx4';
+	}
 }

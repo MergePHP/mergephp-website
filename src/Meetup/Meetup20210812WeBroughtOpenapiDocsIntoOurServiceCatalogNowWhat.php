@@ -55,4 +55,9 @@ class Meetup20210812WeBroughtOpenapiDocsIntoOurServiceCatalogNowWhat extends Abs
 			'Backstage at Wayfair, that is the go-to place for discovering services, creating resources, and ' .
 			'executing workflows. Tap water enthusiast.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=P0OZJ-gJIXk';
+	}
 }

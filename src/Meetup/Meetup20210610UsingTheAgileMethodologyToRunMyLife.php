@@ -42,4 +42,9 @@ class Meetup20210610UsingTheAgileMethodologyToRunMyLife extends AbstractMeetup
 			'the girls, working as an Agile Coach at Team Treehouse, teaching Scrum, consulting with companies and, ' .
 			'using Agile/Scrum to facilitate the activities in her nonprofit work.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=c16ng-kdmFI';
+	}
 }

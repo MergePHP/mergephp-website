@@ -48,4 +48,9 @@ class Meetup20200910AntipatternsInPhp extends AbstractMeetup
 			"engineers daily work.\n\n Ahmed is an open source advocate. He has been contributing to open source " .
 			'since 2008 by using it, giving talks, patches, bug reports.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=_9nLBUTo1rM';
+	}
 }
