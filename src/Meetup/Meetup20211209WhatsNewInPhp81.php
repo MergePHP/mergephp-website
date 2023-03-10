@@ -50,7 +50,7 @@ class Meetup20211209WhatsNewInPhp81 extends AbstractMeetup
 			'to do.';
 	}
 
-	public function getYouTubeLink(): ?string
+	public function getYouTubeLink(): string
 	{
 		return 'https://www.youtube.com/watch?v=K52VpQh88bQ';
 	}

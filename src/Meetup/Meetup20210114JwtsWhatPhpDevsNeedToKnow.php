@@ -39,4 +39,9 @@ class Meetup20210114JwtsWhatPhpDevsNeedToKnow extends AbstractMeetup
 			'2000s. A former CTO, engineering manager and longtime developer, he\'s been writing software for ' .
 			'(checks watch) over 20 years.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=ezuN5opxqus';
+	}
 }

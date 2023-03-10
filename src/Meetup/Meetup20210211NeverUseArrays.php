@@ -45,4 +45,9 @@ class Meetup20210211NeverUseArrays extends AbstractMeetup
 			'developers and development managers the skills of yesteryear that the industry has forgotten. He is ' .
 			'the author of several books on PHP, including "Thinking Functionally in PHP" and "Exploring PHP 8.0."';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=oK2q5SCbs5E';
+	}
 }

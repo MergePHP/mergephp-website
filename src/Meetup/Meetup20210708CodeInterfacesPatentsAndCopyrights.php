@@ -45,4 +45,9 @@ class Meetup20210708CodeInterfacesPatentsAndCopyrights extends AbstractMeetup
 			'[https://mikestowe.com/slides](https://mikestowe.com/slides) or follow him: ' .
 			'[https://twitter.com/mikegstowe](https://twitter.com/mikegstowe)';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=pyPWxWFrb6M';
+	}
 }
