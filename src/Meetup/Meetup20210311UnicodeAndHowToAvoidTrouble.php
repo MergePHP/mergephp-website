@@ -46,4 +46,9 @@ class Meetup20210311UnicodeAndHowToAvoidTrouble extends AbstractMeetup
 			'problems. Pawel loves understanding technology in very intricate detail, and on a Friday evening, you ' .
 			'can probably find them reading Unicode specification, Intel\'s manuals, or PHP source code.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=-veq5CINIYs';
+	}
 }

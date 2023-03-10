@@ -42,4 +42,9 @@ class Meetup20201008DeploymentsAndCodescanningWithGithub extends AbstractMeetup
 			'2600. Imagines a world where Programming is a Functional Imperative. Believes in Privacy, Trust and ' .
 			'Kindness.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=aoCTeL1oAPk';
+	}
 }

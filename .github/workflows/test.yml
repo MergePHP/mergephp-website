@@ -3,22 +3,19 @@ name: Unit tests
 on: [push]
 
 jobs:
-    build-test:
+    test:
         runs-on: ubuntu-latest
 
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v3
-                with:
-                    fetch-depth: 0
 
-            -   name: Install PHP dependencies
+            -   name: Setup composer
                 uses: php-actions/composer@v6
-                with:
-                    php_version: 8.2
 
             -   name: Run PHPUnit Tests
                 uses: php-actions/phpunit@v3
                 with:
-                    php_version: 8.2
+                    args: --colors=always --testdox tests
                     bootstrap: vendor/autoload.php
+                    php_version: "8.2"

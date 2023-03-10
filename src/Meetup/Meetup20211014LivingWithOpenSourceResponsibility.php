@@ -45,4 +45,9 @@ class Meetup20211014LivingWithOpenSourceResponsibility extends AbstractMeetup
 			'to a beautiful wife and is a father of two sons. He tweets at ' .
 			'[@phpanarchist](https://twitter.com/phpanarchist).';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=4_evCB_bixc';
+	}
 }

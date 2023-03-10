@@ -53,6 +53,11 @@ class Meetup20230309WebhooksTheGoodTheBadAndTheUgly extends AbstractMeetup
 			'woods. He is also a co-author of \"A Practical Approach to API Design.\"';
 	}
 
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=PkA1xozje64';
+	}
+
 	public function getMeetupLinks(): array
 	{
 		return [

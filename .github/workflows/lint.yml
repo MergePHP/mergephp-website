@@ -3,7 +3,7 @@ name: Lint
 on: [push]
 
 jobs:
-    build-and-test:
+    lint:
         runs-on: ubuntu-latest
 
         steps:
@@ -14,11 +14,10 @@ jobs:
 
             -   name: Install PHP dependencies
                 uses: php-actions/composer@v6
-                with:
-                    php_version: 8.2
 
-            -   name: Run linter
-                uses: php-actions/composer@v6
+            -   name: Run PHP Code Sniffer
+                uses: php-actions/phpcs@v1
                 with:
                     php_version: 8.2
-                    command: composer lint
+                    path: src/
+                    standard: phpcs.xml

@@ -40,4 +40,9 @@ class Meetup20210513StaticAnalysisWithPhpstan extends AbstractMeetup
 			'works at ShootProof as a Software Architect, working extensively with PHP and Python codebases.   ' .
 			'[Find Brian on LinkedIn](https://www.linkedin.com/in/brian-morton-1aa9971/)';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=XFgylNvyIg8';
+	}
 }
