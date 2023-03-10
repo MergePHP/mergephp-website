@@ -32,10 +32,12 @@ class HomepageProcessor extends HTMLProcessor
 			$meetupLocations[] = $case->value;
 		}
 
+		$nextMeetup = count($futureMeetups) ? reset($futureMeetups)->instance : null;
+
 		$data = [
 			'archiveYear'     => end($pastMeetups)->instance->getDateTime()->format('Y'),
 			'meetupLocations' => $meetupLocations,
-			'nextMeetup'      => reset($futureMeetups)->instance,
+			'nextMeetup'      => $nextMeetup,
 		];
 
 		$this->logger->debug("Building homepage with reference to {$data['nextMeetup']?->getTitle()}");
