@@ -1,0 +1,33 @@
+{
+  "name": "mergephp-website",
+  "version": "1.0.0",
+  "description": "javascript packages for the mergephp website",
+  "main": "docs/index.html",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MergePHP/mergephp-website.git"
+  },
+  "keywords": [
+    "mergephp"
+  ],
+  "author": "MergePHP Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MergePHP/mergephp-website/issues"
+  },
+  "homepage": "https://github.com/MergePHP/mergephp-website#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
+  }
+}
