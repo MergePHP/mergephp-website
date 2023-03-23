@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.mergephp.com/</loc>
-    <lastmod>2023-03-09T16:19:40-08:00</lastmod>
+    <lastmod>2023-03-22T19:53:39-07:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -14,121 +14,121 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/07/09/open-sourcing-mental-illness.html</loc>
-    <lastmod>2023-03-10T00:15:55+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/08/13/new-mysql-features-that-you-may-have-missed.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/09/10/anti-patterns-in-php.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/10/08/deployments-and-codescanning-with-github.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/11/12/what-s-new-in-php-8-0.html</loc>
-    <lastmod>2023-03-10T00:15:55+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/12/10/turbocharged-development-with-docker-phpstorm-and-xdebug.html</loc>
-    <lastmod>2023-03-10T00:15:55+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/index.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/01/14/jwts-what-php-devs-need-to-know.html</loc>
-    <lastmod>2023-03-10T00:15:55+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/02/11/never-use-arrays.html</loc>
-    <lastmod>2023-03-10T00:15:55+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/03/11/unicode-and-how-to-avoid-trouble.html</loc>
-    <lastmod>2023-03-10T00:15:55+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/04/08/bye-bye-fpm-hello-unit.html</loc>
-    <lastmod>2023-03-10T00:15:55+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/05/13/static-analysis-with-phpstan.html</loc>
-    <lastmod>2023-03-10T00:03:35+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/06/10/using-the-agile-methodology-to-run-my-life.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/07/08/code-interfaces-patents-and-copyrights.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/08/12/we-brought-openapi-docs-into-our-service-catalog-now-what.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/09/09/get-lando-and-get-stuff-done.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/10/14/living-with-open-source-responsibility.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/11/11/the-future-of-continuous-delivery.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/12/09/what-s-new-in-php-8-1.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2021/index.html</loc>
-    <lastmod>2023-03-10T00:15:56+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -224,13 +224,19 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/03/09/webhooks-the-good-the-bad-and-the-ugly.html</loc>
-    <lastmod>2023-03-10T00:18:34+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2023/04/13/using-static-analysis-to-improve-code-quality-across-both-backend-and-frontend-speeding-up-json-queries-with-mysql-multi-valued-indexes.html</loc>
+    <lastmod>2023-03-23T02:48:49+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/index.html</loc>
-    <lastmod>2023-03-10T00:18:34+00:00</lastmod>
+    <lastmod>2023-03-23T02:47:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
