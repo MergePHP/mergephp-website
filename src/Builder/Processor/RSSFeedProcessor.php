@@ -43,7 +43,7 @@ class RSSFeedProcessor extends AbstractProcessor
 			$entry->addChild('title', htmlspecialchars($meetup->instance->getTitle(), ENT_XML1, 'UTF-8'));
 			$link = $entry->addChild('link');
 			$link->addAttribute('href', 'https://www.mergephp.com' . $meetup->instance->getPermalink());
-			$entry->addChild('author')->addChild('name', $meetup->instance->getSpeakerName());
+			$entry->addChild('author')->name = $meetup->instance->getSpeakerName();
 			$entry->addChild('published', $meetup->instance->getDateTime()->format('c'));
 			$entry->addChild('updated', $meetup->modifiedTimestamp->format('c'));
 			$entry->addChild('id', 'https://www.mergephp.com' . $meetup->instance->getPermalink());
