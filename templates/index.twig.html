@@ -19,7 +19,7 @@
 		as {{ nextMeetup.getSpeakerName() }} presents
 		<a href="{{ nextMeetup.getPermalink() }}"><strong>{{ nextMeetup.getTitle() }}</strong></a>
 		<br>
-		{{ nextMeetup.getDescription() }}
+		{{ nextMeetup.getDescription()|markdown_to_html }}
 		<br>
 		{% if nextMeetup.getMeetupLinks()|length > 0 %}
 			RSVP:
