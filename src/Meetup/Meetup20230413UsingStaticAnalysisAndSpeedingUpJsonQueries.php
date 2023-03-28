@@ -21,7 +21,13 @@ class Meetup20230413UsingStaticAnalysisAndSpeedingUpJsonQueries extends Abstract
 	{
 		return "This month we will have two talks!\n\nFirst, from Daniel Abernathy:\nThis talk will cover " .
 			"Multi-Valued Indexes, a feature released in MySQL 8 which lets you index an array of values per row - " .
-			"perfect for improving queries that rely on certain JSON functions.\n\nAnd from Hunter Skrasek:\n\nTBA";
+			"perfect for improving queries that rely on certain JSON functions.\n\nAnd from Hunter Skrasek:\n\n" .
+			'Numerous technologies exist for creating web applications, with PHP and JavaScript being the most ' .
+			'prevalent. Their dynamic typing and runtime execution capabilities allow for a seamless transition ' .
+			'from prototype to finished product. However, as apps grow in complexity and significance in our ' .
+			'everyday lives, the absence of type safety and compilation checks might be felt. In this ' .
+			'presentation, we will explore the concept of static analysis and its potential to enhance ' .
+			'your team\'s software development process.';
 	}
 
 	public function getDateTime(): DateTimeImmutable
