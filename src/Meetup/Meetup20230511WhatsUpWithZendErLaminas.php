@@ -20,8 +20,8 @@ class Meetup20230511WhatsUpWithZendErLaminas extends AbstractMeetup
 	{
 		return 'At the beginning of 2020, Zend spun off Zend Framework to the Linux Foundation under the name "The ' .
 			'Laminas Project". When it did so, it also spun off its two subprojects, Apigility and Expressive, as ' .
-			'Laminas API Tools and Mezzio, respectively.\nWhat has the project been up to since then? And what are ' .
-			'some of the things you can expect in the future? Who\'s running the project now?\nCome join Matthew ' .
+			"Laminas API Tools and Mezzio, respectively.\n\nWhat has the project been up to since then? And what are " .
+			"some of the things you can expect in the future? Who's running the project now?\n\nCome join Matthew " .
 			'Weier O\'Phinney as he tells the tale of two frameworks.';
 	}
 
