@@ -1,40 +1,50 @@
 {% include('header.twig.html') %}
 
-<main>
-	<header>
-		<h1>{{ meetup.getTitle() }}</h1>
+<div class="container p-0">
+	<img class="w-100" src="{{ meetup.getImage() }}" alt="{{ meetup.getTitle() }}">
+</div>
+<div class="container bg-white pt-5">
+	<div class="row px-3 pb-5">
+		<div class="col-md-12">
 
-		<img src="{{ meetup.getImage() }}" alt="{{ title }}">
+			<h2 class="mb-4 font-weight-bold">{{ meetup.getTitle() }}</h2>
+			<div class="d-flex mb-3">
+				<time datetime="{{ meetup.getDateTime().format('c') }}" class="mr-3 text-muted"><i class="fa fa-calendar-alt"></i> {{ meetup.getDateTime().format('F jS, Y') }}</time>
+				{% if meetup.getYouTubeLink() %}
+				<a href="{{ meetup.getYouTubeLink() }}" class="mr-3 text-muted"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+				{% endif %}
+			</div>
 
-		<time datetime="{{ meetup.getDateTime().format('c') }}">{{ meetup.getDateTime().format('F jS, Y') }}</time>
-	</header>
+			<article>
+				{{ meetup.getDescription()|markdown_to_html }}
+			</article>
 
-	{% if meetup.getYouTubeLink() %}
-	<aside>
-		<a href="{{ meetup.getYouTubeLink() }}">Watch on YouTube</a>
-	</aside>
-	{% endif %}
+			<h3>Presented by {{ meetup.getSpeakerName() }}</h3>
+			<p>{{ meetup.getSpeakerBio()|markdown_to_html }}</p>
 
-	<article>
-		{{ meetup.getDescription()|markdown_to_html }}
-	</article>
+			{% if meetup.getMeetupLinks()|length > 0 %}
+			<p>RSVP:
+				{% for name, link in meetup.getMeetupLinks() %}
+				<a href="{{ link }}">{{name}}</a>{% if not loop.last %}, {% endif %}
 
-	<footer>
-		<h3>Presented by {{ meetup.getSpeakerName() }}</h3>
-
-		<p>{{ meetup.getSpeakerBio()|markdown_to_html }}</p>
-	</footer>
-</main>
+				{% endfor %}
+			</p>
+			{% endif %}
+		</div>
+	</div>
+</div>
 
 {% if previousMeetup or nextMeetup %}
-<nav>
-	{% if previousMeetup %}
-	Previous meetup: <a href="{{ previousMeetup.getPermalink() }}">{{ previousMeetup.getTitle() }}</a>
-	{% endif %}
-	{% if nextMeetup %}
-	Next meetup: <a href="{{ nextMeetup.getPermalink() }}">{{ nextMeetup.getTitle() }}</a>
-	{% endif %}
-</nav>
+<div class="col-12 py-4">
+	<div class="btn-group btn-group-lg w-100">
+		{% if previousMeetup %}
+		<button type="button" class="btn btn-outline-primary" onclick="window.location.href='{{ previousMeetup.getPermalink() }}'"><i class="fa fa-angle-left mr-2"></i> Previous meetup: {{ previousMeetup.getTitle() }}</button>
+		{% endif %}
+		{% if nextMeetup %}
+		<button type="button" class="btn btn-outline-primary" onclick="window.location.href='{{ nextMeetup.getPermalink() }}'">Next meetup: {{ nextMeetup.getTitle() }}<i class="fa fa-angle-right ml-2"></i></button>
+		{% endif %}
+	</div>
+</div>
 {% endif %}
 
 {% include('footer.twig.html') %}
