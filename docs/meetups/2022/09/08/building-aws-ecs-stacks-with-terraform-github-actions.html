@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>MergePHP</title>
-	<link href="/styles.css" rel="stylesheet">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet">
-		<link rel="alternate" type="application/rss+xml" title="RSS Feed for mergephp.com" href="/atom.xml">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for mergephp.com" href="/atom.xml">
 	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 	<link rel="manifest" href="/icons/site.webmanifest">
 	<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#000000">
-	<link rel="shortcut icon" href="/icons/favicon.ico">
-	<meta charset="utf-8">
-	<meta name="color-scheme" content="light dark">
-	<meta name="description" content="">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-config" content="/icons/browserconfig.xml">
-		<meta name="theme-color" content="#111111" media="(prefers-color-scheme: light)">
-		<meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: dark)">
-	<meta name="theme-color" content="#ffffff">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+	<!-- Customized Bootstrap Stylesheet -->
+	<link href="/css/style.css" rel="stylesheet">
 </head>
+
 <body>
+<div class="wrapper">
+	<div class="sidebar">
+		<div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
+			<a href="/"><img class="mx-auto d-block bg-primary img-fluid mb-4" alt="MergePHP Logo" src="/images/logo.jpg"></a>
+			<p class="mb-4">
+				MergePHP meets the second Thursday of every month at 19:00 Eastern/16:00 Pacific
+			</p>
+			<div class="d-flex justify-content-center mb-5">
+				<a class="btn btn-outline-primary mr-2" href="https://twitter.com/mergephp"><i class="fab fa-twitter"></i></a>
+				<a class="btn btn-outline-primary mr-2" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i></a>
+				<a class="btn btn-outline-primary mr-2" href="https://www.linkedin.com/company/mergephp/"><i class="fab fa-linkedin-in"></i></a>
+				<a class="btn btn-outline-primary mr-2" href="https://phpc.social/@merge"><i class="fab fa-mastodon"></i></a>
+			</div>
+		</div>
+		<div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
+			<i class="fas fa-2x fa-angle-double-right text-primary"></i>
+		</div>
+	</div>
+	<div class="content">
 
-<main>
-	<header>
-		<h1>Building AWS ECS Stacks with Terraform &amp; GitHub Actions</h1>
+<div class="container p-0">
+	<img class="w-100" src="/images/placeholder.webp" alt="Building AWS ECS Stacks with Terraform &amp; GitHub Actions">
+</div>
+<div class="container bg-white pt-5">
+	<div class="row px-3 pb-5">
+		<div class="col-md-12">
 
-		<img src="/images/placeholder.webp" alt="">
+			<h2 class="mb-4 font-weight-bold">Building AWS ECS Stacks with Terraform &amp; GitHub Actions</h2>
+			<div class="d-flex mb-3">
+				<time datetime="2022-09-08T19:00:00-04:00" class="mr-3 text-muted"><i class="fa fa-calendar-alt"></i> September 8th, 2022</time>
+							</div>
 
-		<time datetime="2022-09-08T19:00:00-04:00">September 8th, 2022</time>
-	</header>
+			<article>
+				<p>In this talk, we will be going over an open source project called PHPobos which shows how to use AWS, GitHub, Docker, and Terraform to build a seamless test, build, &amp; deployment pipeline for your PHP App. Both GitHub Actions and Terraform are very powerful tools but become extraordinarily powerful when combined to build CI/CD pipelines. We will go over how the GitHub Actions test &amp; package your app in a Docker container, how it pushes that image up to AWS, and how the Elastic Container service works to host your PHP app in a highly-scalable way.</p>
 
-	
-	<article>
-		<p>In this talk, we will be going over an open source project called PHPobos which shows how to use AWS, GitHub, Docker, and Terraform to build a seamless test, build, &amp; deployment pipeline for your PHP App. Both GitHub Actions and Terraform are very powerful tools but become extraordinarily powerful when combined to build CI/CD pipelines. We will go over how the GitHub Actions test &amp; package your app in a Docker container, how it pushes that image up to AWS, and how the Elastic Container service works to host your PHP app in a highly-scalable way.</p>
+			</article>
 
-	</article>
-
-	<footer>
-		<h3>Presented by Joshua Copeland</h3>
-
-		<p><p>Joshua Copeland is CTO of Remote Dev Force and works with clients all over the world to build high quality systems. His team regularly works on building features for mission critical projects in Laravel/Symfony using AWS, setting up and maintaining servers with Terraform/AWS, building CI pipelines with Jenkins/GitLab/GitHub Actions, and pen-testing. He leads the PHP Vegas Users' Group and loves to give back by speaking at conferences and educating the community.</p>
+			<h3>Presented by Joshua Copeland</h3>
+			<p><p>Joshua Copeland is CTO of Remote Dev Force and works with clients all over the world to build high quality systems. His team regularly works on building features for mission critical projects in Laravel/Symfony using AWS, setting up and maintaining servers with Terraform/AWS, building CI pipelines with Jenkins/GitLab/GitHub Actions, and pen-testing. He leads the PHP Vegas Users' Group and loves to give back by speaking at conferences and educating the community.</p>
 </p>
-	</footer>
-</main>
 
-<nav>
-		Previous meetup: <a href="/meetups/2022/08/11/javascript-development-in-the-modern-monolith.html">JavaScript Development In The Modern Monolith</a>
-			Next meetup: <a href="/meetups/2022/10/13/microservices-in-your-monolith.html">Microservices in Your Monolith</a>
-	</nav>
+					</div>
+	</div>
+</div>
 
+<div class="col-12 py-4">
+	<div class="btn-group btn-group-lg w-100">
+				<button type="button" class="btn btn-outline-primary" onclick="window.location.href='/meetups/2022/08/11/javascript-development-in-the-modern-monolith.html'"><i class="fa fa-angle-left mr-2"></i> Previous meetup: JavaScript Development In The Modern Monolith</button>
+						<button type="button" class="btn btn-outline-primary" onclick="window.location.href='/meetups/2022/10/13/microservices-in-your-monolith.html'">Next meetup: Microservices in Your Monolith<i class="fa fa-angle-right ml-2"></i></button>
+			</div>
+</div>
+
+		<!-- Footer Start -->
+		<div class="container py-4 bg-secondary text-center">
+			<p class="m-0 text-white">Participating Groups:
+							</p>
+			<p class="m-0 text-white">
+				&copy; MergePHP 2023. Source code available <a class="text-white font-weight-bold" href="https://www.github.com/mergephp/mergephp-website/">on GitHub</a>. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+			</p>
+		</div>
+		<!-- Footer End -->
+	</div>
+</div>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
 </body>
 </html>

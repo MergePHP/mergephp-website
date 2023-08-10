@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.mergephp.com/</loc>
-    <lastmod>2023-08-10T20:18:47+00:00</lastmod>
+    <lastmod>2023-08-10T20:53:06+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -111,6 +111,12 @@
   <url>
     <loc>https://www.mergephp.com/meetups/2023/index.html</loc>
     <lastmod>2023-08-10T14:23:52+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2023/08/10/mastering-resilience-my-accidental-acting-adventure.html</loc>
+    <lastmod>2023-08-10T20:51:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

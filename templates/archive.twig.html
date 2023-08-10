@@ -3,36 +3,42 @@
 <h1>{{ year }} Meetups</h1>
 
 {% for meetup in meetups %}
-	<article>
-		<h2>
-			<a href="{{ meetup.getPermalink() }}">{{ meetup.getTitle() }}</a>
-		</h2>
-		<a href="{{ meetup.getPermalink() }}">
-			<img src="{{ meetup.getImage() }}" alt="{{ meetup.getTitle() }}">
-		</a>
-		<time datetime="{{ meetup.getDateTime().format('c') }}">{{ meetup.getDateTime().format('F jS, Y') }}</time>
-
-		<p>
-			{{ meetup.getDescription()[:500] }}
-			{% if meetup.getDescription()|length > 500 %}
-			&hellip;
-			{% endif %}
-		</p>
-
-	</article>
+<!-- Blog List Start -->
+<div class="container bg-white pt-5">
+	<div class="row blog-item px-3 pb-5">
+		<div class="col-md-5">
+			<img class="img-fluid mb-4 mb-md-0" src="{{ meetup.getImage() }}" alt="{{ meetup.getTitle() }}">
+		</div>
+		<div class="col-md-7">
+			<h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold"><a href="{{ meetup.getPermalink() }}">{{ meetup.getTitle() }}</a></h3>
+			<div class="d-flex mb-3">
+				<time class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> {{ meetup.getDateTime().format('F jS, Y') }}</time>
+			</div>
+			<p>
+				{{ meetup.getDescription()[:500] }}
+				{% if meetup.getDescription()|length > 500 %}
+				&hellip;
+				{% endif %}
+			</p>
+			<a class="btn btn-link p-0" href="{{ meetup.getPermalink() }}">Read More <i class="fa fa-angle-right"></i></a>
+		</div>
+	</div>
+</div>
 {% endfor %}
 
 <hr>
 
 {% if previousYear or nextYear %}
-<nav>
-	{% if previousYear %}
-		<a href="/meetups/{{ previousYear }}/">&laquo; {{ previousYear }} meetups</a>
-	{% endif %}
-	{% if nextYear %}
-	<a href="/meetups/{{ nextYear }}/">{{ nextYear }} meetups &raquo;</a>
-	{% endif %}
-</nav>
+<div class="col-12 py-4">
+	<div class="btn-group btn-group-lg w-100">
+		{% if previousYear %}
+		<button type="button" class="btn btn-outline-primary" onclick="window.location.href='/meetups/{{ previousYear }}'"><i class="fa fa-angle-left mr-2"></i> {{ previousYear }} meetups</button>
+		{% endif %}
+		{% if nextYear %}
+		<button type="button" class="btn btn-outline-primary" onclick="window.location.href='/meetups/{{ nextYear }}'">{{ nextYear }} meetups <i class="fa fa-angle-right ml-2"></i></button>
+		{% endif %}
+	</div>
+</div>
 {% endif %}
 
 {% include('footer.twig.html') %}
