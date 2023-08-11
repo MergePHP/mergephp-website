@@ -14,7 +14,7 @@
 			<p class="m-0">
 				{{ nextMeetup.getDescription()|markdown_to_html }}
 			</p>
-			<h3>Presented by {{ meetup.getSpeakerName() }}</h3>
+			<h3>Presented by {{ nextMeetup.getSpeakerName() }}</h3>
 			<p>{{ nextMeetup.getSpeakerBio()|markdown_to_html }}</p>
 
 			{% if nextMeetup.getMeetupLinks()|length > 0 %}
@@ -55,4 +55,4 @@
 	</div>
 </div>
 
-{% include('footer.twig.html') %}
+{{ include('footer.twig.html', {'meetupLocations': meetupLocations}) }}

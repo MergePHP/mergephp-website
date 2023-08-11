@@ -17,6 +17,7 @@ class HomepageProcessor extends HTMLProcessor
 		protected string $outputDirectory,
 		protected MeetupCollection $meetups,
 		protected Environment $twig,
+		protected array $twigData,
 	) {
 		parent::__construct($logger, $this->outputDirectory);
 	}
@@ -27,18 +28,13 @@ class HomepageProcessor extends HTMLProcessor
 		$futureMeetups = $this->meetups->withOnlyFuture();
 		$pastMeetups = $this->meetups->withOnlyPast();
 
-		$meetupLocations = [];
-		foreach (Meetups::cases() as $case) {
-			$meetupLocations[] = $case->value;
-		}
 
 		$nextMeetup = count($futureMeetups) ? reset($futureMeetups)->instance : null;
 
-		$data = [
-			'archiveYear'     => end($pastMeetups)->instance->getDateTime()->format('Y'),
-			'meetupLocations' => $meetupLocations,
-			'nextMeetup'      => $nextMeetup,
-		];
+		$data = array_merge($this->twigData, [
+			'archiveYear' => end($pastMeetups)->instance->getDateTime()->format('Y'),
+			'nextMeetup'  => $nextMeetup,
+		]);
 
 		$this->logger->debug("Building homepage with reference to {$data['nextMeetup']?->getTitle()}");
 

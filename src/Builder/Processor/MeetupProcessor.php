@@ -15,6 +15,7 @@ class MeetupProcessor extends HTMLProcessor
 		protected string $outputDirectory,
 		protected MeetupCollection $meetups,
 		protected Environment $twig,
+		protected array $twigData,
 	) {
 		parent::__construct($logger, $this->outputDirectory);
 	}
@@ -23,11 +24,12 @@ class MeetupProcessor extends HTMLProcessor
 	{
 		$this->logger->info('Building meetup pages');
 		foreach ($this->meetups as $meetup) {
-			$data = [
+			$data = array_merge($this->twigData, [
 				'meetup' => $meetup->instance,
 				'nextMeetup' => $meetup->next?->instance,
 				'previousMeetup' => $meetup->previous?->instance,
-			];
+			]);
+
 			/** @noinspection PhpUnhandledExceptionInspection */
 			$html = $this->twig->render('meetup.twig.html', $data);
 			$filename = ltrim($meetup->instance->getPermalink(), '/');

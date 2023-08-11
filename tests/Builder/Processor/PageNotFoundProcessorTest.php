@@ -22,7 +22,7 @@ class PageNotFoundProcessorTest extends TestCase
 	public function testItGeneratesA404Page(): void
 	{
 		$environment = new Environment(new ArrayLoader(['404.twig.html' => '404']));
-		$processor = new PageNotFoundProcessor(new NullLogger(), "vfs://root/", $environment);
+		$processor = new PageNotFoundProcessor(new NullLogger(), "vfs://root/", $environment, []);
 		$processor->run();
 
 		$this->assertFileExists('vfs://root/404.html');
