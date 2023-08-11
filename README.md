@@ -35,7 +35,8 @@ Next, build the site by running
 composer build
 ```
 **Important:** You _must_ run build every time you are changing meetup data or any files in the
-`public` or `templates` directories.  This will re-generate the `docs` directory.
+`public` or `templates` directories.  This will re-generate the `docs` directory.  Verboseness
+can be controlled with `-v` to `-vvv` switches
 
 To view the site:
 ```bash
