@@ -48,6 +48,11 @@ class Meetup20230914UsingHasuraToAddAGraphqlApiToExistingApplications extends Ab
 			'Tailwind, and tinkering with vintage audio equipment.';
 	}
 
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=bAHzuLgRlBQ';
+	}
+
 	public function getMeetupLinks(): array
 	{
 		return [
