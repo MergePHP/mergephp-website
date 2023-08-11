@@ -13,6 +13,7 @@ use MergePHP\Website\Builder\Processor\PageNotFoundProcessor;
 use MergePHP\Website\Builder\Processor\RSSFeedProcessor;
 use MergePHP\Website\Builder\Processor\SitemapProcessor;
 use MergePHP\Website\Builder\Processor\StaticFileProcessor;
+use MergePHP\Website\Meetups;
 use Psr\Log\LoggerInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -30,7 +31,10 @@ class SiteBuilderService
 
 	public function __construct(protected string $outputDirectory, protected LoggerInterface $logger)
 	{
-		$this->twig = new Environment(new FilesystemLoader(self::APP_ROOT . '/templates/'), ['debug' => true]);
+		$this->twig = new Environment(new FilesystemLoader(self::APP_ROOT . '/templates/'), [
+			'debug' => true,
+			'strict_variables' => true,
+		]);
 		$this->twig->addExtension(new MarkdownExtension());
 		$this->twig->addExtension(new DebugExtension());
 		$this->twig->addRuntimeLoader(new TwigRuntimeLoader());
@@ -44,11 +48,13 @@ class SiteBuilderService
 		$this->setUpBuildDir();
 		$this->wipeExistingBuild();
 
+		$twigData = self::generateCommonTwigVars();
+
 		(new StaticFileProcessor($this->logger, $this->outputDirectory, self::APP_ROOT . '/public'))->run();
-		(new HomepageProcessor($this->logger, $this->outputDirectory, $collection, $this->twig))->run();
-		(new PageNotFoundProcessor($this->logger, $this->outputDirectory, $this->twig))->run();
-		(new MeetupProcessor($this->logger, $this->outputDirectory, $collection, $this->twig))->run();
-		(new ArchiveProcessor($this->logger, $this->outputDirectory, $collection, $this->twig))->run();
+		(new HomepageProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
+		(new PageNotFoundProcessor($this->logger, $this->outputDirectory, $this->twig, $twigData))->run();
+		(new MeetupProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
+		(new ArchiveProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		(new RSSFeedProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		$this->logger->info('Finished successfully');
@@ -105,5 +111,17 @@ class SiteBuilderService
 		}
 		$meetups->sort();
 		return $meetups;
+	}
+
+	protected static function generateCommonTwigVars(): array
+	{
+		$meetupLocations = [];
+		foreach (Meetups::cases() as $case) {
+			$meetupLocations[] = $case->value;
+		}
+
+		return [
+			'meetupLocations' => $meetupLocations,
+		];
 	}
 }

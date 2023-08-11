@@ -17,6 +17,7 @@ class ArchiveProcessor extends HTMLProcessor
 		protected string $outputDirectory,
 		protected MeetupCollection $meetups,
 		protected Environment $twig,
+		protected array $twigData,
 	) {
 		parent::__construct($logger, $this->outputDirectory);
 	}
@@ -61,7 +62,13 @@ class ArchiveProcessor extends HTMLProcessor
 
 		$meetups = array_map(fn(MeetupEntry $meetupEntry) => $meetupEntry->instance, $meetups);
 		rsort($meetups);
-		$data = ['year' => $year, 'meetups' => $meetups, 'previousYear' => $previousYear, 'nextYear' => $nextYear];
+
+		$data = array_merge($this->twigData, [
+			'year' => $year,
+			'meetups' => $meetups,
+			'previousYear' => $previousYear,
+			'nextYear' => $nextYear
+		]);
 		/** @noinspection PhpUnhandledExceptionInspection */
 		$html = $this->twig->render('archive.twig.html', $data);
 		$this->writeHtml($html, "meetups/$year/index.html", new DateTimeImmutable("@$modifiedTimestamp"));

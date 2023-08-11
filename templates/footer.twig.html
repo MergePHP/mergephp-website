@@ -2,7 +2,7 @@
 		<div class="container py-4 bg-secondary text-center">
 			<p class="m-0 text-white">Participating Groups:
 				{% for meetup in meetupLocations %}
-				{{ meetup }},
+				{{ meetup }}{% if not loop.last %},{% endif %}
 				{% endfor %}
 			</p>
 			<p class="m-0 text-white">

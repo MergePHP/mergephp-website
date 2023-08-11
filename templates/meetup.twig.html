@@ -47,4 +47,4 @@
 </div>
 {% endif %}
 
-{% include('footer.twig.html') %}
+{{ include('footer.twig.html', {'meetupLocations': meetupLocations}) }}
