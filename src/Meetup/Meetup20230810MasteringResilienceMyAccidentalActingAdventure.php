@@ -73,4 +73,9 @@ class Meetup20230810MasteringResilienceMyAccidentalActingAdventure extends Abstr
 			Meetups::Utah->value => 'https://www.meetup.com/utah-php-user-group/events/spfxftyfclbnb/',
 		];
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=kr_A9GKsIlo';
+	}
 }
