@@ -2,7 +2,7 @@
 
 {% if nextMeetup %}
 <div class="container p-0">
-	<img class="w-100" src="images/mastering-resilience.jpg" alt="Image">
+	<img class="w-100" src="{{ nextMeetup.getImage()|e('html_attr') }}" alt="{{ nextMeetup.getTitle()|e('html_attr') }}">
 </div>
 <div class="container bg-white pt-5">
 	<div class="row px-3 pb-5">

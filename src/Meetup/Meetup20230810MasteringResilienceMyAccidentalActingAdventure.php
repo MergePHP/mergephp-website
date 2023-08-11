@@ -38,7 +38,7 @@ class Meetup20230810MasteringResilienceMyAccidentalActingAdventure extends Abstr
 
 	public function getImage(): string
 	{
-		return 'images/mastering-resilience.jpg';
+		return '/images/mastering-resilience.jpg';
 	}
 
 	public function getSpeakerName(): string
