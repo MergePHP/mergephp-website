@@ -48,4 +48,9 @@ class Meetup20231012ArchitectureDesignPatternsForPhp extends AbstractMeetup
 		'CSSLP and SSCP cybersecurity certified, and volunteers for (ISC)2 security exam development. Mark enjoys ' .
 		'endurance sports, being outdoors, and teaching his five sons how to push buttons and use technology.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=8QHMeb3M_-I';
+	}
 }
