@@ -62,4 +62,9 @@ class Meetup20230608SymfonyToLaravelLessonsLearned extends AbstractMeetup
 			Meetups::Seattle->value => 'https://www.meetup.com/seaphp/events/293618983/',
 		];
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=mTcKX-4rYM4';
+	}
 }
