@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.mergephp.com/</loc>
-    <lastmod>2023-08-10T19:57:16-07:00</lastmod>
+    <lastmod>2023-11-05T12:57:58-08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -254,13 +254,19 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/09/14/using-hasura-to-add-a-graphql-api-to-existing-applications.html</loc>
-    <lastmod>2023-08-11T02:56:54+00:00</lastmod>
+    <lastmod>2023-11-05T20:57:37+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2023/10/12/architecture-design-patterns-for-php.html</loc>
+    <lastmod>2023-11-05T20:57:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/index.html</loc>
-    <lastmod>2023-08-11T02:52:54+00:00</lastmod>
+    <lastmod>2023-11-05T20:57:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
