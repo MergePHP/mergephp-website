@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.mergephp.com/</loc>
-    <lastmod>2023-11-05T13:12:12-08:00</lastmod>
+    <lastmod>2023-11-09T17:15:26-08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -230,7 +230,7 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/04/13/using-static-analysis-to-improve-code-quality-across-both-backend-and-frontend-speeding-up-json-queries-with-mysql-multi-valued-indexes.html</loc>
-    <lastmod>2023-11-05T21:11:52+00:00</lastmod>
+    <lastmod>2023-11-05T21:16:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -242,7 +242,7 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/06/08/symfony-to-laravel-lessons-learned.html</loc>
-    <lastmod>2023-11-05T21:11:52+00:00</lastmod>
+    <lastmod>2023-11-05T21:16:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -260,19 +260,19 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/10/12/architecture-design-patterns-for-php.html</loc>
-    <lastmod>2023-11-05T21:11:52+00:00</lastmod>
+    <lastmod>2023-11-05T21:16:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/11/09/what-s-new-in-php-8-3.html</loc>
-    <lastmod>2023-11-05T21:11:52+00:00</lastmod>
+    <lastmod>2023-11-10T01:15:09+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2023/index.html</loc>
-    <lastmod>2023-11-05T21:11:52+00:00</lastmod>
+    <lastmod>2023-11-10T01:15:09+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
