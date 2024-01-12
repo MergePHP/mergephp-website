@@ -22,6 +22,6 @@ jobs:
             -   name: Run PHP Code Sniffer
                 uses: php-actions/phpcs@v1
                 with:
-                    php_version: 8.2
+                    php_version: 8.3
                     path: src/
                     standard: phpcs.xml

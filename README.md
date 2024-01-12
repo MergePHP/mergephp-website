@@ -9,7 +9,7 @@ Prerequisites
 
 This project's dependencies are installed with [composer](https://getcomposer.org/).
 
-You must have PHP 8.2 running on your machine (or be willing to build in a container with 8.2
+You must have PHP 8.3 running on your machine (or be willing to build in a container with 8.3
 installed)
 
 Installation
@@ -102,4 +102,4 @@ No other static site generators offered a featureset comparable Sculpin or what 
 in this project.
 
 
-1: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#about-publishing-sources
+[1]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#about-publishing-sources
