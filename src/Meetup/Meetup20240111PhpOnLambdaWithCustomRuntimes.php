@@ -46,4 +46,9 @@ class Meetup20240111PhpOnLambdaWithCustomRuntimes extends AbstractMeetup
 			'These days, he\'s load-balancing a handful of contract clients from either home or a local coffee shop' .
 			' in Austin, TX...or maybe opining on air travel or telecom, depending on when you catch him.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=42jCVgaPi4c&t=481';
+	}
 }
