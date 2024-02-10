@@ -9,6 +9,7 @@ use FilesystemIterator;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
+use MergePHP\Website\Builder\Processor\MissingLinkProcessor;
 use MergePHP\Website\Builder\Processor\PageNotFoundProcessor;
 use MergePHP\Website\Builder\Processor\RSSFeedProcessor;
 use MergePHP\Website\Builder\Processor\SitemapProcessor;
@@ -57,6 +58,7 @@ class SiteBuilderService
 		(new ArchiveProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		(new RSSFeedProcessor($this->logger, $this->outputDirectory, $collection))->run();
+		(new MissingLinkProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		$this->logger->info('Finished successfully');
 	}
 
