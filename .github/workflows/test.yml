@@ -16,6 +16,8 @@ jobs:
 
             -   name: Setup composer
                 uses: php-actions/composer@v6
+                with:
+                    php_version: 8.3
 
             -   name: Run PHPUnit Tests
                 uses: php-actions/phpunit@v3
