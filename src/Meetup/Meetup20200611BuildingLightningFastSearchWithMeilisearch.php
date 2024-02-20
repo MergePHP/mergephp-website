@@ -37,4 +37,9 @@ class Meetup20200611BuildingLightningFastSearchWithMeilisearch extends AbstractM
 	{
 		return '';
 	}
+
+	public function getYouTuBeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=fOJVr4wFgOo';
+	}
 }
