@@ -57,7 +57,7 @@ class MeetupCollection implements Iterator, Countable
 		return count($this->array);
 	}
 
-	public function append(MeetupEntry $meetup)
+	public function append(MeetupEntry $meetup): void
 	{
 		$this->array[] = $meetup;
 	}

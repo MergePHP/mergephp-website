@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class MeetupGeneratorServiceTest extends TestCase
 {
 	private MeetupGeneratorService $generator;
-	private const FIXTURES_DIR = __DIR__ . '/../fixtures/';
+	private const string FIXTURES_DIR = __DIR__ . '/../fixtures/';
 
 	public function setUp(): void
 	{

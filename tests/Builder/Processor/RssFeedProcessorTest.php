@@ -17,10 +17,10 @@ use SimpleXMLElement;
 
 class RssFeedProcessorTest extends TestCase
 {
-	private const MEETUP_DATE_STRING = '2000-01-01T00:00:00+00:00';
-	private const MODIFIED_DATE_STRING = '2000-01-02T00:00:00+00:00';
-	private const EXPECTED_FILENAME = 'vfs://root/atom.xml';
-	private const FIXTURES_DIR = __DIR__ . '/../../fixtures/';
+	private const string MEETUP_DATE_STRING = '2000-01-01T00:00:00+00:00';
+	private const string MODIFIED_DATE_STRING = '2000-01-02T00:00:00+00:00';
+	private const string EXPECTED_FILENAME = 'vfs://root/atom.xml';
+	private const string FIXTURES_DIR = __DIR__ . '/../../fixtures/';
 
 	public function setUp(): void
 	{

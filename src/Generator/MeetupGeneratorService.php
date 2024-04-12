@@ -23,7 +23,7 @@ class MeetupGeneratorService
 		}
 	}
 
-	protected const SUGGESTED_DATE_FORMAT = 'Y-m-d';
+	protected const string SUGGESTED_DATE_FORMAT = 'Y-m-d';
 
 	public function getSuggestedDate(string $baseDate = 'now'): string
 	{
