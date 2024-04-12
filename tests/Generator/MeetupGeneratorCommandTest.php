@@ -14,12 +14,26 @@ use Symfony\Component\Console\Tester\CommandTester;
 class MeetupGeneratorCommandTest extends TestCase
 {
 	// generate args simulate what the user types in to the command line
-	private const GENERATE_1_ARGS  = ['Title', 'Description', null        , 'Name', 'Bio', null];
-	private const GENERATE_2_ARGS  = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', null];
-	private const GENERATE_3_ARGS  = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', 'https://example.com/f.jpg'];
+	private const array GENERATE_1_ARGS  = ['Title', 'Description', null        , 'Name', 'Bio', null];
+	private const array GENERATE_2_ARGS  = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', null];
+	private const array GENERATE_3_ARGS  = [
+		'Title',
+		'Description',
+		'2023-01-01',
+		'Name',
+		'Bio',
+		'https://example.com/f.jpg'
+	];
 	// command args are what the generator command expects to be called with given a certain set of generate args
-	private const COMMAND_1_2_ARGS = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', null];
-	private const COMMAND_3_ARGS   = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', 'https://example.com/f.jpg'];
+	private const array COMMAND_1_2_ARGS = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', null];
+	private const array COMMAND_3_ARGS   = [
+		'Title',
+		'Description',
+		'2023-01-01',
+		'Name',
+		'Bio',
+		'https://example.com/f.jpg'
+	];
 
 	private CommandTester $commandTester;
 

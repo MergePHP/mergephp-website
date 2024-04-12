@@ -6,7 +6,6 @@ namespace MergePHP\Website\Builder\Processor;
 
 use DateTimeImmutable;
 use MergePHP\Website\Builder\MeetupCollection;
-use MergePHP\Website\Meetups;
 use Psr\Log\LoggerInterface;
 use Twig\Environment;
 

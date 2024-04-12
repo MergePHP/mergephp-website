@@ -20,7 +20,6 @@ class MissingLinkProcessor extends HTMLProcessor
 	public function run(): void
 	{
 		$this->logger->info('Checking for missing YouTube links');
-		$buckets = [];
 
 		foreach ($this->meetups->withOnlyPast() as $meetup) {
 			if ($meetup->instance->getYouTubeLink() === null) {

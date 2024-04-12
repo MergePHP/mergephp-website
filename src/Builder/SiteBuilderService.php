@@ -27,7 +27,7 @@ use Twig\Loader\FilesystemLoader;
 
 class SiteBuilderService
 {
-	protected const APP_ROOT = __DIR__ . '/../..';
+	protected const string APP_ROOT = __DIR__ . '/../..';
 	private Environment $twig;
 
 	public function __construct(protected string $outputDirectory, protected LoggerInterface $logger)
