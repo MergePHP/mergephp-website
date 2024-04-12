@@ -46,14 +46,12 @@ class MeetupGeneratorCommandTest extends TestCase
 		$response = new MeetupGeneratorResponse('foo', 123);
 		$service = $this->createMock(MeetupGeneratorService::class);
 		$service->method('getSuggestedDate')->willReturn('2023-01-01');
-		$service->method('generate')->will(
-			$this->returnValueMap(
-				[
-					// arg1, arg2, arg3, arg4, arg5, arg6, return
-					[...self::COMMAND_1_2_ARGS, $response],
-					[...self::COMMAND_3_ARGS, $response],
-				]
-			)
+		$service->method('generate')->willReturnMap(
+			[
+				// arg1, arg2, arg3, arg4, arg5, arg6, return
+				[...self::COMMAND_1_2_ARGS, $response],
+				[...self::COMMAND_3_ARGS, $response],
+			]
 		);
 
 		$application = new Application();

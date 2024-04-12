@@ -17,7 +17,7 @@ use SimpleXMLElement;
 
 class RssFeedProcessorTest extends TestCase
 {
-	private const string MEETUP_DATE_STRING = '2000-01-01T00:00:00+00:00';
+	public const string MEETUP_DATE_STRING = '2000-01-01T00:00:00+00:00';
 	private const string MODIFIED_DATE_STRING = '2000-01-02T00:00:00+00:00';
 	private const string EXPECTED_FILENAME = 'vfs://root/atom.xml';
 	private const string FIXTURES_DIR = __DIR__ . '/../../fixtures/';
@@ -76,12 +76,32 @@ class RssFeedProcessorTest extends TestCase
 
 	private function generateMeetup(string $description = 'Example description'): AbstractMeetup
 	{
-		$mock = $this->getMockForAbstractClass(AbstractMeetup::class);
-		$mock->method('getTitle')->willReturn('Example Meetup');
-		$mock->method('getDescription')->willReturn($description);
-		$mock->method('getDateTime')->willReturn(new DateTimeImmutable(RssFeedProcessorTest::MEETUP_DATE_STRING));
-		$mock->method('getSpeakerName')->willReturn('Speaker Name');
-		$mock->method('getSpeakerBio')->willReturn('Speaker Bio');
-		return $mock;
+		return new class ($description) extends AbstractMeetup
+		{
+			public function __construct(private readonly string $description)
+			{
+			}
+
+			public function getTitle(): string
+			{
+				return 'Example Meetup';
+			}
+			public function getDescription(): string
+			{
+				return $this->description;
+			}
+			public function getDateTime(): DateTimeImmutable
+			{
+				return new DateTimeImmutable(RssFeedProcessorTest::MEETUP_DATE_STRING);
+			}
+			public function getSpeakerName(): string
+			{
+				return 'Speaker Name';
+			}
+			public function getSpeakerBio(): string
+			{
+				return 'Speaker Bio';
+			}
+		};
 	}
 }

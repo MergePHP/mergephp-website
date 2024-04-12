@@ -6,61 +6,51 @@ namespace Tests;
 
 use DateTimeImmutable;
 use MergePHP\Website\AbstractMeetup;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Tests\fixtures\TestMeetup;
 
 class AbstractMeetupTest extends TestCase
 {
-	private function generateMock(string $title): AbstractMeetup|MockObject
-	{
-		$mock = $this->getMockForAbstractClass(AbstractMeetup::class);
-		$mock->method('getTitle')->willReturn($title);
-		return $mock;
-	}
-
 	public function testItGeneratesASlugIgnoringEmojis(): void
 	{
-		$mock = $this->generateMock('50 Ways To Leave Your ♥er');
+		$meetup = new TestMeetup('50 Ways To Leave Your ♥er');
 
-		$this->assertEquals('50-ways-to-leave-your-er', $mock->getSlug());
+		$this->assertEquals('50-ways-to-leave-your-er', $meetup->getSlug());
 	}
 
 	public function testItGeneratesASlugWithoutConsecutiveDashes(): void
 	{
-		$mock = $this->generateMock('First Part - Second Part');
+		$meetup = new TestMeetup('First Part - Second Part');
 
-		$this->assertEquals('first-part-second-part', $mock->getSlug());
+		$this->assertEquals('first-part-second-part', $meetup->getSlug());
 	}
 
 	public function testItGeneratesASlugThatDoesNotStartOrEndWithADash(): void
 	{
-		$mock = $this->generateMock('@ slug !');
+		$meetup = new TestMeetup('@ slug !');
 
-		$this->assertEquals('slug', $mock->getSlug());
+		$this->assertEquals('slug', $meetup->getSlug());
 	}
 
 	public function testItGeneratesASlugThatDoesNotReallyDoWellWithAccentedCharacters(): void
 	{
-		$mock = $this->generateMock('slúg');
+		$meetup = new TestMeetup('slúg');
 
-		$this->assertEquals('sl-g', $mock->getSlug());
+		$this->assertEquals('sl-g', $meetup->getSlug());
 	}
 
 	public function testItReturnsADefaultImageUrlOnlyWhenTheImageIsNotDefined(): void
 	{
-		$mock = $this->getMockForAbstractClass(AbstractMeetup::class);
+		$meetup = new TestMeetup('');
 
-		$this->assertEquals(
-			'/images/placeholder.webp',
-			$mock->getImage(),
-		);
+		$this->assertEquals('/images/placeholder.webp', $meetup->getImage());
 	}
 
 	public function testItAllowsANullYouTubeLink(): void
 	{
-		$mock = $this->getMockForAbstractClass(AbstractMeetup::class);
+		$meetup = new TestMeetup('');
 
-		$this->assertNull($mock->getYouTubeLink());
+		$this->assertNull($meetup->getYouTubeLink());
 	}
 
 	public function testItAllowsTheImageAndYouTubeLinkToBeOverridden(): void

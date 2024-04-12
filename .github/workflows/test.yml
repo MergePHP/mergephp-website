@@ -22,6 +22,7 @@ jobs:
             -   name: Run PHPUnit Tests
                 uses: php-actions/phpunit@v3
                 with:
-                    args: --colors=always --testdox tests
+                    args: --testdox tests
                     bootstrap: vendor/autoload.php
+                    test_suffix: "Test.php" #workaround for https://github.com/php-actions/phpunit/pull/64
                     php_version: "8.3"
