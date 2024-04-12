@@ -46,4 +46,9 @@ class Meetup20240314DebuggingUnleashedMasteringXrdebugForPhpBrilliance extends A
 			'[Chevere](https://chevere.org) with over 19 years of experience building software systems. In his spare ' .
 			'time he enjoys playing with the neighbor\'s cat and to chill out playing Nintendo.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=5HoCbXVMltE';
+	}
 }
