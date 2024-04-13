@@ -24,6 +24,7 @@ jobs:
             -   name: Install dependencies
                 uses: php-actions/composer@v6
                 with:
+                    dev: no
                     php_version: 8.3
 
             -   name: Check for uncommitted files
