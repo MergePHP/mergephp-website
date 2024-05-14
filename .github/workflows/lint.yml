@@ -25,5 +25,6 @@ jobs:
                 uses: php-actions/phpcs@v1
                 with:
                     php_version: 8.3
+                    version: 3.9.1
                     path: src/
                     standard: phpcs.xml
