@@ -45,4 +45,8 @@ class Meetup20240509MergephpCodingCompetition extends AbstractMeetup
 		return 'Staff Engineer at Seatgeek. Host of the PHP Town Hall and More Than Code podcasts. Author of ' .
 		'Securing PHP Apps and Securing Node Apps books. Open source advocate. PHP-FIG CC alum.';
 	}
+
+	public function getYouTubeLink(): string {
+		return 'https://www.youtube.com/watch?v=N4DGPtzGD9E';
+	}
 }
