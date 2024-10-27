@@ -16,14 +16,13 @@ jobs:
                 with:
                     fetch-depth: 0
 
-            -   name: Install PHP dependencies
-                uses: php-actions/composer@v6
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
                 with:
-                    php_version: 8.3
+                    php-version: '8.3'
+
+            -   name: Install PHP dependencies
+                run: composer install
 
             -   name: Run PHP Code Sniffer
-                uses: php-actions/phpcs@v1
-                with:
-                    php_version: 8.3
-                    path: src/
-                    standard: phpcs.xml
+                run: composer lint
