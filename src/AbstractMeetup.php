@@ -28,6 +28,15 @@ abstract class AbstractMeetup implements MeetupInterface
 		return '/images/placeholder.webp';
 	}
 
+	public function getImageUrl(): string
+	{
+		if (str_starts_with($this->getImage(), 'http')) {
+			return $this->getImage();
+		} else {
+			return 'https://www.mergephp.com' . $this->getImage();
+		}
+	}
+
 	public function getYouTubeLink(): ?string
 	{
 		return null;

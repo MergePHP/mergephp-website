@@ -25,7 +25,8 @@
 		"squizlabs/php_codesniffer": "^3.9.1",
 		"symfony/console": "^6.1",
 		"twig/markdown-extra": "^3.4",
-		"twig/twig": "^3.0.0"
+		"twig/twig": "^3.0.0",
+		"lcobucci/clock": "^3.3"
 	},
 	"require-dev": {
 		"mikey179/vfsstream": "^1.6.11",
