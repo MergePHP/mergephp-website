@@ -7,7 +7,7 @@ namespace MergePHP\Website\Builder\Processor;
 use DateTimeImmutable;
 use DateTimeInterface;
 use FilesystemIterator;
-use MergePHP\Website\Builder\MeetupCollection;
+use Psr\Clock\ClockInterface;
 use Psr\Log\LoggerInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -22,7 +22,7 @@ class SitemapProcessor extends AbstractProcessor
 	public function __construct(
 		protected LoggerInterface $logger,
 		protected string $outputDirectory,
-		protected MeetupCollection $meetups,
+		protected ClockInterface $clock,
 	) {
 		parent::__construct($logger, $this->outputDirectory);
 	}
@@ -33,7 +33,7 @@ class SitemapProcessor extends AbstractProcessor
 		/** @noinspection HttpUrlsUsage */
 		$this->xml = simplexml_load_string('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" />');
 
-		$this->appendURL('/', new DateTimeImmutable(), 1, SitemapChangeFrequency::Daily);
+		$this->appendURL('/', $this->clock->now(), 1, SitemapChangeFrequency::Daily);
 
 		$x = new RecursiveDirectoryIterator($this->outputDirectory . '/meetups', FilesystemIterator::SKIP_DOTS);
 		$it = new RecursiveIteratorIterator($x);
@@ -44,7 +44,19 @@ class SitemapProcessor extends AbstractProcessor
 			}
 			$path = str_replace($this->outputDirectory, '', $file->getPathname());
 			$path = str_replace(DIRECTORY_SEPARATOR, '/', $path);
-			$this->appendURL($path, new DateTimeImmutable("@{$file->getMTime()}"));
+			if (
+				preg_match(
+					pattern: '/<meta property="og:image" content="(.+?)">/',
+					subject: file_get_contents($file->getPathname()),
+					matches: $matches,
+				)
+			) {
+				$image = $matches[1];
+			} else {
+				$this->logger->debug("No image found in $path");
+				$image = null;
+			}
+			$this->appendURL(path: $path, lastModified: new DateTimeImmutable("@{$file->getMTime()}"), image: $image);
 		}
 
 		$dom = dom_import_simplexml($this->xml)->ownerDocument;
@@ -67,11 +79,16 @@ class SitemapProcessor extends AbstractProcessor
 		DateTimeInterface $lastModified,
 		float $priority = 0.5,
 		SitemapChangeFrequency $changeFrequency = SitemapChangeFrequency::Weekly,
+		string $image = null,
 	): void {
 		$url = $this->xml->addChild('url');
 		$url->addChild('loc', 'https://www.mergephp.com' . $path);
 		$url->addChild('lastmod', $lastModified->format('c'));
 		$url->addChild('changefreq', $changeFrequency->value);
 		$url->addChild('priority', (string)round($priority, 1));
+		if ($image) {
+			$img = $url->addChild('image', null, 'image');
+			$img->addChild('loc', $image, 'image');
+		}
 	}
 }

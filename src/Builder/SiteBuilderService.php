@@ -6,6 +6,7 @@ namespace MergePHP\Website\Builder;
 
 use DateTimeImmutable;
 use FilesystemIterator;
+use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
@@ -51,12 +52,14 @@ class SiteBuilderService
 
 		$twigData = self::generateCommonTwigVars();
 
+		$clock = SystemClock::fromUTC();
+
 		(new StaticFileProcessor($this->logger, $this->outputDirectory, self::APP_ROOT . '/public'))->run();
 		(new HomepageProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
 		(new PageNotFoundProcessor($this->logger, $this->outputDirectory, $this->twig, $twigData))->run();
 		(new MeetupProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
 		(new ArchiveProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
-		(new SitemapProcessor($this->logger, $this->outputDirectory, $collection))->run();
+		(new SitemapProcessor($this->logger, $this->outputDirectory, $clock))->run();
 		(new RSSFeedProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		(new MissingLinkProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		$this->logger->info('Finished successfully');
