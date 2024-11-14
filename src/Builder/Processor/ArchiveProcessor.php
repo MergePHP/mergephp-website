@@ -61,7 +61,7 @@ class ArchiveProcessor extends HTMLProcessor
 		}
 
 		$meetups = array_map(fn(MeetupEntry $meetupEntry) => $meetupEntry->instance, $meetups);
-		rsort($meetups);
+		usort($meetups, fn($a, $b) => $b->getDateTime() <=> $a->getDateTime());
 
 		$data = array_merge($this->twigData, [
 			'year' => $year,
