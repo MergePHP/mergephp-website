@@ -43,4 +43,9 @@ class Meetup20241114WhatsNewInPhp84 extends AbstractMeetup
 			'computer, you\'ll probably find him hiking or playing bike tag around beautiful Seattle, or putting ' .
 			'together a new Lego set on one of the rare rainy days.';
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=_HIjaVbmjpM';
+	}
 }
