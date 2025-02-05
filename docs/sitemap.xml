@@ -2,47 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.mergephp.com/</loc>
-<<<<<<< Updated upstream
-    <lastmod>2025-02-05T03:49:46+00:00</lastmod>
-=======
-    <lastmod>2025-02-05T03:45:38+00:00</lastmod>
->>>>>>> Stashed changes
+    <lastmod>2025-02-05T04:01:05+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
-  </url>
-  <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2020/07/09/open-sourcing-mental-illness.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/10/08/deployments-and-codescanning-with-github.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/09/10/anti-patterns-in-php.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/anti-patterns-in-php.webp</loc>
-    </image>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/06/11/building-lightning-fast-search-with-meilisearch.html</loc>
@@ -63,13 +25,10 @@
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2020/08/13/new-mysql-features-that-you-may-have-missed.html</loc>
+    <loc>https://www.mergephp.com/meetups/2020/index.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/new-mysql-features-that-you-may-have-missed.jpg</loc>
-    </image>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2020/11/12/what-s-new-in-php-8-0.html</loc>
@@ -81,12 +40,117 @@
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2023/09/14/using-hasura-to-add-a-graphql-api-to-existing-applications.html</loc>
+    <loc>https://www.mergephp.com/meetups/2020/08/13/new-mysql-features-that-you-may-have-missed.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/using-hasura-to-add-a-graphql-api-to-existing-applications.svg</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/new-mysql-features-that-you-may-have-missed.jpg</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2020/07/09/open-sourcing-mental-illness.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2020/09/10/anti-patterns-in-php.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/anti-patterns-in-php.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2020/10/08/deployments-and-codescanning-with-github.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/04/11/php-applications-at-scale.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/php-applications-at-scale.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/03/14/debugging-unleashed-mastering-xrdebug-for-php-brilliance.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/dalle.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/11/14/what-s-new-in-php-8-4.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php-84.svg</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/02/08/ride-the-pipelines-and-deploy-a-php-app-cowabunga.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/05/09/mergephp-coding-competition.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/mergephp-coding-competition.png</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/index.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/12/12/php-meet-ai.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/php-meet-ai.jpg</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/01/11/php-on-lambda-with-custom-runtimes.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2024/06/13/mergephp-lightning-talks-ignite-your-php-knowledge.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/llbbl_imagine_prompt_A_panel_discussion_setup_with_lightning-_3ed8a024-4de2-4fe6-8d52-06cb4e789f7d_3.jpg</loc>
     </image>
   </url>
   <url>
@@ -96,6 +160,15 @@
     <priority>0.5</priority>
     <image xmlns="image">
       <loc>https://www.mergephp.com/https://www.mergephp.com/images/webhooks-the-good-the-bad-and-the-ugly.jpg</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2023/09/14/using-hasura-to-add-a-graphql-api-to-existing-applications.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/using-hasura-to-add-a-graphql-api-to-existing-applications.svg</loc>
     </image>
   </url>
   <url>
@@ -117,12 +190,6 @@
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2023/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://www.mergephp.com/meetups/2023/05/11/lightning-talks-middleware-cloud-run-rest-copilot-dusk.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -141,21 +208,21 @@
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2023/02/09/docker-is-dead-long-live-containers.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/docker-is-dead-long-live-containers.webp</loc>
-    </image>
-  </url>
-  <url>
     <loc>https://www.mergephp.com/meetups/2023/08/10/mastering-resilience-my-accidental-acting-adventure.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
       <loc>https://www.mergephp.com/https://www.mergephp.com/images/mastering-resilience.jpg</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2023/02/09/docker-is-dead-long-live-containers.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/docker-is-dead-long-live-containers.webp</loc>
     </image>
   </url>
   <url>
@@ -177,163 +244,18 @@
     </image>
   </url>
   <url>
+    <loc>https://www.mergephp.com/meetups/2023/index.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.mergephp.com/meetups/2023/01/12/filesystem-management-with-flysystem.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
       <loc>https://www.mergephp.com/https://www.mergephp.com/images/filesystem-management-with-flysystem.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/04/11/php-applications-at-scale.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/php-applications-at-scale.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/03/14/debugging-unleashed-mastering-xrdebug-for-php-brilliance.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/dalle.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/02/08/ride-the-pipelines-and-deploy-a-php-app-cowabunga.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/11/14/what-s-new-in-php-8-4.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php-84.svg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/05/09/mergephp-coding-competition.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/mergephp-coding-competition.png</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/01/11/php-on-lambda-with-custom-runtimes.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/12/12/php-meet-ai.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/php-meet-ai.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/06/13/mergephp-lightning-talks-ignite-your-php-knowledge.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/llbbl_imagine_prompt_A_panel_discussion_setup_with_lightning-_3ed8a024-4de2-4fe6-8d52-06cb4e789f7d_3.jpg</loc>
-    </image>
-  </url>
-  <url>
-=======
->>>>>>> Stashed changes
-    <loc>https://www.mergephp.com/meetups/2021/01/14/jwts-what-php-devs-need-to-know.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2021/12/09/what-s-new-in-php-8-1.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/what-s-new-in-php-8-1.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2021/06/10/using-the-agile-methodology-to-run-my-life.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2021/02/11/never-use-arrays.html</loc>
-=======
-    <loc>https://www.mergephp.com/meetups/2021/08/12/we-brought-openapi-docs-into-our-service-catalog-now-what.html</loc>
->>>>>>> Stashed changes
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2021/08/12/we-brought-openapi-docs-into-our-service-catalog-now-what.html</loc>
-=======
-    <loc>https://www.mergephp.com/meetups/2021/02/11/never-use-arrays.html</loc>
->>>>>>> Stashed changes
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2021/11/11/the-future-of-continuous-delivery.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2021/05/13/static-analysis-with-phpstan.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
     </image>
   </url>
   <url>
@@ -346,44 +268,7 @@
     </image>
   </url>
   <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2021/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-=======
->>>>>>> Stashed changes
-    <loc>https://www.mergephp.com/meetups/2021/04/08/bye-bye-fpm-hello-unit.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2021/10/14/living-with-open-source-responsibility.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
     <loc>https://www.mergephp.com/meetups/2021/09/09/get-lando-and-get-stuff-done.html</loc>
-=======
-    <loc>https://www.mergephp.com/meetups/2021/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2021/10/14/living-with-open-source-responsibility.html</loc>
->>>>>>> Stashed changes
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -401,41 +286,7 @@
     </image>
   </url>
   <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2022/07/14/beyond-the-shire-advanced-lando-techniques.html</loc>
-=======
-    <loc>https://www.mergephp.com/meetups/2021/09/09/get-lando-and-get-stuff-done.html</loc>
->>>>>>> Stashed changes
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-<<<<<<< Updated upstream
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/beyond-the-shire-advanced-lando-techniques.jpg</loc>
-=======
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2025/02/13/what-s-new-in-php-9-see-the-future-and-discover-the-past-in-php-rfcs.html</loc>
-    <lastmod>2025-02-05T03:45:34+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php9-poe.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2022/05/12/docs-and-tests-and-tools-oh-my.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/docs-and-tests-and-tools-oh-my.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2022/02/10/container-native-w-o-k8s-php-in-ecs-on-aws.html</loc>
+    <loc>https://www.mergephp.com/meetups/2021/10/14/living-with-open-source-responsibility.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -444,12 +295,81 @@
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2022/08/11/javascript-development-in-the-modern-monolith.html</loc>
+    <loc>https://www.mergephp.com/meetups/2021/04/08/bye-bye-fpm-hello-unit.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/javascript-development-in-the-modern-monolith.webp</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/06/10/using-the-agile-methodology-to-run-my-life.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/12/09/what-s-new-in-php-8-1.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/what-s-new-in-php-8-1.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/01/14/jwts-what-php-devs-need-to-know.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/05/13/static-analysis-with-phpstan.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/index.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/11/11/the-future-of-continuous-delivery.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/02/11/never-use-arrays.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2021/08/12/we-brought-openapi-docs-into-our-service-catalog-now-what.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
     </image>
   </url>
   <url>
@@ -462,12 +382,39 @@
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2022/06/09/symfony-vs-laravel.html</loc>
+    <loc>https://www.mergephp.com/meetups/2022/08/11/javascript-development-in-the-modern-monolith.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/symfony-vs-laravel.webp</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/javascript-development-in-the-modern-monolith.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2022/02/10/container-native-w-o-k8s-php-in-ecs-on-aws.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2022/05/12/docs-and-tests-and-tools-oh-my.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/docs-and-tests-and-tools-oh-my.webp</loc>
+    </image>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2022/12/08/what-s-new-in-php-8-2.html</loc>
+    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php-8.2.png</loc>
     </image>
   </url>
   <url>
@@ -480,40 +427,12 @@
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2022/12/08/what-s-new-in-php-8-2.html</loc>
+    <loc>https://www.mergephp.com/meetups/2022/06/09/symfony-vs-laravel.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php-8.2.png</loc>
->>>>>>> Stashed changes
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2022/10/13/microservices-in-your-monolith.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/microservices-in-your-monolith.png</loc>
-    </image>
-  </url>
-  <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2022/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-=======
->>>>>>> Stashed changes
-    <loc>https://www.mergephp.com/meetups/2022/03/10/becoming-a-bug-exterminator.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/becoming-a-bug-exterminator.webp</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/symfony-vs-laravel.webp</loc>
     </image>
   </url>
   <url>
@@ -526,41 +445,21 @@
     </image>
   </url>
   <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2022/06/09/symfony-vs-laravel.html</loc>
+    <loc>https://www.mergephp.com/meetups/2022/03/10/becoming-a-bug-exterminator.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/symfony-vs-laravel.webp</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/becoming-a-bug-exterminator.webp</loc>
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2022/01/13/cool-tools-for-php-development.html</loc>
-=======
-    <loc>https://www.mergephp.com/meetups/2022/07/14/beyond-the-shire-advanced-lando-techniques.html</loc>
->>>>>>> Stashed changes
+    <loc>https://www.mergephp.com/meetups/2022/10/13/microservices-in-your-monolith.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-<<<<<<< Updated upstream
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/cool-tools-for-php-development.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2022/12/08/what-s-new-in-php-8-2.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php-8.2.png</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2022/05/12/docs-and-tests-and-tools-oh-my.html</loc>
-=======
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/beyond-the-shire-advanced-lando-techniques.jpg</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/microservices-in-your-monolith.png</loc>
     </image>
   </url>
   <url>
@@ -570,283 +469,21 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2020/09/10/anti-patterns-in-php.html</loc>
->>>>>>> Stashed changes
+    <loc>https://www.mergephp.com/meetups/2022/07/14/beyond-the-shire-advanced-lando-techniques.html</loc>
     <lastmod>2025-02-05T02:06:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-<<<<<<< Updated upstream
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/docs-and-tests-and-tools-oh-my.webp</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/beyond-the-shire-advanced-lando-techniques.jpg</loc>
     </image>
   </url>
   <url>
-    <loc>https://www.mergephp.com/meetups/2022/08/11/javascript-development-in-the-modern-monolith.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
+    <loc>https://www.mergephp.com/meetups/2025/02/13/what-s-new-in-php-9-see-the-future-and-discover-the-past-in-php-rfcs.html</loc>
+    <lastmod>2025-02-05T03:57:30+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/javascript-development-in-the-modern-monolith.webp</loc>
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php9-poe.jpg</loc>
     </image>
   </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2022/02/10/container-native-w-o-k8s-php-in-ecs-on-aws.html</loc>
-=======
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/anti-patterns-in-php.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/10/08/deployments-and-codescanning-with-github.html</loc>
->>>>>>> Stashed changes
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-<<<<<<< Updated upstream
-    <loc>https://www.mergephp.com/meetups/2022/11/10/take-the-helm-and-deploy-at-scale.html</loc>
-=======
-    <loc>https://www.mergephp.com/meetups/2020/07/09/open-sourcing-mental-illness.html</loc>
->>>>>>> Stashed changes
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-<<<<<<< Updated upstream
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/take-the-helm-and-deploy-at-scale.webp</loc>
-    </image>
-  </url>
-=======
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/11/12/what-s-new-in-php-8-0.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/08/13/new-mysql-features-that-you-may-have-missed.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/new-mysql-features-that-you-may-have-missed.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/06/11/building-lightning-fast-search-with-meilisearch.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2020/12/10/turbocharged-development-with-docker-phpstorm-and-xdebug.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/11/09/what-s-new-in-php-8-3.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/what-s-new-in-php-8-3.svg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/08/10/mastering-resilience-my-accidental-acting-adventure.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/mastering-resilience.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/02/09/docker-is-dead-long-live-containers.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/docker-is-dead-long-live-containers.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/05/11/lightning-talks-middleware-cloud-run-rest-copilot-dusk.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/12/14/behavior-driven-development-and-browser-testing-using-codeception.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/202312_codeception.png</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/01/12/filesystem-management-with-flysystem.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/filesystem-management-with-flysystem.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/06/08/symfony-to-laravel-lessons-learned.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/symfony-to-laravel-lessons-learned.png</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/04/13/using-static-analysis-to-improve-code-quality-across-both-backend-and-frontend-speeding-up-json-queries-with-mysql-multi-valued-indexes.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/using-static-analysis-to-improve-code-quality-across-both-backend-and-frontend-speeding-up-json-queries-with-mysql-multi-valued-indexes.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/03/09/webhooks-the-good-the-bad-and-the-ugly.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/webhooks-the-good-the-bad-and-the-ugly.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/09/14/using-hasura-to-add-a-graphql-api-to-existing-applications.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/using-hasura-to-add-a-graphql-api-to-existing-applications.svg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2023/10/12/architecture-design-patterns-for-php.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/architecture-design-patterns-for-php.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/01/11/php-on-lambda-with-custom-runtimes.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/12/12/php-meet-ai.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/php-meet-ai.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/06/13/mergephp-lightning-talks-ignite-your-php-knowledge.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/llbbl_imagine_prompt_A_panel_discussion_setup_with_lightning-_3ed8a024-4de2-4fe6-8d52-06cb4e789f7d_3.jpg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/02/08/ride-the-pipelines-and-deploy-a-php-app-cowabunga.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/placeholder.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/11/14/what-s-new-in-php-8-4.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/whats-new-in-php-84.svg</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/05/09/mergephp-coding-competition.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/mergephp-coding-competition.png</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/index.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/04/11/php-applications-at-scale.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/php-applications-at-scale.webp</loc>
-    </image>
-  </url>
-  <url>
-    <loc>https://www.mergephp.com/meetups/2024/03/14/debugging-unleashed-mastering-xrdebug-for-php-brilliance.html</loc>
-    <lastmod>2025-02-05T02:06:25+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <image xmlns="image">
-      <loc>https://www.mergephp.com/https://www.mergephp.com/images/dalle.webp</loc>
-    </image>
-  </url>
->>>>>>> Stashed changes
 </urlset>
