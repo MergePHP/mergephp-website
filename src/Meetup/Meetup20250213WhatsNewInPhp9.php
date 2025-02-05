@@ -47,6 +47,7 @@ class Meetup20250213WhatsNewInPhp9 extends AbstractMeetup
 	{
 		return 'Gentle coder, reader, and half-knit/half-wit. '
 		. 'Co-organizer of KCPHPUG and MergePHP, Advisor and former Curriculum Director of CoderDojoKC. '
-		. 'Plaid Belt in Kung Fu movies. Connoisseur of dad jokes. Dev Manager by day, Lifelong Student before bedtime.';
+		. 'Plaid Belt in Kung Fu movies. Connoisseur of dad jokes. Dev Manager by day, '
+		. 'Lifelong Student before bedtime.';
 	}
 }
