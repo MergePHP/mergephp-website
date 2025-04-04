@@ -58,7 +58,7 @@ class MeetupGeneratorService
 		string $date,
 		string $speakerName,
 		string $speakerBio,
-		string $image = null,
+		?string $image = null,
 	): MeetupGeneratorResponse {
 		$dateTime = new DateTimeImmutable("$date 19:00");
 

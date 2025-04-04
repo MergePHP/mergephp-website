@@ -79,7 +79,7 @@ class SitemapProcessor extends AbstractProcessor
 		DateTimeInterface $lastModified,
 		float $priority = 0.5,
 		SitemapChangeFrequency $changeFrequency = SitemapChangeFrequency::Weekly,
-		string $image = null,
+		?string $image = null,
 	): void {
 		$url = $this->xml->addChild('url');
 		$url->addChild('loc', 'https://www.mergephp.com' . $path);

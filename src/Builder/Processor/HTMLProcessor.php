@@ -9,7 +9,7 @@ use RuntimeException;
 
 abstract class HTMLProcessor extends AbstractProcessor
 {
-	protected function writeHtml(string $html, string $filename, DateTimeImmutable $modifiedTime = null): void
+	protected function writeHtml(string $html, string $filename, ?DateTimeImmutable $modifiedTime = null): void
 	{
 		$destination = "$this->outputDirectory/$filename";
 		$path = substr($destination, 0, strlen(basename($destination)) * -1);
