@@ -37,7 +37,7 @@ class MeetupGeneratorServiceTest extends TestCase
 		$expectedFilename = 'Meetup20230101Title.php';
 		$expectedFilenameAndPath = "vfs://root/$expectedFilename";
 		$response = $this->generator->generate('Title', 'Description', '2023-01-01', 'Speaker', 'Bio');
-		$this->assertEquals(672, $response->bytesWritten);
+		$this->assertEquals(685, $response->bytesWritten);
 		$this->assertEquals($expectedFilenameAndPath, $response->filename);
 		$this->assertFileEqualsCanonicalizing(
 			self::FIXTURES_DIR . $expectedFilename . '.txt',
@@ -57,7 +57,7 @@ class MeetupGeneratorServiceTest extends TestCase
 			'Bio',
 			'https://www.example.com/image.jpg',
 		);
-		$this->assertEquals(761, $response->bytesWritten);
+		$this->assertEquals(774, $response->bytesWritten);
 		$this->assertEquals($expectedFilenameAndPath, $response->filename);
 		$this->assertFileEqualsCanonicalizing(
 			self::FIXTURES_DIR . $expectedFilename . '.txt',
@@ -79,7 +79,7 @@ class MeetupGeneratorServiceTest extends TestCase
 			'https://www.example.com/this/entire/url/is/greater/than/102/characters/which/normally/makes/phpcs/unhappy.jpg',
 		);
 
-		$this->assertEquals(914, $response->bytesWritten);
+		$this->assertEquals(927, $response->bytesWritten);
 		$this->assertEquals($expectedFilenameAndPath, $response->filename);
 		$this->assertFileEqualsCanonicalizing(
 			self::FIXTURES_DIR . $expectedFilename . '.txt',

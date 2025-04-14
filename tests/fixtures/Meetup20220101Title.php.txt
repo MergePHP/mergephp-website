@@ -17,7 +17,9 @@ class Meetup20220101Title extends AbstractMeetup
 
 	public function getDescription(): string
 	{
-		return 'Description';
+		return <<<END
+		Description
+		END;
 	}
 
 	public function getDateTime(): DateTimeImmutable
