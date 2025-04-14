@@ -50,4 +50,9 @@ class Meetup20250213WhatsNewInPhp9 extends AbstractMeetup
 		. 'Plaid Belt in Kung Fu movies. Connoisseur of dad jokes. Dev Manager by day, '
 		. 'Lifelong Student before bedtime.';
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=fMAPoMbCtCk';
+	}
 }
