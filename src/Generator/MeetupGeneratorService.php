@@ -89,7 +89,7 @@ class MeetupGeneratorService
 		$class
 			->addMethod('getDescription')
 			->setReturnType('string')
-			->setBody('return \'' . addslashes($description) . '\';');
+			->setBody('return <<<END' . PHP_EOL . wordwrap($description, 110, PHP_EOL) . PHP_EOL . 'END;');
 		$class
 			->addMethod('getDateTime')
 			->setReturnType('DateTimeImmutable')
