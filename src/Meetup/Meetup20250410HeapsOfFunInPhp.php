@@ -29,7 +29,8 @@ class Meetup20250410HeapsOfFunInPhp extends AbstractMeetup
 		- [SPL Data Structures](https://www.php.net/manual/en/spl.datastructures.php)
 		- [Linked Lists Explained in PHP](https://doeken.org/blog/linked-lists-explained-in-php)
 		- [Tree Traversal in PHP](https://doeken.org/blog/tree-traversal-in-php)
-		- [Binary Tree Implementation in PHP](https://medium.com/the-andela-way/binary-tree-implementation-in-php-e12df09d046f)
+		- [Binary Tree Implementation in PHP
+		](https://medium.com/the-andela-way/binary-tree-implementation-in-php-e12df09d046f)
 		- [Heaps Explained in PHP](https://doeken.org/blog/heaps-explained-in-php)
 		- [Xdebug Profiler](https://xdebug.org/docs/profiler)
 		- [PhpStorm Profiling with Xdebug](https://www.jetbrains.com/help/phpstorm/profiling-with-xdebug.html)
