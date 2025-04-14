@@ -48,4 +48,9 @@ class Meetup20241212PhpMeetAi extends AbstractMeetup
 	{
 		return '/images/php-meet-ai.jpg';
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=Ul5D8Rmojwk';
+	}
 }
