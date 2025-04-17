@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mergephp-website
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    command: php -S 0.0.0.0:8000 -t docs/
