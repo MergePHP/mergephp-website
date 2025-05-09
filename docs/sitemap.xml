@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.mergephp.com/</loc>
-    <lastmod>2025-04-17T19:54:12+00:00</lastmod>
+    <lastmod>2025-05-09T18:09:20+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -131,7 +131,7 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2025/05/08/phpscript-htmx-postmodern-front-end-interactions-in-php.html</loc>
-    <lastmod>2025-04-17T19:54:05+00:00</lastmod>
+    <lastmod>2025-05-09T14:30:09+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image xmlns="image">
@@ -149,9 +149,18 @@
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2025/index.html</loc>
-    <lastmod>2025-04-17T19:25:28+00:00</lastmod>
+    <lastmod>2025-05-09T14:30:09+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.mergephp.com/meetups/2025/06/12/hosting-a-php-app-in-a-homelab.html</loc>
+    <lastmod>2025-05-09T18:09:04+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image xmlns="image">
+      <loc>https://www.mergephp.com/https://www.mergephp.com/images/homelab_2025.png</loc>
+    </image>
   </url>
   <url>
     <loc>https://www.mergephp.com/meetups/2024/03/14/debugging-unleashed-mastering-xrdebug-for-php-brilliance.html</loc>
