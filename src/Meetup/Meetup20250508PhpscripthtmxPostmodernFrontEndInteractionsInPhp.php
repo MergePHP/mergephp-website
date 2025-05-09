@@ -46,4 +46,9 @@ class Meetup20250508PhpscripthtmxPostmodernFrontEndInteractionsInPhp extends Abs
 	{
 		return 'CakePHP Core Developer and Platform Engineer';
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=nIHBQQl4H-4';
+	}
 }
