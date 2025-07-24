@@ -37,7 +37,7 @@ build-site: build
 
 # Serve the site
 serve: build
-	docker run --rm -p $(HOST_PORT):$(CONTAINER_PORT) -v $(PWD):/var/www/html --name $(CONTAINER_NAME) $(IMAGE_NAME) php -S 0.0.0.0:$(CONTAINER_PORT) -t docs/
+	docker run --rm -p $(HOST_PORT):$(CONTAINER_PORT) -v $(PWD):/var/www/html --name $(CONTAINER_NAME) $(IMAGE_NAME) php -S 0.0.0.0:$(CONTAINER_PORT) -t dist/
 
 # Run tests
 test: build

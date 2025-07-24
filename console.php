@@ -13,7 +13,7 @@ use Symfony\Component\Console\Application;
 $application = new Application();
 
 $application->add(new MeetupGeneratorCommand(new MeetupGeneratorService(__DIR__ . '/src/Meetup')));
-$application->add(new SiteBuilderCommand(__DIR__ . '/docs'));
+$application->add(new SiteBuilderCommand(__DIR__ . '/dist'));
 
 /** @noinspection PhpUnhandledExceptionInspection */
 $application->run();

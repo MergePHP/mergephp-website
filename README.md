@@ -35,7 +35,7 @@ Next, build the site by running
 composer build
 ```
 **Important:** You _must_ run build every time you are changing meetup data or any files in the
-`public` or `templates` directories.  This will re-generate the `docs` directory.  Verboseness
+`public` or `templates` directories.  This will re-generate the `dist` directory.  Verboseness
 can be controlled with `-v` to `-vvv` switches
 
 To view the site:
@@ -71,15 +71,9 @@ composer test
 
 Directory structure
 -------------------
-### docs
-The live copy of the site is here.  It _is_ under version control because GitHub pages serves
-the site directly from this folder.  Do not add or modify any files in this directory by hand;
-any changes will be lost in the next build.
-
-If you make changes to any files, the changes to the `docs` directory must be **in the same commit**.
-
-Note: `dist` would be a better name for this folder, but [due to GitHub limitations][1] it must
-be named docs.
+### dist
+The live copy of the site is here once built.  It is not under version control; if you need to
+update the site you should update files in one of the other directories below.
 
 ### public
 Files that need to be available on the live site (for example images and stylesheets) are in
@@ -100,6 +94,3 @@ Other
 Sculpin proved not to be customizable enough with regard to custom archive pages.
 No other static site generators offered a featureset comparable Sculpin or what has been built
 in this project.
-
-
-[1]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#about-publishing-sources
