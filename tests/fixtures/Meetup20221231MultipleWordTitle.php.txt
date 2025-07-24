@@ -41,6 +41,8 @@ class Meetup20221231MultipleWordTitle extends AbstractMeetup
 
 	public function getSpeakerBio(): string
 	{
-		return 'Speaker biography';
+		return <<<END
+		Speaker biography
+		END;
 	}
 }

@@ -35,6 +35,8 @@ class Meetup20230101Title extends AbstractMeetup
 
 	public function getSpeakerBio(): string
 	{
-		return 'Bio';
+		return <<<END
+		Bio
+		END;
 	}
 }
