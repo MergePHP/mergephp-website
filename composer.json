@@ -40,7 +40,7 @@
 		"lint": "phpcs",
 		"serve": [
 			"Composer\\Config::disableProcessTimeout",
-			"php -S localhost:8000 -t docs/"
+			"php -S localhost:8000 -t dist/"
 		],
 		"test": "phpunit --colors=always --testdox tests"
 	},

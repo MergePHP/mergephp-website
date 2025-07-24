@@ -2,10 +2,9 @@
 .github
 vendor
 node_modules
-docs
+dist
 .dockerignore
 Dockerfile
 docker-compose.yml
 .gitignore
-.gitattributes
 README.md

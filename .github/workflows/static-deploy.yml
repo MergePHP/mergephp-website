@@ -1,0 +1,49 @@
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.3
+
+            -   name: Install PHP dependencies
+                run: composer install
+
+            -   name: Build website
+                run: composer build
+
+            -   name: Setup GitHub Pages
+                uses: actions/configure-pages@v4
+
+            -   name: Upload built site
+                uses: actions/upload-pages-artifact@v3
+                with:
+                    path: './dist'
+
+    deploy:
+        needs: build
+
+        permissions:
+            pages: write
+            id-token: write
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
