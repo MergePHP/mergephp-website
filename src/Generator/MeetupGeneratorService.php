@@ -112,7 +112,7 @@ class MeetupGeneratorService
 		$class
 			->addMethod('getSpeakerBio')
 			->setReturnType('string')
-			->setBody('return \'' . addslashes($speakerBio) . '\';');
+			->setBody('return <<<END' . PHP_EOL . wordwrap($speakerBio, 110, PHP_EOL) . PHP_EOL . 'END;');
 
 		$printer = new class extends Printer {
 			public int $wrapLength = 120;
