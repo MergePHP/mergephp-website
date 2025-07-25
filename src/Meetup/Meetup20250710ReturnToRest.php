@@ -46,4 +46,9 @@ class Meetup20250710ReturnToRest extends AbstractMeetup
 			'books, articles, and conferences. Connect with him on the web at https://ben.ramsey.dev or on the ' .
 			'Fediverse at @ramsey@phpc.social.';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=LRceBSGlqnU';
+	}
 }
