@@ -52,4 +52,9 @@ class Meetup20240613MergephpLightningTalksIgniteYourPhpKnowledge extends Abstrac
 	{
 		return 'Logan is one of the MergePHP organizers';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=Hjc79EfjDgY';
+	}
 }
