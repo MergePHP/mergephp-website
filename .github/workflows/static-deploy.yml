@@ -2,6 +2,9 @@ on:
     push:
         branches:
             - main
+    schedule:
+        # run an hour (no DST) or two hours (DST) after the meetup begins
+        - cron: '0 1 * * 4#2'
 
 jobs:
     build:
