@@ -62,7 +62,7 @@ class Meetup20250814VibeCodingLaravelWithClaudeDevin extends AbstractMeetup
 		END;
 	}
 
-	public function getYouTubeLink():
+	public function getYouTubeLink(): string
 	{
 		return 'https://www.youtube.com/watch?v=YH7fnt6Ad80';
 	}
