@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use FilesystemIterator;
 use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
+use MergePHP\Website\Builder\Processor\ICalProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
 use MergePHP\Website\Builder\Processor\YouTubeLinkProcessor;
@@ -61,6 +62,7 @@ class SiteBuilderService
 		(new ArchiveProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $this->outputDirectory, $clock))->run();
 		(new RSSFeedProcessor($this->logger, $this->outputDirectory, $collection))->run();
+		(new ICalProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		(new YouTubeLinkProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		$this->logger->info('Finished successfully');
 	}
