@@ -15,6 +15,11 @@ class Meetup20250911MonolithOrMicroservicesAndWhyYoureWrong extends AbstractMeet
 		return 'Monolith or Microservices? And why you\'re wrong!';
 	}
 
+	public function getImage(): string
+	{
+		return '/images/monolith-vs-microservices-and-why-youre-wrong.jpg';
+	}
+
 	public function getDescription(): string
 	{
 		return <<<END
@@ -41,6 +46,16 @@ class Meetup20250911MonolithOrMicroservicesAndWhyYoureWrong extends AbstractMeet
 
 	public function getSpeakerBio(): string
 	{
-		return '';
+		return <<<END
+		Bobby Cahill is a Senior Software Engineer with over a decade of experience building scalable, user-centric
+		web platforms and developer tools. With a strong background in full-stack development, cloud-native
+		architectures, and modern DevOps practices, he's passionate about building readable, maintainable, and secure
+		code. Previously, Bobby spent eight years at Wayfair, where he was a key player in a company-wide initiative to
+		decouple a massive monolithic codebase, and led the development of new tools to improve engineering
+		productivity. He’s also the lead organizer of the BostonPHP Meetup Group and a co-founder of MergePHP.
+
+		In his free time Bobby supports the open-source and dev communities and enjoys traveling, hiking, basketball
+		and gaming.
+		END;
 	}
 }
