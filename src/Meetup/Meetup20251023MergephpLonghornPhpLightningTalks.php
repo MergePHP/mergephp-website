@@ -18,10 +18,10 @@ class Meetup20251023MergephpLonghornPhpLightningTalks extends AbstractMeetup
 	public function getDescription(): string
 	{
 		return <<<END
-		We're doing something special in concert with [Longhorn PHP Conference](https://longhornphp.com): a special
+		We're doing something special in concert with [Longhorn PHP Conference](https://www.longhornphp.com): a special
 		live-streamed hybrid meetup with lightning talks! WWWe'll both live-stream the event _and_ allow folks to
 		present virtually. Want to sign up to speak ahead of time? We have
-        [a form for that](https://forms.gle/R2NagrbUkLK4Lvvd9).
+		[a form for that](https://forms.gle/R2NagrbUkLK4Lvvd9).
 		END;
 	}
 
