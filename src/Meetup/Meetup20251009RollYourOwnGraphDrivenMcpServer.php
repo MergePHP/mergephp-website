@@ -50,4 +50,9 @@ class Meetup20251009RollYourOwnGraphDrivenMcpServer extends AbstractMeetup
 		his work life, he's an avid runner with a passion for craft beer.
 		END;
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=4ojZvNqAAnY';
+	}
 }

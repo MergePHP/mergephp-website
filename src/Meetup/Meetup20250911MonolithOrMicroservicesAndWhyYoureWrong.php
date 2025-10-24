@@ -58,4 +58,9 @@ class Meetup20250911MonolithOrMicroservicesAndWhyYoureWrong extends AbstractMeet
 		and gaming.
 		END;
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=U1l6VIWHF34';
+	}
 }
