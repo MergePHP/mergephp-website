@@ -50,6 +50,6 @@ class Meetup20251211GeneratingHexagonalArchitectureCodeFromOpenapiContracts exte
 
 	public function getYouTubeLink(): string
 	{
-		return 'https://www.youtube.com/@MergePHP';
+		return 'https://www.youtube.com/watch?v=A5WVaFYUb1c';
 	}
 }
