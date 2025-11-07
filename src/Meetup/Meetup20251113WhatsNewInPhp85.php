@@ -12,12 +12,32 @@ class Meetup20251113WhatsNewInPhp85 extends AbstractMeetup
 {
 	public function getTitle(): string
 	{
-		return 'What\'s New in PHP 8.5';
+		return 'PHP 8.5: New Features from the Source';
 	}
 
 	public function getDescription(): string
 	{
-		return '';
+		return <<<END
+		Join PHP 8.5 release manager Daniel Scherzer for a deep dive into the
+		new features, syntax updates, deprecations, and surprises coming in the
+		latest version of PHP. These are already available for testing in PHP
+		8.5.0RC4, and will be ready for production use a week after the
+		MergePHP talk.
+
+		Whether you're maintaining legacy apps or building bleeding-edge
+		libraries, this talk will help you prepare for PHP 8.5 and adopt its
+		features with confidence.
+
+		Features include
+
+		* A new URL handling extension
+		* Expanded syntax support in constant expressions
+		* The pipe operator (|>)
+		* Attribute changes
+		* Object cloning with property changes
+
+		and more
+		END;
 	}
 
 	public function getDateTime(): DateTimeImmutable
@@ -33,14 +53,17 @@ class Meetup20251113WhatsNewInPhp85 extends AbstractMeetup
 
 	public function getSpeakerName(): string
 	{
-		return 'Ian Littman';
+		return 'Daniel Scherzer';
 	}
 
 	public function getSpeakerBio(): string
 	{
 		return <<<END
-		When Ian isn't CTO'ing a startup throwing APIs around insurance data or helping organize Longhorn PHP
-		conference, he's soaking up the Texas Hill Country, or talking about mobile or airline networks on Twitter.
+		Daniel is an open source contributor mainly focused on PHP and its
+		ecosystem. He contributes as
+		[@DanielEScherzer](https://github.com/DanielEScherzer) on GitHub, and
+		is currently serving as a release manager for PHP 8.5. See
+		<https://scherzer.dev/> for more.
 		END;
 	}
 
