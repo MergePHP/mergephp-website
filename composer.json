@@ -19,6 +19,7 @@
 		"ext-mbstring": "*",
 		"ext-readline": "*",
 		"ext-simplexml": "*",
+		"eluceo/ical": "^2.15",
 		"league/commonmark": "^2.3",
 		"nette/php-generator": "^4.0.0",
 		"psr/log": "^3.0.0",
