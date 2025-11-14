@@ -27,6 +27,6 @@ class SiteBuilderCommand extends Command
 		$builder = new SiteBuilderService($this->outputDirectory, $logger);
 		$builder->build();
 
-		return Command::SUCCESS;
+		return $logger->hasErrored() ? Command::FAILURE : Command::SUCCESS;
 	}
 }
