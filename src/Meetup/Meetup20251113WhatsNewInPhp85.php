@@ -21,7 +21,7 @@ class Meetup20251113WhatsNewInPhp85 extends AbstractMeetup
 		Join PHP 8.5 release manager Daniel Scherzer for a deep dive into the
 		new features, syntax updates, deprecations, and surprises coming in the
 		latest version of PHP. These are already available for testing in PHP
-		8.5.0RC4, and will be ready for production use a week after the
+		8.5.0RC5, and will be ready for production use a week after the
 		MergePHP talk.
 
 		Whether you're maintaining legacy apps or building bleeding-edge
