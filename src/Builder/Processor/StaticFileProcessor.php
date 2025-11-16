@@ -11,8 +11,16 @@ use RecursiveIteratorIterator;
 use RuntimeException;
 use SplFileInfo;
 
+/**
+ * Processor that copies static files from the public directory to the output directory.
+ */
 class StaticFileProcessor extends AbstractProcessor
 {
+	/**
+	 * @param LoggerInterface $logger Logger for build output
+	 * @param string $outputDirectory Directory where built files are written
+	 * @param string $inputDirectory Directory containing static files to copy
+	 */
 	public function __construct(
 		protected LoggerInterface $logger,
 		protected string $outputDirectory,
@@ -21,6 +29,11 @@ class StaticFileProcessor extends AbstractProcessor
 		parent::__construct($this->logger, $this->outputDirectory);
 	}
 
+	/**
+	 * Copy all static files from input to output directory.
+	 *
+	 * @throws RuntimeException If a directory cannot be created or file cannot be copied
+	 */
 	public function run(): void
 	{
 		$this->logger->info('Copying static files');

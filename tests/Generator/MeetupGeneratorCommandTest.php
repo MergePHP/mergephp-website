@@ -39,7 +39,7 @@ class MeetupGeneratorCommandTest extends TestCase
 
 	public function setUp(): void
 	{
-		if (PHP_OS_FAMILY == 'Windows') {
+		if (PHP_OS_FAMILY === 'Windows') {
 			$this->markTestSkipped('This test can\'t run on Windows :(');
 		}
 

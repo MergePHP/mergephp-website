@@ -7,8 +7,17 @@ namespace MergePHP\Website\Builder\Processor;
 use MergePHP\Website\Builder\MeetupCollection;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Processor that validates YouTube links for meetups.
+ * Logs warnings for missing links and errors for invalid links.
+ */
 class YouTubeLinkProcessor extends HTMLProcessor
 {
+	/**
+	 * @param LoggerInterface $logger Logger for build output
+	 * @param string $outputDirectory Directory where built files are written
+	 * @param MeetupCollection $meetups Collection of all meetups
+	 */
 	public function __construct(
 		protected LoggerInterface $logger,
 		protected string $outputDirectory,
@@ -17,6 +26,9 @@ class YouTubeLinkProcessor extends HTMLProcessor
 		parent::__construct($logger, $this->outputDirectory);
 	}
 
+	/**
+	 * Check all meetups for missing or invalid YouTube links.
+	 */
 	public function run(): void
 	{
 		$this->logger->info('Checking for missing YouTube links');
