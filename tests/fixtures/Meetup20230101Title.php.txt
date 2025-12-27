@@ -25,7 +25,7 @@ class Meetup20230101Title extends AbstractMeetup
 	public function getDateTime(): DateTimeImmutable
 	{
 		/** @noinspection PhpUnhandledExceptionInspection */
-		return new DateTimeImmutable('2023-01-01 19:00:00', new DateTimeZone('America/New_York'));
+		return new DateTimeImmutable('2023-01-01 20:00:00', new DateTimeZone('America/New_York'));
 	}
 
 	public function getSpeakerName(): string
