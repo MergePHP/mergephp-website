@@ -60,7 +60,7 @@ class MeetupGeneratorService
 		string $speakerBio,
 		?string $image = null,
 	): MeetupGeneratorResponse {
-		$dateTime = new DateTimeImmutable("$date 19:00");
+		$dateTime = new DateTimeImmutable("$date 20:00");
 
 		$className = implode('', [
 			'Meetup',
