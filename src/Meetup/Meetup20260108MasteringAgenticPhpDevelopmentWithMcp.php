@@ -30,7 +30,7 @@ class Meetup20260108MasteringAgenticPhpDevelopmentWithMcp extends AbstractMeetup
 	public function getDateTime(): DateTimeImmutable
 	{
 		/** @noinspection PhpUnhandledExceptionInspection */
-		return new DateTimeImmutable('2026-01-08 19:00:00', new DateTimeZone('America/New_York'));
+		return new DateTimeImmutable('2026-01-08 20:00:00', new DateTimeZone('America/New_York'));
 	}
 
 	public function getSpeakerName(): string
