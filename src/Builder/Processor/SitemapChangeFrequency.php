@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace MergePHP\Website\Builder\Processor;
 
+/**
+ * Enumeration of sitemap change frequency values.
+ */
 enum SitemapChangeFrequency: string
 {
 	case Always  = 'always';

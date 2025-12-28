@@ -15,10 +15,19 @@ use RuntimeException;
 use SimpleXMLElement;
 use SplFileInfo;
 
+/**
+ * Processor that generates the sitemap.xml file.
+ */
 class SitemapProcessor extends AbstractProcessor
 {
+	/** @var SimpleXMLElement The sitemap XML document */
 	protected SimpleXMLElement $xml;
 
+	/**
+	 * @param LoggerInterface $logger Logger for build output
+	 * @param string $outputDirectory Directory where built files are written
+	 * @param ClockInterface $clock Clock for getting current time
+	 */
 	public function __construct(
 		protected LoggerInterface $logger,
 		protected string $outputDirectory,
@@ -27,6 +36,11 @@ class SitemapProcessor extends AbstractProcessor
 		parent::__construct($logger, $this->outputDirectory);
 	}
 
+	/**
+	 * Generate the sitemap.xml file from all meetup pages.
+	 *
+	 * @throws RuntimeException If the sitemap cannot be saved or contains invalid XML
+	 */
 	public function run(): void
 	{
 		$this->logger->info('Building sitemap');
@@ -74,6 +88,15 @@ class SitemapProcessor extends AbstractProcessor
 		}
 	}
 
+	/**
+	 * Add a URL entry to the sitemap.
+	 *
+	 * @param string $path URL path relative to site root
+	 * @param DateTimeInterface $lastModified Last modification time
+	 * @param float $priority Priority (0.0 to 1.0)
+	 * @param SitemapChangeFrequency $changeFrequency How often the page changes
+	 * @param string|null $image Optional image URL for the page
+	 */
 	protected function appendURL(
 		string $path,
 		DateTimeInterface $lastModified,

@@ -10,8 +10,18 @@ use MergePHP\Website\Builder\MeetupEntry;
 use Psr\Log\LoggerInterface;
 use Twig\Environment;
 
+/**
+ * Processor that generates archive pages grouped by year.
+ */
 class ArchiveProcessor extends HTMLProcessor
 {
+	/**
+	 * @param LoggerInterface $logger Logger for build output
+	 * @param string $outputDirectory Directory where built files are written
+	 * @param MeetupCollection $meetups Collection of all meetups
+	 * @param Environment $twig Twig template environment
+	 * @param array $twigData Common data to pass to all Twig templates
+	 */
 	public function __construct(
 		protected LoggerInterface $logger,
 		protected string $outputDirectory,
@@ -22,6 +32,9 @@ class ArchiveProcessor extends HTMLProcessor
 		parent::__construct($logger, $this->outputDirectory);
 	}
 
+	/**
+	 * Generate archive pages for each year containing past meetups.
+	 */
 	public function run(): void
 	{
 		$this->logger->info('Building archive pages');
@@ -56,7 +69,7 @@ class ArchiveProcessor extends HTMLProcessor
 
 		$previousYear = reset($meetups)->previous?->instance->getDateTime()->format('Y');
 		$nextYear = end($meetups)->next?->instance->getDateTime()->format('Y');
-		if ($nextYear == $year) {
+		if ($nextYear === $year) {
 			$nextYear = null; //this will happen if there is a future meetup scheduled
 		}
 

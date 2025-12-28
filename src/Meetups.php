@@ -2,6 +2,9 @@
 
 namespace MergePHP\Website;
 
+/**
+ * Enumeration of MergePHP meetup locations.
+ */
 enum Meetups: string
 {
 	case Atlanta = 'Atlanta';

@@ -14,8 +14,15 @@ use Nette\PhpGenerator\PhpNamespace;
 use Nette\PhpGenerator\Printer;
 use RuntimeException;
 
+/**
+ * Service for generating meetup class files.
+ */
 class MeetupGeneratorService
 {
+	/**
+	 * @param string $directory Directory where meetup files are stored
+	 * @throws RuntimeException If the directory is not writable
+	 */
 	public function __construct(public string $directory)
 	{
 		if (!is_writable($this->directory)) {
@@ -23,8 +30,15 @@ class MeetupGeneratorService
 		}
 	}
 
+	/** @var string Date format for suggested dates */
 	protected const string SUGGESTED_DATE_FORMAT = 'Y-m-d';
 
+	/**
+	 * Get a suggested date for the next meetup (second Thursday of current or next month).
+	 *
+	 * @param string $baseDate Base date to calculate from (default: 'now')
+	 * @return string Suggested date in Y-m-d format
+	 */
 	public function getSuggestedDate(string $baseDate = 'now'): string
 	{
 		/** @noinspection PhpUnhandledExceptionInspection */
@@ -39,7 +53,7 @@ class MeetupGeneratorService
 			}
 			$thursdays = 0;
 			do {
-				if ($date->format('D') == 'Thu') {
+				if ($date->format('D') === 'Thu') {
 					$thursdays++;
 				}
 				$date = $date->add(new DateInterval('P1D'));
@@ -52,6 +66,17 @@ class MeetupGeneratorService
 		return $fallback->format(self::SUGGESTED_DATE_FORMAT); // this should not happen
 	}
 
+	/**
+	 * Generate a new meetup class file.
+	 *
+	 * @param string $title Meetup title
+	 * @param string $description Meetup description (markdown supported)
+	 * @param string $date Meetup date in Y-m-d format
+	 * @param string $speakerName Speaker's name
+	 * @param string $speakerBio Speaker's bio (markdown supported)
+	 * @param string|null $image Optional image URL or path
+	 * @return MeetupGeneratorResponse Response containing filename and bytes written
+	 */
 	public function generate(
 		string $title,
 		string $description,

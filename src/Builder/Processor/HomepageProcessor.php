@@ -9,8 +9,18 @@ use MergePHP\Website\Builder\MeetupCollection;
 use Psr\Log\LoggerInterface;
 use Twig\Environment;
 
+/**
+ * Processor that generates the homepage.
+ */
 class HomepageProcessor extends HTMLProcessor
 {
+	/**
+	 * @param LoggerInterface $logger Logger for build output
+	 * @param string $outputDirectory Directory where built files are written
+	 * @param MeetupCollection $meetups Collection of all meetups
+	 * @param Environment $twig Twig template environment
+	 * @param array $twigData Common data to pass to all Twig templates
+	 */
 	public function __construct(
 		protected LoggerInterface $logger,
 		protected string $outputDirectory,
@@ -21,6 +31,9 @@ class HomepageProcessor extends HTMLProcessor
 		parent::__construct($logger, $this->outputDirectory);
 	}
 
+	/**
+	 * Generate the homepage with next meetup and archive year.
+	 */
 	public function run(): void
 	{
 		$this->logger->info('Building homepage');

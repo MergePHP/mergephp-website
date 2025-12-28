@@ -4,8 +4,17 @@ declare(strict_types=1);
 
 namespace MergePHP\Website;
 
+/**
+ * Abstract base class for meetup implementations.
+ * Provides default implementations for common meetup functionality.
+ */
 abstract class AbstractMeetup implements MeetupInterface
 {
+	/**
+	 * Generate a URL-friendly slug from the meetup title.
+	 *
+	 * @return string The slug, or 'untitled' if the title produces an empty slug
+	 */
 	public function getSlug(): string
 	{
 		$slug = $this->getTitle();
@@ -18,16 +27,33 @@ abstract class AbstractMeetup implements MeetupInterface
 		return strlen($slug) ? $slug : 'untitled';
 	}
 
+	/**
+	 * Get the permalink URL for this meetup.
+	 *
+	 * @return string The permalink path
+	 */
 	public function getPermalink(): string
 	{
 		return '/meetups/' . $this->getDateTime()->format('Y/m/d') . "/{$this->getSlug()}.html";
 	}
 
+	/**
+	 * Get the image path for this meetup.
+	 *
+	 * @return string The image path, defaults to placeholder
+	 */
 	public function getImage(): string
 	{
 		return '/images/placeholder.webp';
 	}
 
+	/**
+	 * Get the full URL for the meetup image.
+	 * If the image path is already a full URL, returns it as-is.
+	 * Otherwise, prepends the base URL.
+	 *
+	 * @return string The full image URL
+	 */
 	public function getImageUrl(): string
 	{
 		if (str_starts_with($this->getImage(), 'http')) {
@@ -37,11 +63,21 @@ abstract class AbstractMeetup implements MeetupInterface
 		}
 	}
 
+	/**
+	 * Get the YouTube link for this meetup.
+	 *
+	 * @return string|null The YouTube URL, or null if not available
+	 */
 	public function getYouTubeLink(): ?string
 	{
 		return null;
 	}
 
+	/**
+	 * Get links to meetup event pages.
+	 *
+	 * @return array Array of meetup links
+	 */
 	public function getMeetupLinks(): array
 	{
 		return [];

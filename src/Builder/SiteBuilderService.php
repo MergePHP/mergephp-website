@@ -26,11 +26,22 @@ use Twig\Extension\DebugExtension;
 use Twig\Extra\Markdown\MarkdownExtension;
 use Twig\Loader\FilesystemLoader;
 
+/**
+ * Main service for building the static website.
+ * Orchestrates all processors to generate the complete site.
+ */
 class SiteBuilderService
 {
+	/** @var string Application root directory */
 	protected const string APP_ROOT = __DIR__ . '/../..';
+
+	/** @var Environment Twig template environment */
 	private Environment $twig;
 
+	/**
+	 * @param string $outputDirectory Directory where built files are written
+	 * @param LoggerInterface $logger Logger for build output
+	 */
 	public function __construct(protected string $outputDirectory, protected LoggerInterface $logger)
 	{
 		$this->twig = new Environment(new FilesystemLoader(self::APP_ROOT . '/templates/'), [
@@ -42,6 +53,12 @@ class SiteBuilderService
 		$this->twig->addRuntimeLoader(new TwigRuntimeLoader());
 	}
 
+	/**
+	 * Build the complete static website.
+	 * Runs all processors in sequence to generate all site files.
+	 *
+	 * @throws RuntimeException If build directory cannot be set up or files cannot be written
+	 */
 	public function build(): void
 	{
 		$collection = self::generateMeetupCollection();
@@ -65,6 +82,11 @@ class SiteBuilderService
 		$this->logger->info('Finished successfully');
 	}
 
+	/**
+	 * Ensure the build directory exists and is writable.
+	 *
+	 * @throws RuntimeException If directory cannot be created or is not writable
+	 */
 	protected function setUpBuildDir(): void
 	{
 		if (!file_exists($this->outputDirectory)) {
@@ -79,6 +101,11 @@ class SiteBuilderService
 		}
 	}
 
+	/**
+	 * Delete all existing files and directories in the output directory.
+	 *
+	 * @throws RuntimeException If a file or directory cannot be deleted
+	 */
 	protected function wipeExistingBuild(): void
 	{
 		$this->logger->debug("Wiping $this->outputDirectory");
@@ -104,6 +131,11 @@ class SiteBuilderService
 		$this->logger->info("Wiped output directory of $deletedFiles files and $deletedDirectories directories");
 	}
 
+	/**
+	 * Load all meetup classes from the Meetup directory and create a collection.
+	 *
+	 * @return MeetupCollection Sorted collection of all meetups
+	 */
 	protected static function generateMeetupCollection(): MeetupCollection
 	{
 		$meetups = new MeetupCollection();
@@ -118,6 +150,11 @@ class SiteBuilderService
 		return $meetups;
 	}
 
+	/**
+	 * Generate common variables to pass to all Twig templates.
+	 *
+	 * @return array Array of common template variables
+	 */
 	protected static function generateCommonTwigVars(): array
 	{
 		$meetupLocations = [];

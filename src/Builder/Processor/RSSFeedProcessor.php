@@ -13,8 +13,16 @@ use RuntimeException;
 
 use function str_contains;
 
+/**
+ * Processor that generates the RSS/Atom feed (atom.xml).
+ */
 class RSSFeedProcessor extends AbstractProcessor
 {
+	/**
+	 * @param LoggerInterface $logger Logger for build output
+	 * @param string $outputDirectory Directory where built files are written
+	 * @param MeetupCollection $meetups Collection of all meetups
+	 */
 	public function __construct(
 		protected LoggerInterface $logger,
 		protected string $outputDirectory,
@@ -23,6 +31,12 @@ class RSSFeedProcessor extends AbstractProcessor
 		parent::__construct($logger, $this->outputDirectory);
 	}
 
+	/**
+	 * Generate the Atom RSS feed file.
+	 *
+	 * @throws InvalidContentException If a meetup description contains a <pre> tag
+	 * @throws RuntimeException If the feed cannot be saved or contains invalid XML
+	 */
 	public function run(): void
 	{
 		$this->logger->info('Building RSS feed');
