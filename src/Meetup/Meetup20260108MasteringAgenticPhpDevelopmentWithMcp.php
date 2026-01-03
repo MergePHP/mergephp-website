@@ -45,4 +45,9 @@ class Meetup20260108MasteringAgenticPhpDevelopmentWithMcp extends AbstractMeetup
 		Services. Co-organizer at Longhorn PHP Conference.
 		END;
 	}
+
+	public function getImage(): string
+	{
+		return '/images/mastering-agentic-php-development-with-mcp.webp';
+	}
 }
