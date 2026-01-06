@@ -16,9 +16,9 @@ class Meetup20260212DomainDrivenPhp extends AbstractMeetup
 	}
 
 	public function getImage(): string
-  {
-      return '/images/domain-driven-php.png';
-  }
+	{
+		return '/images/domain-driven-php.png';
+	}
 
 	public function getDescription(): string
 	{
