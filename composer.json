@@ -42,7 +42,11 @@
 			"Composer\\Config::disableProcessTimeout",
 			"php -S localhost:8000 -t dist/"
 		],
-		"test": "phpunit --colors=always --testdox tests"
+		"test": "phpunit --colors=always --testdox tests",
+		"watch": [
+			"Composer\\Config::disableProcessTimeout",
+			"php watch.php"
+		]
 	},
 	"autoload": {
 		"psr-4": {
