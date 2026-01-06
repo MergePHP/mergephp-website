@@ -45,7 +45,7 @@
 		"test": "phpunit --colors=always --testdox tests",
 		"watch": [
 			"Composer\\Config::disableProcessTimeout",
-			"php watch.php"
+			"php console.php watch"
 		]
 	},
 	"autoload": {

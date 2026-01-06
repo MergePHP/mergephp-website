@@ -13,6 +13,7 @@ help:
 	@echo "  make generate    - Generate a new meetup"
 	@echo "  make build-site  - Build the static site"
 	@echo "  make serve       - Serve the site on localhost:$(HOST_PORT)"
+	@echo "  make watch       - Watch changes, build, and serve the site on localhost:$(HOST_PORT)"
 	@echo "  make test        - Run PHPUnit tests"
 	@echo "  make lint        - Check code style"
 	@echo "  make fix-lint    - Fix lint errors automatically"
@@ -38,6 +39,10 @@ build-site: build
 # Serve the site
 serve: build
 	docker run --rm -p $(HOST_PORT):$(CONTAINER_PORT) -v $(PWD):/var/www/html --name $(CONTAINER_NAME) $(IMAGE_NAME) php -S 0.0.0.0:$(CONTAINER_PORT) -t dist/
+
+# Watch changes, build, and serve the site
+watch: build
+	docker run --rm -it -p $(HOST_PORT):$(CONTAINER_PORT) -v $(PWD):/var/www/html --name $(CONTAINER_NAME) $(IMAGE_NAME) php console.php watch --host=0.0.0.0
 
 # Run tests
 test: build
