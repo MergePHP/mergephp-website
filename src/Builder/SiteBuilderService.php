@@ -47,42 +47,54 @@ class SiteBuilderService
 		$collection = self::generateMeetupCollection();
 		$this->logger->debug("Loaded {$collection->count()} meetups");
 
-		$this->setUpBuildDir();
-		$this->wipeExistingBuild();
+		// Build to a temporary directory, then swap atomically
+		// This prevents race conditions with the dev server during watch mode
+		$buildDir = $this->outputDirectory . '.build';
+		$oldDir = $this->outputDirectory . '.old';
+
+		$this->setUpBuildDir($buildDir);
+		$this->wipeDirectory($buildDir);
 
 		$twigData = self::generateCommonTwigVars();
 
 		$clock = SystemClock::fromUTC();
 
-		(new StaticFileProcessor($this->logger, $this->outputDirectory, self::APP_ROOT . '/public'))->run();
-		(new HomepageProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
-		(new PageNotFoundProcessor($this->logger, $this->outputDirectory, $this->twig, $twigData))->run();
-		(new MeetupProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
-		(new ArchiveProcessor($this->logger, $this->outputDirectory, $collection, $this->twig, $twigData))->run();
-		(new SitemapProcessor($this->logger, $this->outputDirectory, $clock))->run();
-		(new RSSFeedProcessor($this->logger, $this->outputDirectory, $collection))->run();
-		(new YouTubeLinkProcessor($this->logger, $this->outputDirectory, $collection))->run();
+		(new StaticFileProcessor($this->logger, $buildDir, self::APP_ROOT . '/public'))->run();
+		(new HomepageProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
+		(new PageNotFoundProcessor($this->logger, $buildDir, $this->twig, $twigData))->run();
+		(new MeetupProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
+		(new ArchiveProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
+		(new SitemapProcessor($this->logger, $buildDir, $clock))->run();
+		(new RSSFeedProcessor($this->logger, $buildDir, $collection))->run();
+		(new YouTubeLinkProcessor($this->logger, $buildDir, $collection))->run();
+
+		// Atomic swap: move old dist out, move new build in
+		$this->swapDirectories($buildDir, $this->outputDirectory, $oldDir);
+
 		$this->logger->info('Finished successfully');
 	}
 
-	protected function setUpBuildDir(): void
+	protected function setUpBuildDir(string $directory): void
 	{
-		if (!file_exists($this->outputDirectory)) {
-			$this->logger->debug("Creating $this->outputDirectory");
-			mkdir($this->outputDirectory);
-			if (!is_dir($this->outputDirectory)) {
-				throw new RuntimeException("Could not create $this->outputDirectory");
+		if (!file_exists($directory)) {
+			$this->logger->debug("Creating $directory");
+			mkdir($directory);
+			if (!is_dir($directory)) {
+				throw new RuntimeException("Could not create $directory");
 			}
 		}
-		if (!is_writable($this->outputDirectory)) {
-			throw new RuntimeException("$this->outputDirectory exists but is not writable");
+		if (!is_writable($directory)) {
+			throw new RuntimeException("$directory exists but is not writable");
 		}
 	}
 
-	protected function wipeExistingBuild(): void
+	protected function wipeDirectory(string $directory): void
 	{
-		$this->logger->debug("Wiping $this->outputDirectory");
-		$directoryIterator = new RecursiveDirectoryIterator($this->outputDirectory, FilesystemIterator::SKIP_DOTS);
+		if (!is_dir($directory)) {
+			return;
+		}
+		$this->logger->debug("Wiping $directory");
+		$directoryIterator = new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS);
 		$iterator = new RecursiveIteratorIterator($directoryIterator, RecursiveIteratorIterator::CHILD_FIRST);
 		$deletedFiles = $deletedDirectories = 0;
 		foreach ($iterator as $file) {
@@ -101,7 +113,39 @@ class SiteBuilderService
 				}
 			}
 		}
-		$this->logger->info("Wiped output directory of $deletedFiles files and $deletedDirectories directories");
+		$this->logger->info("Wiped directory of $deletedFiles files and $deletedDirectories directories");
+	}
+
+	protected function swapDirectories(string $newDir, string $targetDir, string $oldDir): void
+	{
+		// Clean up any leftover old directory from previous builds
+		$this->wipeDirectory($oldDir);
+		if (is_dir($oldDir)) {
+			rmdir($oldDir);
+		}
+
+		// Swap: target -> old, new -> target
+		if (is_dir($targetDir)) {
+			$this->logger->debug("Moving $targetDir to $oldDir");
+			if (!rename($targetDir, $oldDir)) {
+				throw new RuntimeException("Could not move $targetDir to $oldDir");
+			}
+		}
+
+		$this->logger->debug("Moving $newDir to $targetDir");
+		if (!rename($newDir, $targetDir)) {
+			// Try to restore the old directory if the swap failed
+			if (is_dir($oldDir)) {
+				rename($oldDir, $targetDir);
+			}
+			throw new RuntimeException("Could not move $newDir to $targetDir");
+		}
+
+		// Clean up the old directory
+		$this->wipeDirectory($oldDir);
+		if (is_dir($oldDir)) {
+			rmdir($oldDir);
+		}
 	}
 
 	protected static function generateMeetupCollection(): MeetupCollection
