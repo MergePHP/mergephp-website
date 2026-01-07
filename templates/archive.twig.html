@@ -3,6 +3,7 @@
 <h1>{{ year }} Meetups</h1>
 
 {% for meetup in meetups %}
+{% set isUpcoming = meetup.getDateTime() > date() %}
 <!-- Blog List Start -->
 <div class="container bg-white pt-5">
 	<div class="row blog-item px-3 pb-5">
@@ -13,6 +14,7 @@
 			<h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold"><a href="{{ meetup.getPermalink() }}">{{ meetup.getTitle() }}</a></h3>
 			<div class="d-flex mb-3">
 				<time class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> {{ meetup.getDateTime().format('F jS, Y') }}</time>
+				{% if isUpcoming %}<span class="badge badge-primary ml-2">Upcoming</span>{% endif %}
 			</div>
 			<p>
 				{% apply markdown_to_html %}
