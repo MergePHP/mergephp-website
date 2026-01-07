@@ -16,18 +16,34 @@ use Symfony\Component\Console\Question\Question;
 	name: 'generate',
 	description: 'Generate a new Meetup instance',
 )]
+/**
+ * Console command for interactively generating new meetup class files.
+ */
 class MeetupGeneratorCommand extends Command
 {
+	/**
+	 * @param MeetupGeneratorService $meetupGeneratorService Service for generating meetup files
+	 */
 	public function __construct(protected MeetupGeneratorService $meetupGeneratorService)
 	{
 		parent::__construct();
 	}
 
+	/**
+	 * Configure the command.
+	 */
 	protected function configure(): void
 	{
 		$this->setHelp('This command will prompt for input and generate a new Meetup instance');
 	}
 
+	/**
+	 * Execute the command.
+	 *
+	 * @param InputInterface $input Input interface
+	 * @param OutputInterface $output Output interface
+	 * @return int Command exit code
+	 */
 	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$helper = $this->getHelper('question');
@@ -54,6 +70,14 @@ class MeetupGeneratorCommand extends Command
 		return Command::SUCCESS;
 	}
 
+	/**
+	 * Handle MissingInputException that occurs on Windows when running through Composer.
+	 *
+	 * @param MissingInputException $e The exception that was thrown
+	 * @param OutputInterface $output Output interface
+	 * @param bool $isInteractive Whether the command is running in interactive mode
+	 * @return int Command exit code
+	 */
 	protected function handleFirstMissingInputException(
 		MissingInputException $e,
 		OutputInterface $output,
