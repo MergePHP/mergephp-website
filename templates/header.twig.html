@@ -38,6 +38,17 @@
 			(function() {
 				try {
 					var userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+					// Major US/Canada/Mexico timezones
+					var naTz = [
+						'America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles',
+						'America/Phoenix', 'America/Anchorage', 'America/Adak', 'America/Honolulu',
+						'America/Detroit', 'America/Indiana/Indianapolis', 'America/Boise',
+						'America/Toronto', 'America/Vancouver', 'America/Edmonton', 'America/Winnipeg',
+						'America/Halifax', 'America/St_Johns', 'America/Regina',
+						'America/Mexico_City', 'America/Tijuana', 'America/Cancun', 'America/Monterrey'
+					];
+					// Show local time for North America, NYC time for others
+					var displayTz = naTz.indexOf(userTz) !== -1 ? userTz : 'America/New_York';
 					// Get today's date in NYC timezone (en-CA gives YYYY-MM-DD)
 					var nycDate = new Date().toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
 					// Create 19:00 NYC, then adjust to actual 19:00 Eastern
@@ -48,7 +59,7 @@
 					var meeting = new Date(guess.getTime() + (19 - guessHour) * 3600000);
 					var fmt = new Intl.DateTimeFormat('en-US', {
 						hour: '2-digit', minute: '2-digit',
-						hour12: false, timeZone: userTz, timeZoneName: 'short'
+						hour12: false, timeZone: displayTz, timeZoneName: 'short'
 					});
 					document.getElementById('meeting-time').textContent = fmt.format(meeting);
 				} catch (e) { /* fallback already shown */ }
