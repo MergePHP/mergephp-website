@@ -31,8 +31,29 @@
 		<div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
 			<a href="/"><img class="mx-auto d-block bg-primary img-fluid mb-4" alt="MergePHP Logo" src="/images/logo.jpg"></a>
 			<p class="mb-4">
-				MergePHP meets the second Thursday of every month at 20:00 Eastern/17:00 Pacific
+				MergePHP meets the second Thursday of every month at
+				<span id="meeting-time">19:00 Eastern</span>
 			</p>
+			<script>
+			(function() {
+				try {
+					var userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+					// Get today's date in NYC timezone (en-CA gives YYYY-MM-DD)
+					var nycDate = new Date().toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
+					// Create 19:00 NYC, then adjust to actual 19:00 Eastern
+					var guess = new Date(nycDate + 'T19:00:00');
+					var guessHour = parseInt(guess.toLocaleString('en-US', {
+						timeZone: 'America/New_York', hour: 'numeric', hour12: false
+					}));
+					var meeting = new Date(guess.getTime() + (19 - guessHour) * 3600000);
+					var fmt = new Intl.DateTimeFormat('en-US', {
+						hour: '2-digit', minute: '2-digit',
+						hour12: false, timeZone: userTz, timeZoneName: 'short'
+					});
+					document.getElementById('meeting-time').textContent = fmt.format(meeting);
+				} catch (e) { /* fallback already shown */ }
+			})();
+			</script>
 			<div class="d-flex justify-content-center mb-5">
 				<a class="btn btn-outline-primary mr-2" title="Twitter" href="https://twitter.com/mergephp"><i class="fab fa-twitter"></i></a>
 				<a class="btn btn-outline-primary mr-2" title="YouTube" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i></a>
