@@ -25,9 +25,10 @@ class ArchiveProcessor extends HTMLProcessor
 	public function run(): void
 	{
 		$this->logger->info('Building archive pages');
-		$buckets = [];
 
-		foreach ($this->meetups->withOnlyPast() as $meetup) {
+		// Bucket all meetups by year
+		$buckets = [];
+		foreach ($this->meetups as $meetup) {
 			$year = $meetup->instance->getDateTime()->format('Y');
 			if (!isset($buckets[$year])) {
 				$buckets[$year] = [];
@@ -37,7 +38,7 @@ class ArchiveProcessor extends HTMLProcessor
 
 		foreach ($buckets as $year => $meetups) {
 			$this->logger->debug('Writing ' . count($meetups) . " meetups to the $year archive page");
-			$this->generateArchivePage($year, $meetups);
+			$this->generateArchivePage((int) $year, $meetups);
 		}
 	}
 
@@ -57,7 +58,7 @@ class ArchiveProcessor extends HTMLProcessor
 		$previousYear = reset($meetups)->previous?->instance->getDateTime()->format('Y');
 		$nextYear = end($meetups)->next?->instance->getDateTime()->format('Y');
 		if ($nextYear == $year) {
-			$nextYear = null; //this will happen if there is a future meetup scheduled
+			$nextYear = null; // Avoid linking to the same year
 		}
 
 		$meetups = array_map(fn(MeetupEntry $meetupEntry) => $meetupEntry->instance, $meetups);
