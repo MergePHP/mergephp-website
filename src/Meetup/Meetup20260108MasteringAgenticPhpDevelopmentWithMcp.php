@@ -52,4 +52,9 @@ class Meetup20260108MasteringAgenticPhpDevelopmentWithMcp extends AbstractMeetup
 	{
 		return '/images/mastering-agentic-php-development-with-mcp.webp';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=gOwNzKY_0O4';
+	}
 }
