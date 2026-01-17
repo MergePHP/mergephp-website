@@ -24,6 +24,8 @@ class Meetup20260108MasteringAgenticPhpDevelopmentWithMcp extends AbstractMeetup
 		that connects directly to PHP.net documentation. We'll also implement Composer package search for intelligent
 		dependency discovery. Join me to see how this Master Control Program...unlike the TRON original...is actually
 		here to help.
+
+		Code from the slides is available at [https://github.com/hskrasek/php-mcp](https://github.com/hskrasek/php-mcp)
 		END;
 	}
 
@@ -49,5 +51,10 @@ class Meetup20260108MasteringAgenticPhpDevelopmentWithMcp extends AbstractMeetup
 	public function getImage(): string
 	{
 		return '/images/mastering-agentic-php-development-with-mcp.webp';
+	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=gOwNzKY_0O4';
 	}
 }

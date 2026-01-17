@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use FilesystemIterator;
 use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
+use MergePHP\Website\Builder\Processor\ICalProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
 use MergePHP\Website\Builder\Processor\YouTubeLinkProcessor;
@@ -66,11 +67,11 @@ class SiteBuilderService
 		(new ArchiveProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $buildDir, $clock))->run();
 		(new RSSFeedProcessor($this->logger, $buildDir, $collection))->run();
+		(new ICalProcessor($this->logger, $this->outputDirectory, $collection))->run();
 		(new YouTubeLinkProcessor($this->logger, $buildDir, $collection))->run();
 
 		// Atomic swap: move old dist out, move new build in
 		$this->swapDirectories($buildDir, $this->outputDirectory, $oldDir);
-
 		$this->logger->info('Finished successfully');
 	}
 
