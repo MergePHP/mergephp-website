@@ -138,7 +138,13 @@ class WatchCommand extends Command
 
 	private function runBuild(OutputInterface $output): void
 	{
-		$process = new Process(command: [PHP_BINARY, 'console.php', 'build'], cwd: $this->projectRoot);
+		$command = [PHP_BINARY, 'console.php', 'build'];
+		$verbosityFlag = $this->getVerbosityFlag($output);
+		if ($verbosityFlag !== null) {
+			$command[] = $verbosityFlag;
+		}
+
+		$process = new Process(command: $command, cwd: $this->projectRoot);
 		$process->setTimeout(timeout: null);
 		$process->run(function (string $type, string $buffer) use ($output): void {
 			$output->write($buffer);
@@ -162,5 +168,16 @@ class WatchCommand extends Command
 		$process->start();
 
 		return $process->isRunning() ? $process : null;
+	}
+
+	private function getVerbosityFlag(OutputInterface $output): ?string
+	{
+		return match ($output->getVerbosity()) {
+			OutputInterface::VERBOSITY_QUIET => '-q',
+			OutputInterface::VERBOSITY_VERBOSE => '-v',
+			OutputInterface::VERBOSITY_VERY_VERBOSE => '-vv',
+			OutputInterface::VERBOSITY_DEBUG => '-vvv',
+			default => null,
+		};
 	}
 }

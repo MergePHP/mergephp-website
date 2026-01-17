@@ -1,9 +1,10 @@
-.PHONY: build install generate build-site serve test lint fix-lint coverage help
+.PHONY: build docker-build install generate build-site serve test lint fix-lint coverage help
 
 IMAGE_NAME = mergephp-website
 CONTAINER_NAME = mergephp-website-container
 HOST_PORT = 8000
 CONTAINER_PORT = 8000
+ARGS ?=
 
 # Default target
 help:
@@ -12,8 +13,10 @@ help:
 	@echo "  make install     - Install Composer dependencies"
 	@echo "  make generate    - Generate a new meetup"
 	@echo "  make build-site  - Build the static site"
+	@echo "                    Example: make build-site ARGS=\"-- -vvv\""
 	@echo "  make serve       - Serve the site on localhost:$(HOST_PORT)"
 	@echo "  make watch       - Watch changes, build, and serve the site on localhost:$(HOST_PORT)"
+	@echo "                    Example: make watch ARGS=\"-vvv\""
 	@echo "  make test        - Run PHPUnit tests"
 	@echo "  make lint        - Check code style"
 	@echo "  make fix-lint    - Fix lint errors automatically"
@@ -25,7 +28,7 @@ build:
 	docker build -t $(IMAGE_NAME) .
 
 # Install dependencies
-install:
+install: build
 	docker run --rm -v $(PWD):/var/www/html $(IMAGE_NAME) composer install
 
 # Generate a new meetup
@@ -34,7 +37,7 @@ generate: build
 
 # Build the static site
 build-site: build
-	docker run --rm -v $(PWD):/var/www/html $(IMAGE_NAME) composer build
+	docker run --rm -v $(PWD):/var/www/html $(IMAGE_NAME) composer build $(ARGS)
 
 # Serve the site
 serve: build
@@ -42,7 +45,7 @@ serve: build
 
 # Watch changes, build, and serve the site
 watch: build
-	docker run --rm -it -p $(HOST_PORT):$(CONTAINER_PORT) -v $(PWD):/var/www/html --name $(CONTAINER_NAME) $(IMAGE_NAME) php console.php watch --host=0.0.0.0
+	docker run --rm -it -p $(HOST_PORT):$(CONTAINER_PORT) -v $(PWD):/var/www/html --name $(CONTAINER_NAME) $(IMAGE_NAME) php console.php watch --host=0.0.0.0 $(ARGS)
 
 # Run tests
 test: build
