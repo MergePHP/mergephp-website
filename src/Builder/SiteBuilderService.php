@@ -91,6 +91,7 @@ class SiteBuilderService
 	protected function wipeDirectory(string $directory): void
 	{
 		if (!is_dir($directory)) {
+			$this->logger->debug("Would have wiped $directory but it doesn't exist");
 			return;
 		}
 		$this->logger->debug("Wiping $directory");
