@@ -79,9 +79,8 @@ class SiteBuilderService
 	{
 		if (!file_exists($directory)) {
 			$this->logger->debug("Creating $directory");
-			mkdir($directory);
-			if (!is_dir($directory)) {
-				throw new RuntimeException("Could not create $directory");
+			if (!mkdir($directory) && !is_dir($directory)) {
+				throw new \RuntimeException(sprintf('Directory "%s" was not created', $directory));
 			}
 		}
 		if (!is_writable($directory)) {
