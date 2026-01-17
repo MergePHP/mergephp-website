@@ -9,6 +9,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Process\Process;
 
 #[AsCommand(
 	name: 'watch',
@@ -71,29 +72,27 @@ class WatchCommand extends Command
 			return Command::FAILURE;
 		}
 
-		$pipes = $serverProcess['pipes'];
-
-		// Make pipes non-blocking
-		stream_set_blocking($pipes[1], false);
-		stream_set_blocking($pipes[2], false);
-
 		// Get initial file states
 		$lastModTimes = $watcher->getFileModTimes();
 
 		// Handle shutdown
 		$running = true;
-		$process = $serverProcess['process'];
+		$shutdown = function () use (&$running, $serverProcess, $output): void {
+			$running = false;
+			$output->writeln('');
+			$output->writeln('Shutting down...');
+			$serverProcess->stop(1);
+		};
 
 		if (function_exists('pcntl_signal')) {
-			pcntl_signal(SIGINT, function () use (&$running, $process, $pipes, $output) {
-				$running = false;
-				$output->writeln('');
-				$output->writeln('Shutting down...');
-				fclose($pipes[0]);
-				fclose($pipes[1]);
-				fclose($pipes[2]);
-				proc_terminate($process);
+			pcntl_signal(signal: SIGINT, handler: $shutdown);
+		} elseif (function_exists('sapi_windows_set_ctrl_handler')) {
+			sapi_windows_set_ctrl_handler(handler: static function () use ($shutdown): bool {
+				$shutdown();
+				return true;
 			});
+		} else {
+			register_shutdown_function($shutdown);
 		}
 
 		// Main watch loop
@@ -104,7 +103,8 @@ class WatchCommand extends Command
 			}
 
 			// Check for server output
-			$this->drainPipes($pipes, $output);
+			$output->write($serverProcess->getIncrementalOutput());
+			$output->write($serverProcess->getIncrementalErrorOutput());
 
 			// Check for file changes
 			$currentModTimes = $watcher->getFileModTimes();
@@ -138,54 +138,29 @@ class WatchCommand extends Command
 
 	private function runBuild(OutputInterface $output): void
 	{
-		// Use passthru to run the build as a separate process
-		// This is more reliable than calling the command internally
-		$returnCode = 0;
-		passthru('php console.php build', $returnCode);
-		if ($returnCode !== 0) {
-			$output->writeln('<error>Build failed with exit code ' . $returnCode . '</error>');
+		$process = new Process(command: [PHP_BINARY, 'console.php', 'build'], cwd: $this->projectRoot);
+		$process->setTimeout(timeout: null);
+		$process->run(function (string $type, string $buffer) use ($output): void {
+			$output->write($buffer);
+		});
+
+		if (!$process->isSuccessful()) {
+			$output->writeln('<error>Build failed with exit code ' . $process->getExitCode() . '</error>');
 		}
 	}
 
 	/**
-	 * @return array{process: resource, pipes: array<int, resource>}|null
+	 * @return Process|null
 	 */
-	private function startServer(string $host, int $port): ?array
+	private function startServer(string $host, int $port): ?Process
 	{
-		// File descriptors for the child process (mode is from child's perspective)
-		$descriptors = [
-			0 => ['pipe', 'r'], // stdin  - child reads from this pipe
-			1 => ['pipe', 'w'], // stdout - child writes to this pipe
-			2 => ['pipe', 'w'], // stderr - child writes to this pipe
-		];
-
-		$process = proc_open(
-			"php -S $host:$port -t {$this->outputDirectory}",
-			$descriptors,
-			$pipes,
-			$this->projectRoot
+		$process = new Process(
+			command: [PHP_BINARY, '-S', "$host:$port", '-t', $this->outputDirectory],
+			cwd: $this->projectRoot
 		);
+		$process->setTimeout(timeout: null);
+		$process->start();
 
-		if (!is_resource($process)) {
-			return null;
-		}
-
-		return ['process' => $process, 'pipes' => $pipes];
-	}
-
-	/**
-	 * @param array<int, resource> $pipes
-	 */
-	private function drainPipes(array $pipes, OutputInterface $output): void
-	{
-		$serverOutput = stream_get_contents($pipes[1]);
-		$serverErrors = stream_get_contents($pipes[2]);
-
-		if ($serverOutput) {
-			$output->write($serverOutput);
-		}
-		if ($serverErrors) {
-			$output->write($serverErrors);
-		}
+		return $process->isRunning() ? $process : null;
 	}
 }

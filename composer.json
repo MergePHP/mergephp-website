@@ -30,7 +30,8 @@
 	},
 	"require-dev": {
 		"mikey179/vfsstream": "^1.6.11",
-		"phpunit/phpunit": "^10.0.10"
+		"phpunit/phpunit": "^10.0.10",
+		"symfony/process": "^6.1"
 	},
 	"scripts": {
 		"build": "php console.php build",
