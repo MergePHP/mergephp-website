@@ -29,18 +29,18 @@ class WatchCommand extends Command
 	protected function configure(): void
 	{
 		$this->addOption(
-			'host',
-			null,
-			InputOption::VALUE_REQUIRED,
-			'Host to bind the server to (use 0.0.0.0 for Docker)',
-			'localhost'
+			name: 'host',
+			shortcut: null,
+			mode: InputOption::VALUE_REQUIRED,
+			description: 'Host to bind the server to (use 0.0.0.0 for Docker)',
+			default: 'localhost'
 		);
 		$this->addOption(
-			'port',
-			'p',
-			InputOption::VALUE_REQUIRED,
-			'Port for the development server',
-			'8000'
+			name: 'port',
+			shortcut: 'p',
+			mode: InputOption::VALUE_REQUIRED,
+			description: 'Port for the development server',
+			default: '8000'
 		);
 	}
 
