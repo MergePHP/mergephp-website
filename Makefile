@@ -13,7 +13,7 @@ help:
 	@echo "  make install     - Install Composer dependencies"
 	@echo "  make generate    - Generate a new meetup"
 	@echo "  make build-site  - Build the static site"
-	@echo "                     Example: `make build-site ARGS='-- -vvv'`"
+	@echo "                     Example: make build-site ARGS='-- -vvv'"
 	@echo "  make serve       - Serve the site on localhost:$(HOST_PORT)"
 	@echo "  make watch       - Watch changes, build, and serve the site on localhost:$(HOST_PORT)"
 	@echo "                     Example: make watch ARGS='-vvv'"
