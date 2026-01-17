@@ -67,7 +67,7 @@ class SiteBuilderService
 		(new ArchiveProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $buildDir, $clock))->run();
 		(new RSSFeedProcessor($this->logger, $buildDir, $collection))->run();
-		(new ICalProcessor($this->logger, $this->outputDirectory, $collection))->run();
+		(new ICalProcessor($this->logger, $buildDir, $collection))->run();
 		(new YouTubeLinkProcessor($this->logger, $buildDir, $collection))->run();
 
 		// Atomic swap: move old dist out, move new build in
