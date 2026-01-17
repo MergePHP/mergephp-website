@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use FilesystemIterator;
 use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
+use MergePHP\Website\Builder\Processor\ICalProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
 use MergePHP\Website\Builder\Processor\YouTubeLinkProcessor;
@@ -66,11 +67,11 @@ class SiteBuilderService
 		(new ArchiveProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $buildDir, $clock))->run();
 		(new RSSFeedProcessor($this->logger, $buildDir, $collection))->run();
+		(new ICalProcessor($this->logger, $buildDir, $collection))->run();
 		(new YouTubeLinkProcessor($this->logger, $buildDir, $collection))->run();
 
 		// Atomic swap: move old dist out, move new build in
 		$this->swapDirectories($buildDir, $this->outputDirectory, $oldDir);
-
 		$this->logger->info('Finished successfully');
 	}
 
@@ -78,9 +79,8 @@ class SiteBuilderService
 	{
 		if (!file_exists($directory)) {
 			$this->logger->debug("Creating $directory");
-			mkdir($directory);
-			if (!is_dir($directory)) {
-				throw new RuntimeException("Could not create $directory");
+			if (!mkdir($directory) && !is_dir($directory)) {
+				throw new \RuntimeException(sprintf('Directory "%s" was not created', $directory));
 			}
 		}
 		if (!is_writable($directory)) {
@@ -91,6 +91,7 @@ class SiteBuilderService
 	protected function wipeDirectory(string $directory): void
 	{
 		if (!is_dir($directory)) {
+			$this->logger->debug("Would have wiped $directory but it doesn't exist");
 			return;
 		}
 		$this->logger->debug("Wiping $directory");

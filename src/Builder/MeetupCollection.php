@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace MergePHP\Website\Builder;
 
+use ArrayAccess;
 use Countable;
 use DateTimeImmutable;
 use DateTimeZone;
 use Iterator;
+use MergePHP\Website\Exception\NotImplementedException;
 
-class MeetupCollection implements Iterator, Countable
+class MeetupCollection implements Iterator, Countable, ArrayAccess
 {
 	/** @var MeetupEntry[] */
 	private array $array = [];
@@ -86,5 +88,25 @@ class MeetupCollection implements Iterator, Countable
 		return array_filter($this->array, (function (MeetupEntry $meetupEntry) use ($NOW) {
 			return $meetupEntry->instance->getDateTime() > $NOW;
 		}));
+	}
+
+	public function offsetExists(mixed $offset): bool
+	{
+		return array_key_exists($offset, $this->array);
+	}
+
+	public function offsetGet(mixed $offset): ?MeetupEntry
+	{
+		return $this->array[$offset] ?? null;
+	}
+
+	public function offsetSet(mixed $offset, mixed $value): void
+	{
+		throw new NotImplementedException('Setting values directly is not allowed');
+	}
+
+	public function offsetUnset(mixed $offset): void
+	{
+		throw new NotImplementedException('Unsetting values directly is not allowed');
 	}
 }
