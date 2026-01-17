@@ -19,6 +19,7 @@
 		"ext-mbstring": "*",
 		"ext-readline": "*",
 		"ext-simplexml": "*",
+		"eluceo/ical": "^2.15",
 		"league/commonmark": "^2.3",
 		"nette/php-generator": "^4.0.0",
 		"psr/log": "^3.0.0",
@@ -30,7 +31,8 @@
 	},
 	"require-dev": {
 		"mikey179/vfsstream": "^1.6.11",
-		"phpunit/phpunit": "^10.0.10"
+		"phpunit/phpunit": "^10.0.10",
+		"symfony/process": "^6.1"
 	},
 	"scripts": {
 		"build": "php console.php build",
@@ -42,7 +44,11 @@
 			"Composer\\Config::disableProcessTimeout",
 			"php -S localhost:8000 -t dist/"
 		],
-		"test": "phpunit --colors=always --testdox tests"
+		"test": "phpunit --colors=always --testdox tests",
+		"watch": [
+			"Composer\\Config::disableProcessTimeout",
+			"php console.php watch"
+		]
 	},
 	"autoload": {
 		"psr-4": {

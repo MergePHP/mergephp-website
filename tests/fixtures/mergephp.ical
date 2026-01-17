@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+PRODID:-//eluceo/ical//2.0/EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:https://www.mergephp.com/meetups/2000/01/01/meetup-title.html
+DTSTAMP:20010101T060101Z
+LAST-MODIFIED:20010101T060101Z
+SUMMARY:Meetup Title
+DESCRIPTION:This description spans multiple lines and uses the heredoc synt
+ ax\nThis description spans multiple lines and uses the heredoc syntax
+URL:https://www.mergephp.com/meetups/2000/01/01/meetup-title.html
+DTSTART;TZID=America/New_York:20000101T000000
+DTEND;TZID=America/New_York:20000101T010000
+LOCATION:https://www.mergephp.com/
+ORGANIZER;CN=Speaker Name:mailto:nobody@mergephp.com
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:STANDARD
+DTSTART:20000101T000000
+TZNAME:EST
+TZOFFSETTO:-0500
+TZOFFSETFROM:-0500
+END:STANDARD
+END:VTIMEZONE
+END:VCALENDAR
