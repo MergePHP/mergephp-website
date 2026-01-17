@@ -1,4 +1,4 @@
-.PHONY: build docker-build install generate build-site serve test lint fix-lint coverage help
+.PHONY: build install generate build-site serve watch test lint fix-lint coverage bash help
 
 IMAGE_NAME = mergephp-website
 CONTAINER_NAME = mergephp-website-container
