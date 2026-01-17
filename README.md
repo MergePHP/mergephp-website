@@ -45,6 +45,14 @@ composer serve
 
 A server with the site will be available at [http://localhost:8000/](http://localhost:8000/)
 
+For development, you can use watch mode which automatically rebuilds on file changes:
+```bash
+composer watch
+```
+
+This starts the server and watches `src/`, `templates/`, and `public/` for changes, rebuilding
+automatically when files are modified.
+
 Finally, you can commit all your changes, keeping everything **in the same commit** and squashing
 if necessary.  Then, open a pull request with your changes.
 
