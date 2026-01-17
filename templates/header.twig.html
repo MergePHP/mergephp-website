@@ -31,39 +31,121 @@
 		<div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
 			<a href="/"><img class="mx-auto d-block bg-primary img-fluid mb-4" alt="MergePHP Logo" src="/images/logo.jpg"></a>
 			<p class="mb-4">
-				MergePHP meets the second Thursday of every month at
-				<span id="meeting-time">19:00 Eastern</span>
+				MergePHP meets the second Thursday of every month at 20:00 Eastern/17:00 Pacific
+			</p>
+			<p class="mb-4">
+				Next meeting: <span id="next-meeting-local">your local time</span>
 			</p>
 			<script>
-			(function() {
-				try {
-					var userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-					// Major US/Canada/Mexico timezones
-					var naTz = [
-						'America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles',
-						'America/Phoenix', 'America/Anchorage', 'America/Adak', 'America/Honolulu',
-						'America/Detroit', 'America/Indiana/Indianapolis', 'America/Boise',
-						'America/Toronto', 'America/Vancouver', 'America/Edmonton', 'America/Winnipeg',
-						'America/Halifax', 'America/St_Johns', 'America/Regina',
-						'America/Mexico_City', 'America/Tijuana', 'America/Cancun', 'America/Monterrey'
-					];
-					// Show local time for North America, NYC time for others
-					var displayTz = naTz.indexOf(userTz) !== -1 ? userTz : 'America/New_York';
-					// Get today's date in NYC timezone (en-CA gives YYYY-MM-DD)
-					var nycDate = new Date().toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
-					// Create 19:00 NYC, then adjust to actual 19:00 Eastern
-					var guess = new Date(nycDate + 'T19:00:00');
-					var guessHour = parseInt(guess.toLocaleString('en-US', {
-						timeZone: 'America/New_York', hour: 'numeric', hour12: false
-					}));
-					var meeting = new Date(guess.getTime() + (19 - guessHour) * 3600000);
-					var fmt = new Intl.DateTimeFormat('en-US', {
-						hour: '2-digit', minute: '2-digit',
-						hour12: true, timeZone: displayTz, timeZoneName: 'short'
+				(function () {
+					var output = document.getElementById('next-meeting-local');
+					if (!output) {
+						return;
+					}
+
+					var timeZone = 'America/New_York';
+					var weekdayMap = {
+						Sun: 0,
+						Mon: 1,
+						Tue: 2,
+						Wed: 3,
+						Thu: 4,
+						Fri: 5,
+						Sat: 6
+					};
+
+					function getTimeZoneParts(date, zone) {
+						var parts = new Intl.DateTimeFormat('en-US', {
+							timeZone: zone,
+							year: 'numeric',
+							month: '2-digit',
+							day: '2-digit'
+						}).formatToParts(date);
+						var values = {};
+						parts.forEach(function (part) {
+							values[part.type] = part.value;
+						});
+
+						return {
+							year: Number(values.year),
+							month: Number(values.month),
+							day: Number(values.day)
+						};
+					}
+
+					function getWeekdayInTimeZone(year, monthIndex, day, zone) {
+						var date = new Date(Date.UTC(year, monthIndex, day, 12, 0, 0));
+						var weekday = new Intl.DateTimeFormat('en-US', {
+							timeZone: zone,
+							weekday: 'short'
+						}).format(date);
+
+						return weekdayMap[weekday];
+					}
+
+					function getTimeZoneOffsetMinutes(date, zone) {
+						var parts = new Intl.DateTimeFormat('en-US', {
+							timeZone: zone,
+							hour12: false,
+							year: 'numeric',
+							month: '2-digit',
+							day: '2-digit',
+							hour: '2-digit',
+							minute: '2-digit',
+							second: '2-digit'
+						}).formatToParts(date);
+						var values = {};
+						parts.forEach(function (part) {
+							values[part.type] = part.value;
+						});
+						var asUtc = Date.UTC(
+							Number(values.year),
+							Number(values.month) - 1,
+							Number(values.day),
+							Number(values.hour),
+							Number(values.minute),
+							Number(values.second)
+						);
+
+						return (asUtc - date.getTime()) / 60000;
+					}
+
+					function getSecondThursdayMeetingUtc(year, monthIndex) {
+						var firstDay = getWeekdayInTimeZone(year, monthIndex, 1, timeZone);
+						var firstThursday = ((4 - firstDay + 7) % 7) + 1;
+						var secondThursday = firstThursday + 7;
+						var naiveUtc = Date.UTC(year, monthIndex, secondThursday, 20, 0, 0);
+						var offsetMinutes = getTimeZoneOffsetMinutes(new Date(naiveUtc), timeZone);
+						var meetingUtc = naiveUtc - (offsetMinutes * 60000);
+
+						return meetingUtc;
+					}
+
+					var nowUtc = Date.now();
+					var nowParts = getTimeZoneParts(new Date(nowUtc), timeZone);
+					var year = nowParts.year;
+					var month = nowParts.month - 1;
+					var meetingUtc = getSecondThursdayMeetingUtc(year, month);
+
+					if (nowUtc >= meetingUtc) {
+						month += 1;
+						if (month > 11) {
+							month = 0;
+							year += 1;
+						}
+						meetingUtc = getSecondThursdayMeetingUtc(year, month);
+					}
+
+					var meetingLocal = new Date(meetingUtc);
+					var formatter = new Intl.DateTimeFormat(undefined, {
+						dateStyle: 'long',
+						timeStyle: 'short',
+						hour12: false,
+						hourCycle: 'h23'
 					});
-					document.getElementById('meeting-time').textContent = fmt.format(meeting);
-				} catch (e) { /* fallback already shown */ }
-			})();
+
+					output.textContent = formatter.format(meetingLocal);
+				})();
 			</script>
 			<div class="d-flex justify-content-center mb-5">
 				<a class="btn btn-outline-primary mr-2" title="Twitter" href="https://twitter.com/mergephp"><i class="fab fa-twitter"></i></a>
