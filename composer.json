@@ -23,8 +23,8 @@
 		"league/commonmark": "^2.3",
 		"nette/php-generator": "^4.0.0",
 		"psr/log": "^3.0.0",
-		"squizlabs/php_codesniffer": "^3.9.1",
-		"symfony/console": "^6.1",
+		"squizlabs/php_codesniffer": "^4.0.1",
+		"symfony/console": "^7.4.3",
 		"twig/markdown-extra": "^3.4",
 		"twig/twig": "^3.0.0",
 		"lcobucci/clock": "^3.3"
@@ -32,7 +32,7 @@
 	"require-dev": {
 		"mikey179/vfsstream": "^1.6.11",
 		"phpunit/phpunit": "^10.0.10",
-		"symfony/process": "^6.1"
+		"symfony/process": "^7.4.3"
 	},
 	"scripts": {
 		"build": "php console.php build",
