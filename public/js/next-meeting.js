@@ -98,7 +98,10 @@
 	}
 
 	const meetingLocal = new Date(meetingUtc);
-	const formatter = new Intl.DateTimeFormat(undefined, {
+	const locales = (navigator.languages && navigator.languages.length)
+		? navigator.languages
+		: [navigator.language];
+	const formatter = new Intl.DateTimeFormat(locales, {
 		year: 'numeric',
 		month: 'long',
 		day: '2-digit',
