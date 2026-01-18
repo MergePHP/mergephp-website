@@ -1,13 +1,13 @@
 (function () {
-	var elements = document.querySelectorAll('time[data-localize="date"]');
+	const elements = document.querySelectorAll('time[data-localize="date"]');
 	if (!elements.length) {
 		return;
 	}
 
-	var locales = (navigator.languages && navigator.languages.length)
+	const locales = (navigator.languages && navigator.languages.length)
 		? navigator.languages
 		: [navigator.language];
-	var formatter;
+	let formatter;
 	try {
 		formatter = new Intl.DateTimeFormat(locales, {
 			dateStyle: 'long'
@@ -21,12 +21,12 @@
 	}
 
 	elements.forEach(function (element) {
-		var value = element.getAttribute('datetime');
+		const value = element.getAttribute('datetime');
 		if (!value) {
 			return;
 		}
 
-		var parsed = new Date(value);
+		const parsed = new Date(value);
 		if (Number.isNaN(parsed.getTime())) {
 			return;
 		}
