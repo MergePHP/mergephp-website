@@ -8,7 +8,7 @@
 	<div class="row px-3 pb-5">
 		<div class="col-md-12">
 			<p>Join us on
-				<time datetime="{{ nextMeetup.getDateTime().format('c') }}" style="display:inline">{{ nextMeetup.getDateTime().format('F jS, Y') }}</time>
+				<time datetime="{{ nextMeetup.getDateTime().format('c') }}" style="display:inline" data-localize="date">{{ nextMeetup.getDateTime().format('F jS, Y') }}</time>
 				as {{ nextMeetup.getSpeakerName() }} presents</p>
 			<h2 class="mb-4 font-weight-bold">{{ nextMeetup.getTitle() }}</h2>
 			<p class="m-0">
