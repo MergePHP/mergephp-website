@@ -77,9 +77,8 @@
 		const secondThursday = firstThursday + 7;
 		const naiveUtc = Date.UTC(year, monthIndex, secondThursday, 20, 0, 0);
 		const offsetMinutes = getTimeZoneOffsetMinutes(new Date(naiveUtc), timeZone);
-		const meetingUtc = naiveUtc - (offsetMinutes * 60000);
 
-		return meetingUtc;
+		return naiveUtc - (offsetMinutes * 60000);
 	}
 
 	const nowUtc = Date.now();
