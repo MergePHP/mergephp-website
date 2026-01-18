@@ -24,7 +24,7 @@
 		"nette/php-generator": "^4.0.0",
 		"psr/log": "^3.0.0",
 		"squizlabs/php_codesniffer": "^4.0.1",
-		"symfony/console": "^6.1",
+		"symfony/console": "^7.4.3",
 		"twig/markdown-extra": "^3.4",
 		"twig/twig": "^3.0.0",
 		"lcobucci/clock": "^3.3"
