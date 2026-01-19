@@ -12,7 +12,7 @@
 		formatter = new Intl.DateTimeFormat(locales, {
 			dateStyle: 'long'
 		});
-	} catch (error) {
+	} catch {
 		formatter = new Intl.DateTimeFormat(locales, {
 			year: 'numeric',
 			month: 'long',
