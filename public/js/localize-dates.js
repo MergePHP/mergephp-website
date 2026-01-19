@@ -8,6 +8,8 @@
 		? navigator.languages
 		: [navigator.language];
 	let formatter;
+
+	// dateStyle is unsupported in some older browsers, so fall back to explicit parts.
 	try {
 		formatter = new Intl.DateTimeFormat(locales, {
 			dateStyle: 'long'
