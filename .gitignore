@@ -3,4 +3,5 @@
 .phpunit.cache/
 .phpunit.result.cache
 dist
+node_modules
 vendor
