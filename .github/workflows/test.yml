@@ -17,7 +17,7 @@ jobs:
             -   name: Setup composer
                 uses: php-actions/composer@v6
                 with:
-                    php_version: 8.3
+                    php_version: 8.4
 
             -   name: Run PHPUnit Tests
                 uses: php-actions/phpunit@v3
@@ -25,4 +25,4 @@ jobs:
                     args: --testdox tests
                     bootstrap: vendor/autoload.php
                     test_suffix: "Test.php" #workaround for https://github.com/php-actions/phpunit/pull/64
-                    php_version: "8.3"
+                    php_version: "8.4"
