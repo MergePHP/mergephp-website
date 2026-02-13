@@ -59,4 +59,9 @@ class Meetup20260212DomainDrivenPhp extends AbstractMeetup
 		- LinkedIn: [https://linkedin.com/in/ccmiller2018](https://linkedin.com/in/ccmiller2018)
 		END;
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=G7huvF-TAIs';
+	}
 }
