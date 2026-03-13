@@ -20,15 +20,34 @@ class Meetup20260409StopGuessingStartVerifyingAModernApiDocumentationAndTestingT
 		return <<<END
 		## Abstract
 
-		APIs are only as good as the trust developers place in them. That trust is built through clear documentation and rigorous testing — yet in many teams, both remain an afterthought. This session makes the case for treating your OpenAPI specification as the single source of truth for your entire API lifecycle, and demonstrates how a modern toolchain can turn that spec into living documentation, a contract enforcement mechanism, and an automated test suite.
+		APIs are only as good as the trust developers place in them. That trust is built through clear documentation
+		and rigorous testing — yet in many teams, both remain an afterthought. This session makes the case for treating
+		your OpenAPI specification as the single source of truth for your entire API lifecycle, and demonstrates how a
+		modern toolchain can turn that spec into living documentation, a contract enforcement mechanism, and an
+		automated test suite.
 
-		We begin with **OpenAPI** as the foundation: structuring a spec that accurately models your API's requests, responses, and error states. From there, we'll explore **Redocly** to transform that spec into polished, developer-friendly reference documentation — covering customization, linting, and the Redocly CLI for integrating docs into your CI/CD pipeline.
+		We begin with **OpenAPI** as the foundation: structuring a spec that accurately models your API's requests,
+		responses, and error states. From there, we'll explore **Redocly** to transform that spec into polished,
+		developer-friendly reference documentation — covering customization, linting, and the Redocly CLI for
+		integrating docs into your CI/CD pipeline.
 
-		The second half of the session focuses on testing across multiple layers. We'll cover **schema validation** (ensuring your implementation matches the spec), **contract testing** (verifying that producer and consumer agreements hold across deployments), and **negative testing** (probing edge cases and malformed inputs). A key focus will be validating your existing **PHPUnit test suite against your OpenAPI spec** — asserting that the responses your application actually returns conform to the schemas you've documented, using tools like `osteel/openapi-httpfoundation-testing` or the `php-openapi` library. This approach surfaces drift between your spec and implementation without requiring a running server, and slots naturally into Laravel and Symfony testing workflows.
+		The second half of the session focuses on testing across multiple layers. We'll cover **schema validation**
+		(ensuring your implementation matches the spec), **contract testing** (verifying that producer and consumer
+		agreements hold across deployments), and **negative testing** (probing edge cases and malformed inputs). A
+		key focus will be validating your existing **PHPUnit test suite against your OpenAPI spec** — asserting that
+		the responses your application actually returns conform to the schemas you've documented, using tools like
+		`osteel/openapi-httpfoundation-testing` or the `php-openapi` library. This approach surfaces drift between your
+		spec and implementation without requiring a running server, and slots naturally into Laravel and Symfony
+		testing workflows.
 
-		We'll then use **Schemathesis** to drive property-based and fuzz testing directly from your OpenAPI spec — requiring zero test case authoring for broad coverage — and compare how spec-driven fuzzing complements the response assertions you've already built into PHPUnit.
+		We'll then use **Schemathesis** to drive property-based and fuzz testing directly from your OpenAPI spec —
+		requiring zero test case authoring for broad coverage — and compare how spec-driven fuzzing complements the
+		response assertions you've already built into PHPUnit.
 
-		Finally, we'll introduce **Arazzo**, the emerging OpenAPI Initiative specification for describing multi-step API workflows. We'll walk through defining realistic end-to-end scenarios — authentication flows, resource creation chains, dependent call sequences — and show how Arazzo workflows close the gap between isolated endpoint testing and real-world usage patterns.
+		Finally, we'll introduce **Arazzo**, the emerging OpenAPI Initiative specification for describing multi-step
+		API workflows. We'll walk through defining realistic end-to-end scenarios — authentication flows, resource
+		creation chains, dependent call sequences — and show how Arazzo workflows close the gap between isolated
+		endpoint testing and real-world usage patterns.
 
 		## Attendees Will Leave With
 
@@ -40,7 +59,8 @@ class Meetup20260409StopGuessingStartVerifyingAModernApiDocumentationAndTestingT
 
 		---
 
-		*Whether you maintain a public API or an internal microservices mesh, this session will give you the tools to ship APIs that are easier to understand, harder to break, and faster to debug.*
+		*Whether you maintain a public API or an internal microservices mesh, this session will give you the tools to
+		ship APIs that are easier to understand, harder to break, and faster to debug.*
 		END;
 	}
 
