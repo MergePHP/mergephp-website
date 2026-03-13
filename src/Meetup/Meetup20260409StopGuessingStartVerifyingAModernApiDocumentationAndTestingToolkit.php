@@ -84,4 +84,14 @@ class Meetup20260409StopGuessingStartVerifyingAModernApiDocumentationAndTestingT
 		required for everyone to learn and succeed.
 		END;
 	}
+
+	public function getImage(): string
+	{
+		return '/images/Stop_Guessing_Start_Verifying-_A_Modern_API_Documentation_and_Testing_Toolkit.png';
+	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=YjF2aSd80ok';
+	}
 }
