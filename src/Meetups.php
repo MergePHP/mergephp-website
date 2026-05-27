@@ -9,10 +9,8 @@ enum Meetups: string
 	case Boston = 'Boston';
 	case KansasCity = 'Kansas City';
 	case LasVegas = 'Las Vegas';
-	case Phoenix = 'Phoenix';
 	case Portland = 'Portland';
 	case SanDiego = 'San Diego';
 	case Seattle = 'Seattle';
 	case Utah = 'Utah';
-	case Vancouver = 'Vancouver';
 }
