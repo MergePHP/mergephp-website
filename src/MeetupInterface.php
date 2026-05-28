@@ -15,5 +15,4 @@ interface MeetupInterface
 	public function getSpeakerName(): string;
 	public function getSpeakerBio(): string;
 	public function getYouTubeLink(): ?string;
-	public function getMeetupLinks(): array;
 }

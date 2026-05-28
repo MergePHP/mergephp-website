@@ -55,14 +55,6 @@ class Meetup20230608SymfonyToLaravelLessonsLearned extends AbstractMeetup
 			'in love with test driven development.';
 	}
 
-	public function getMeetupLinks(): array
-	{
-		return [
-			Meetups::Austin->value => 'https://www.meetup.com/austinphp/events/292881946/',
-			Meetups::Seattle->value => 'https://www.meetup.com/seaphp/events/293618983/',
-		];
-	}
-
 	public function getYouTubeLink(): string
 	{
 		return 'https://www.youtube.com/watch?v=mTcKX-4rYM4';

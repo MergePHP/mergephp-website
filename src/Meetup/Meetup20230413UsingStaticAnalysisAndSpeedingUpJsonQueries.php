@@ -57,13 +57,6 @@ class Meetup20230413UsingStaticAnalysisAndSpeedingUpJsonQueries extends Abstract
 			'Austin meetup or planning the next Longhorn PHP conference.';
 	}
 
-	public function getMeetupLinks(): array
-	{
-		return [
-			Meetups::Seattle->value => 'https://www.meetup.com/seaphp/events/292420263/',
-		];
-	}
-
 	public function getYouTubeLink(): string
 	{
 		return 'https://www.youtube.com/watch?v=4FxdRVbegDg';
