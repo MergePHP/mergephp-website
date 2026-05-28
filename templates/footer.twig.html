@@ -1,6 +1,6 @@
 		<!-- Footer Start -->
 		<div class="container py-4 bg-secondary text-center">
-			<p class="m-0 text-white">Participating Groups:
+			<p class="m-0 text-white"><a class="text-white font-weight-bold" href="/groups/">Participating Groups</a>:
 				{% for meetup in meetupLocations %}
 				{{ meetup }}{% if not loop.last %},{% endif %}
 				{% endfor %}

@@ -8,6 +8,7 @@ use DateTimeImmutable;
 use FilesystemIterator;
 use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
+use MergePHP\Website\Builder\Processor\GroupsPageProcessor;
 use MergePHP\Website\Builder\Processor\ICalProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
@@ -16,7 +17,7 @@ use MergePHP\Website\Builder\Processor\PageNotFoundProcessor;
 use MergePHP\Website\Builder\Processor\RSSFeedProcessor;
 use MergePHP\Website\Builder\Processor\SitemapProcessor;
 use MergePHP\Website\Builder\Processor\StaticFileProcessor;
-use MergePHP\Website\Meetups;
+use MergePHP\Website\Groups;
 use Psr\Log\LoggerInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -63,6 +64,7 @@ class SiteBuilderService
 		(new StaticFileProcessor($this->logger, $buildDir, self::APP_ROOT . '/public'))->run();
 		(new HomepageProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
 		(new PageNotFoundProcessor($this->logger, $buildDir, $this->twig, $twigData))->run();
+		(new GroupsPageProcessor($this->logger, $buildDir, $this->twig, $twigData))->run();
 		(new MeetupProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
 		(new ArchiveProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $buildDir, $clock))->run();
@@ -166,8 +168,8 @@ class SiteBuilderService
 	protected static function generateCommonTwigVars(): array
 	{
 		$meetupLocations = [];
-		foreach (Meetups::cases() as $case) {
-			$meetupLocations[] = $case->value;
+		foreach (Groups::ALL as $group) {
+			$meetupLocations[] = $group['name'];
 		}
 
 		return [

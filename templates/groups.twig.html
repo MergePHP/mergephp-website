@@ -1,0 +1,29 @@
+{% include('header.twig.html') %}
+
+<div class="container bg-white pt-5">
+	<div class="row px-3 pb-5">
+		<div class="col-md-12">
+			<h1 class="mb-3 font-weight-bold">Affiliated Groups</h1>
+			<p class="mb-4">MergePHP is proud to be affiliated with these local PHP user groups around the country.</p>
+			<div class="row">
+				{% for group in groups %}
+				<div class="col-12 col-sm-6 col-md-4 mb-4">
+					<div class="card h-100 shadow-sm" style="border-top: 4px solid #2A4B7C;">
+						<div class="card-body text-center">
+							<h2 class="card-title h4 font-weight-bold mb-1">{{ group.name }}</h2>
+							<p class="card-text text-muted small mb-0"><i class="fa fa-clock mr-1"></i> {{ group.timezone }}</p>
+						</div>
+						<div class="card-footer text-center bg-light">
+							<a href="{{ group.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+								View on Meetup <i class="fa fa-external-link-alt ml-1"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{{ include('footer.twig.html', {'meetupLocations': meetupLocations}) }}
