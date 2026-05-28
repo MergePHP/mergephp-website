@@ -48,6 +48,11 @@ class Meetup20260514MoreThanJustACacheDataStructureDatabases extends AbstractMee
 		return 'Andy Snell';
 	}
 
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=cyuBCkDQcYQ';
+	}
+
 	public function getSpeakerBio(): string
 	{
 		return <<<END
