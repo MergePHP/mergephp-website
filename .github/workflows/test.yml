@@ -23,4 +23,5 @@ jobs:
                 uses: php-actions/phpunit@v4
                 with:
                     args: --testdox tests
+                    bootstrap: vendor/autoload.php
                     php_version: "8.4"
