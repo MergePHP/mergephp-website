@@ -12,7 +12,7 @@ class Meetup20260813Jujutsu extends AbstractMeetup
 {
 	public function getTitle(): string
 	{
-		return 'Jujutsu: A New Take on Version Control';
+		return "Jujutsu: A New Take on Version Control";
 	}
 
 	public function getDescription(): string
@@ -22,26 +22,32 @@ class Meetup20260813Jujutsu extends AbstractMeetup
 		Jujutsu (jj) is a modern version control system that reimagines the developer experience while remaining fully
 		compatible with Git repositories. In this talk, we'll explore what makes Jujutsu different — its first-class
 		conflict handling, automatic rebasing, and a mental model that makes complex history manipulation feel natural.
-		Whether you're a Git power user or someone who still dreads a merge conflict, Jujutsu offers a fresh
-		perspective on how version control can work for you.
+		Jujutsu offers unlocks that can seriously level-up your version control game.
 		END;
 	}
 
 	public function getDateTime(): DateTimeImmutable
 	{
 		/** @noinspection PhpUnhandledExceptionInspection */
-		return new DateTimeImmutable('2026-08-13 20:00:00', new DateTimeZone('America/New_York'));
+		return new DateTimeImmutable(
+			"2026-08-13 20:00:00",
+			new DateTimeZone("America/New_York"),
+		);
+	}
+
+	public function getImage(): string
+	{
+		return '/images/jujutsu.png';
 	}
 
 	public function getSpeakerName(): string
 	{
-		return 'Nick Vahalik';
+		return "Nick Vahalik";
 	}
 
 	public function getSpeakerBio(): string
 	{
-		return 'Nick Vahalik is a software engineer and one of the organizers of MergePHP. He has been writing PHP ' .
-			'for over two decades and has a passion for developer tooling, workflows, and anything that makes ' .
-			'the craft of software development more enjoyable.';
+		return "Nick Vahalik has been writing PHP for over two decades and has a passion for lazy development and " .
+			"whatever helps make software development more enjoyable.";
 	}
 }
