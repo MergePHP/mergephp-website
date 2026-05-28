@@ -16,15 +16,6 @@
 			</p>
 			<h3>Presented by {{ nextMeetup.getSpeakerName() }}</h3>
 			<p>{{ nextMeetup.getSpeakerBio()|markdown_to_html }}</p>
-
-			{% if nextMeetup.getMeetupLinks()|length > 0 %}
-			<p>RSVP:
-				{% for name, link in nextMeetup.getMeetupLinks() %}
-				<a href="{{ link }}">{{name}}</a>{% if not loop.last %}, {% endif %}
-
-				{% endfor %}
-			</p>
-			{% endif %}
 		</div>
 	</div>
 </div>

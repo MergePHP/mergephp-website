@@ -57,18 +57,4 @@ class Meetup20230309WebhooksTheGoodTheBadAndTheUgly extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=PkA1xozje64';
 	}
-
-	public function getMeetupLinks(): array
-	{
-		return [
-			Meetups::Atlanta->value => 'https://www.meetup.com/atlantaphp/events/291892502/',
-			Meetups::Austin->value => 'https://www.meetup.com/austinphp/events/xsbbctyfcfbmb/',
-			Meetups::KansasCity->value => 'https://www.meetup.com/kcphpug/events/zlfpzsyfcfbmb/',
-			Meetups::LasVegas->value => 'https://www.meetup.com/vegas-programmers/events/291655784/',
-			Meetups::Phoenix->value => 'https://www.meetup.com/azphpug/events/292088678/',
-			Meetups::SanDiego->value => 'https://www.meetup.com/sandiegophp/events/292081010/',
-			Meetups::Seattle->value => 'https://www.meetup.com/seaphp/events/291540671/',
-			Meetups::Utah->value => 'https://www.meetup.com/utah-php-user-group/events/292010849/',
-		];
-	}
 }

@@ -52,15 +52,4 @@ class Meetup20230914UsingHasuraToAddAGraphqlApiToExistingApplications extends Ab
 	{
 		return 'https://www.youtube.com/watch?v=bAHzuLgRlBQ';
 	}
-
-	public function getMeetupLinks(): array
-	{
-		return [
-			Meetups::Austin->value => 'https://www.meetup.com/austinphp/events/xsbbctyfcmbsb/',
-			Meetups::Boston->value => 'https://www.meetup.com/bostonphp/events/293994742/',
-			Meetups::KansasCity->value => 'https://www.meetup.com/kcphpug/events/zlfpzsyfcmbsb/',
-			Meetups::Seattle->value => 'https://www.meetup.com/seaphp/events/295371487/',
-			Meetups::Utah->value => 'https://www.meetup.com/utah-php-user-group/events/spfxftyfcmbsb/',
-		];
-	}
 }

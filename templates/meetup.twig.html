@@ -22,15 +22,6 @@
 
 			<h3>Presented by {{ meetup.getSpeakerName() }}</h3>
 			<p>{{ meetup.getSpeakerBio()|markdown_to_html }}</p>
-
-			{% if meetup.getMeetupLinks()|length > 0 %}
-			<p>RSVP:
-				{% for name, link in meetup.getMeetupLinks() %}
-				<a href="{{ link }}">{{name}}</a>{% if not loop.last %}, {% endif %}
-
-				{% endfor %}
-			</p>
-			{% endif %}
 		</div>
 	</div>
 </div>

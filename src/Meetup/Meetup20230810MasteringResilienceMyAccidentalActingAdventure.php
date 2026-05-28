@@ -62,18 +62,6 @@ class Meetup20230810MasteringResilienceMyAccidentalActingAdventure extends Abstr
 			'Woman of the Year Award in STEM. Learn more at: [Luckygirliegirl.com](https://Luckygirliegirl.com).';
 	}
 
-	public function getMeetupLinks(): array
-	{
-		return [
-			Meetups::Atlanta->value => 'https://www.meetup.com/atlantaphp/events/295363086/',
-			Meetups::Austin->value => 'https://www.meetup.com/austinphp/events/xsbbctyfclbnb/',
-			Meetups::KansasCity->value => 'https://www.meetup.com/kcphpug/events/zlfpzsyfclbnb/',
-			Meetups::Portland->value => 'https://www.meetup.com/pdx-php/events/295356836/',
-			Meetups::Seattle->value => 'https://www.meetup.com/seaphp/events/294565808/',
-			Meetups::Utah->value => 'https://www.meetup.com/utah-php-user-group/events/spfxftyfclbnb/',
-		];
-	}
-
 	public function getYouTubeLink(): string
 	{
 		return 'https://www.youtube.com/watch?v=kr_A9GKsIlo';

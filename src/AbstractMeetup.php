@@ -41,9 +41,4 @@ abstract class AbstractMeetup implements MeetupInterface
 	{
 		return null;
 	}
-
-	public function getMeetupLinks(): array
-	{
-		return [];
-	}
 }
