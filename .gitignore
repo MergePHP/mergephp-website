@@ -5,6 +5,7 @@
 dist
 dist.build
 dist.old
+node_modules
 vendor
 .claude/
 .phpactor.json
