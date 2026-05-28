@@ -3,6 +3,8 @@
 .phpunit.cache/
 .phpunit.result.cache
 dist
+dist.build
+dist.old
 vendor
 .claude/
 .phpactor.json

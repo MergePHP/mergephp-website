@@ -168,8 +168,8 @@ class SiteBuilderService
 	protected static function generateCommonTwigVars(): array
 	{
 		$meetupLocations = [];
-		foreach (Groups::ALL as $group) {
-			$meetupLocations[] = $group['name'];
+		foreach (Groups::all() as $group) {
+			$meetupLocations[] = $group->name;
 		}
 
 		return [

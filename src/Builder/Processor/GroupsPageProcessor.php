@@ -25,7 +25,7 @@ class GroupsPageProcessor extends HTMLProcessor
 		$this->logger->info('Building affiliated groups page');
 
 		$data = array_merge($this->twigData, [
-			'groups' => Groups::ALL,
+			'groups' => Groups::all(),
 		]);
 
 		/** @noinspection PhpUnhandledExceptionInspection */

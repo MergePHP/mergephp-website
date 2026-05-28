@@ -4,17 +4,25 @@ declare(strict_types=1);
 
 namespace MergePHP\Website;
 
+use DateTimeZone;
+
 class Groups
 {
-	public const array ALL = [
-		['name' => 'Atlanta', 'timezone' => 'Eastern (ET)', 'url' => 'https://www.meetup.com/atlantaphp/'],
-		['name' => 'Austin', 'timezone' => 'Central (CT)', 'url' => 'https://www.meetup.com/austinphp/'],
-		['name' => 'Boston', 'timezone' => 'Eastern (ET)', 'url' => 'https://www.meetup.com/bostonphp/'],
-		['name' => 'Kansas City', 'timezone' => 'Central (CT)', 'url' => 'https://www.meetup.com/kcphpug/'],
-		['name' => 'Las Vegas', 'timezone' => 'Pacific (PT)', 'url' => 'https://www.meetup.com/vegas-programmers/'],
-		['name' => 'Portland', 'timezone' => 'Pacific (PT)', 'url' => 'https://www.meetup.com/pdx-php/'],
-		['name' => 'San Diego', 'timezone' => 'Pacific (PT)', 'url' => 'https://www.meetup.com/sandiegophp/'],
-		['name' => 'Seattle', 'timezone' => 'Pacific (PT)', 'url' => 'https://www.meetup.com/seaphp/'],
-		['name' => 'Utah', 'timezone' => 'Mountain (MT)', 'url' => 'https://www.meetup.com/utah-php-user-group/'],
-	];
+	/**
+	 * @return Group[]
+	 */
+	public static function all(): array
+	{
+		return [
+			new Group('Atlanta', new DateTimeZone('America/New_York'), 'https://www.meetup.com/atlantaphp/'),
+			new Group('Austin', new DateTimeZone('America/Chicago'), 'https://www.meetup.com/austinphp/'),
+			new Group('Boston', new DateTimeZone('America/New_York'), 'https://www.meetup.com/bostonphp/'),
+			new Group('Kansas City', new DateTimeZone('America/Chicago'), 'https://www.meetup.com/kcphpug/'),
+			new Group('Las Vegas', new DateTimeZone('America/Los_Angeles'), 'https://www.meetup.com/vegas-programmers/'),
+			new Group('Portland', new DateTimeZone('America/Los_Angeles'), 'https://www.meetup.com/pdx-php/'),
+			new Group('San Diego', new DateTimeZone('America/Los_Angeles'), 'https://www.meetup.com/sandiegophp/'),
+			new Group('Seattle', new DateTimeZone('America/Los_Angeles'), 'https://www.meetup.com/seaphp/'),
+			new Group('Utah', new DateTimeZone('America/Denver'), 'https://www.meetup.com/utah-php-user-group/'),
+		];
+	}
 }
