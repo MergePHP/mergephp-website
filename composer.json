@@ -19,20 +19,20 @@
 		"ext-mbstring": "*",
 		"ext-readline": "*",
 		"ext-simplexml": "*",
-		"eluceo/ical": "^2.15",
-		"league/commonmark": "^2.3",
-		"nette/php-generator": "^4.0.0",
-		"psr/log": "^3.0.0",
+		"eluceo/ical": "^2.16",
+		"league/commonmark": "^2.8.2",
+		"nette/php-generator": "^4.2.2",
+		"psr/log": "^3.0.2",
 		"squizlabs/php_codesniffer": "^4.0.1",
-		"symfony/console": "^7.4.3",
-		"twig/markdown-extra": "^3.4",
-		"twig/twig": "^3.0.0",
-		"lcobucci/clock": "^3.3"
+		"symfony/console": "^7.4.13",
+		"twig/markdown-extra": "^3.26",
+		"twig/twig": "^3.27.0",
+		"lcobucci/clock": "^3.6"
 	},
 	"require-dev": {
-		"mikey179/vfsstream": "^1.6.11",
-		"phpunit/phpunit": "^10.0.10",
-		"symfony/process": "^7.4.3"
+		"mikey179/vfsstream": "^1.6.12",
+		"phpunit/phpunit": "^10.5.63",
+		"symfony/process": "^7.4.13"
 	},
 	"scripts": {
 		"build": "php console.php build",
