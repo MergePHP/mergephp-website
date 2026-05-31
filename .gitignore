@@ -3,5 +3,9 @@
 .phpunit.cache/
 .phpunit.result.cache
 dist
+dist.build
+dist.old
 node_modules
 vendor
+.claude/
+.phpactor.json
