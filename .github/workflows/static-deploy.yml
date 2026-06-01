@@ -3,6 +3,11 @@ on:
         branches:
             - main
 
+    schedule:
+        # regenerate and redeploy the site every Thursday at 9pm Eastern
+        - cron: "0 21 * * THU"
+          timezone: "America/New_York"
+
 jobs:
     build:
         runs-on: ubuntu-latest
