@@ -14,7 +14,7 @@ jobs:
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v4
+                uses: actions/checkout@v6
 
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
@@ -28,10 +28,10 @@ jobs:
                 run: composer build
 
             -   name: Setup GitHub Pages
-                uses: actions/configure-pages@v4
+                uses: actions/configure-pages@v6
 
             -   name: Upload built site
-                uses: actions/upload-pages-artifact@v3
+                uses: actions/upload-pages-artifact@v5
                 with:
                     path: './dist'
 
@@ -51,4 +51,4 @@ jobs:
         steps:
             - name: Deploy to GitHub Pages
               id: deployment
-              uses: actions/deploy-pages@v4
+              uses: actions/deploy-pages@v5
