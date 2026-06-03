@@ -40,7 +40,7 @@ class Meetup20260514MoreThanJustACacheDataStructureDatabases extends AbstractMee
 
 	public function getImage(): string
 	{
-		return 'images/more-than-just-a-cache.webp';
+		return '/images/more-than-just-a-cache.webp';
 	}
 
 	public function getSpeakerName(): string
