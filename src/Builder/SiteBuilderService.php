@@ -10,6 +10,7 @@ use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
 use MergePHP\Website\Builder\Processor\GroupsPageProcessor;
 use MergePHP\Website\Builder\Processor\ICalProcessor;
+use MergePHP\Website\Builder\Processor\ImageLinkProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
 use MergePHP\Website\Builder\Processor\YouTubeLinkProcessor;
@@ -66,6 +67,7 @@ class SiteBuilderService
 		(new PageNotFoundProcessor($this->logger, $buildDir, $this->twig, $twigData))->run();
 		(new GroupsPageProcessor($this->logger, $buildDir, $this->twig, $twigData))->run();
 		(new MeetupProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
+		(new ImageLinkProcessor($this->logger, $buildDir, $collection))->run();
 		(new ArchiveProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
 		(new SitemapProcessor($this->logger, $buildDir, $clock))->run();
 		(new RSSFeedProcessor($this->logger, $buildDir, $collection))->run();
