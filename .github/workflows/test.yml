@@ -1,4 +1,4 @@
-name: Unit tests
+name: Tests
 
 on:
     workflow_dispatch:
@@ -13,15 +13,17 @@ jobs:
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v6
-
-            -   name: Setup composer
-                uses: php-actions/composer@v6
                 with:
-                    php_version: 8.4
+                    fetch-depth: 0
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+
+            -   name: Install PHP dependencies
+                run: composer install
 
             -   name: Run PHPUnit Tests
-                uses: php-actions/phpunit@v4
-                with:
-                    args: --testdox tests
-                    bootstrap: vendor/autoload.php
-                    php_version: "8.4"
+                run: composer test
+
+            -   name: Smoke test
+                run: composer build
