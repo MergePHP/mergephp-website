@@ -16,11 +16,11 @@
 				<time datetime="{{ meetup.getDateTime().format('c') }}" class="mr-2 text-muted" data-localize="date"><i class="fa fa-calendar-alt"></i> {{ meetup.getDateTime().format('F jS, Y') }}</time>
 				{% if isUpcoming %}<span class="badge badge-primary ml-2">Upcoming</span>{% endif %}
 			</div>
-			<p>
+			<div>
 				{% apply markdown_to_html %}
 				{{ meetup.getDescription()[:500] }}{% if meetup.getDescription()|length > 500 %}&hellip;{% endif %}
 				{% endapply %}
-			</p>
+			</div>
 			<a class="btn btn-link p-0" href="{{ meetup.getPermalink() }}">Read More <i class="fa fa-angle-right"></i></a>
 		</div>
 	</div>
