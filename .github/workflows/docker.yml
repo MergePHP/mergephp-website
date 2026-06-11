@@ -6,6 +6,8 @@ on:
         branches:
             - main
         paths:
+            - composer.lock
+            - composer.json
             - Dockerfile
             - docker-compose.yml
             - docker-entrypoint.sh
