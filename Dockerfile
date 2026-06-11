@@ -5,16 +5,11 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libzip-dev \
-    libxml2-dev \
-    libonig-dev \
     zip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions required by the project
 RUN docker-php-ext-install zip
-RUN docker-php-ext-install dom
-RUN docker-php-ext-install simplexml
-RUN docker-php-ext-install mbstring
 RUN docker-php-ext-configure pcntl --enable-pcntl && docker-php-ext-install pcntl
 
 # Install Composer
