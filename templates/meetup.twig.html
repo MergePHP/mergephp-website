@@ -21,7 +21,7 @@
 			</article>
 
 			<h3>Presented by {{ meetup.getSpeakerName() }}</h3>
-			<p>{{ meetup.getSpeakerBio()|markdown_to_html }}</p>
+			{{ meetup.getSpeakerBio()|markdown_to_html }}
 		</div>
 	</div>
 </div>
