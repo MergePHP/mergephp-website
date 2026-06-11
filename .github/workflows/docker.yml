@@ -1,0 +1,57 @@
+name: Docker
+
+on:
+    workflow_dispatch:
+    pull_request:
+        branches:
+            - main
+        paths:
+            - Dockerfile
+            - docker-compose.yml
+            - docker-entrypoint.sh
+            - .dockerignore
+            - .github/workflows/docker.yml
+
+jobs:
+    docker:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v6
+
+            -   name: Set up Docker Buildx
+                uses: docker/setup-buildx-action@v3
+
+            -   name: Validate Docker Compose config
+                run: docker compose config --quiet
+
+            -   name: Build Docker image
+                uses: docker/build-push-action@v6
+                with:
+                    context: .
+                    file: ./Dockerfile
+                    load: true
+                    tags: mergephp-website-app:ci
+                    cache-from: type=gha
+                    cache-to: type=gha,mode=max
+
+            -   name: Install PHP dependencies in container
+                run: docker compose run --rm app composer install --no-interaction --prefer-dist
+
+            -   name: Build website in container
+                run: docker compose run --rm app composer build
+
+            -   name: Start container
+                run: docker compose up -d app
+
+            -   name: Smoke test website
+                run: curl --fail --retry 10 --retry-delay 2 --retry-connrefused http://localhost:8000/
+
+            -   name: Show Docker logs on failure
+                if: failure()
+                run: docker compose logs app
+
+            -   name: Stop containers
+                if: always()
+                run: docker compose down --volumes --remove-orphans
