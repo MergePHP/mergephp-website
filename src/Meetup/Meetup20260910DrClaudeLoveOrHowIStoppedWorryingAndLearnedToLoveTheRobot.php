@@ -49,9 +49,8 @@ class Meetup20260910DrClaudeLoveOrHowIStoppedWorryingAndLearnedToLoveTheRobot ex
 
 	public function getSpeakerBio(): string
 	{
-		return 'Matt is a self proclaimed API nerd who spends a lot time on his bike or behind a camera these days. ' .
-			'He actively maintains OSS projects like openapi.tools an league\\fractal (it\'s not dead I swear). He ' .
-			'is a backend team lead at a healthcare company doing fun things with PHP. You can find him on Twitter ' .
-			'[@matthewtrask](https://twitter.com/matthewtrask)';
+		return 'Matt is an API, history, and coffee nerd right now. Currently a senior software engineer at ' .
+			'Gymdesk, and is probably listening to a vinyl record of a band from his youth when he isn\'t ' .
+			'building stuff with Claude. You can find him at [matthewtrask.com](https://matthewtrask.com)';
 	}
 }
