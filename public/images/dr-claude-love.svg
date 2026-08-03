@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+	<defs>
+		<radialGradient id="bg" cx="60%" cy="35%" r="90%">
+			<stop offset="0%" stop-color="#1c2638"/>
+			<stop offset="60%" stop-color="#111827"/>
+			<stop offset="100%" stop-color="#070b12"/>
+		</radialGradient>
+		<linearGradient id="bombBody" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#aeb8c4"/>
+			<stop offset="45%" stop-color="#8892a0"/>
+			<stop offset="100%" stop-color="#4e5866"/>
+		</linearGradient>
+	</defs>
+
+	<!-- background -->
+	<rect x="0" y="0" width="1200" height="675" fill="url(#bg)"/>
+
+	<!-- war-room big board: dim map grid -->
+	<g stroke="#2e4d3a" stroke-width="1.5" fill="none" opacity="0.55">
+		<path d="M 0 120 Q 600 60 1200 140"/>
+		<path d="M 0 260 Q 600 200 1200 280"/>
+		<path d="M 0 420 Q 600 360 1200 440"/>
+		<path d="M 0 580 Q 600 520 1200 600"/>
+		<path d="M 200 0 Q 240 340 180 675"/>
+		<path d="M 500 0 Q 540 340 480 675"/>
+		<path d="M 800 0 Q 840 340 780 675"/>
+		<path d="M 1080 0 Q 1120 340 1060 675"/>
+	</g>
+
+	<!-- target rings under the bomb's path -->
+	<g stroke="#7a2e2e" fill="none" opacity="0.8">
+		<circle cx="1010" cy="600" r="150" stroke-width="2"/>
+		<circle cx="1010" cy="600" r="100" stroke-width="2"/>
+		<circle cx="1010" cy="600" r="55" stroke-width="2.5"/>
+		<circle cx="1010" cy="600" r="16" fill="#7a2e2e" stroke="none"/>
+	</g>
+
+	<!-- falling bomb with robot rider -->
+	<g transform="translate(935 255) rotate(38)">
+		<!-- motion lines -->
+		<g stroke="#e8e2d4" stroke-width="4" stroke-linecap="round" opacity="0.5">
+			<line x1="-330" y1="-30" x2="-215" y2="-30"/>
+			<line x1="-360" y1="5" x2="-225" y2="5"/>
+			<line x1="-320" y1="40" x2="-210" y2="40"/>
+		</g>
+
+		<!-- tail fins -->
+		<g fill="#3e4754">
+			<polygon points="-150,-46 -215,-78 -215,-18 -150,-14"/>
+			<polygon points="-150,46 -215,78 -215,18 -150,14"/>
+			<polygon points="-150,-8 -222,-8 -222,8 -150,8"/>
+		</g>
+
+		<!-- bomb body -->
+		<path d="M -160 -50 L 55 -50 C 130 -50 165 -22 176 0 C 165 22 130 50 55 50 L -160 50 Z" fill="url(#bombBody)"/>
+		<!-- highlight -->
+		<path d="M -150 -36 L 60 -36 C 100 -36 130 -24 148 -8 C 120 -28 90 -30 55 -30 L -150 -30 Z" fill="#cdd5de" opacity="0.7"/>
+		<!-- band -->
+		<rect x="-70" y="-50" width="16" height="100" fill="#3e4754"/>
+		<!-- stencil -->
+		<text x="88" y="14" font-family="'Courier New', Courier, monospace" font-size="34" font-weight="bold" fill="#2b333f" text-anchor="middle">&lt;?php</text>
+
+		<!-- robot rider -->
+		<g>
+			<!-- far leg -->
+			<rect x="-12" y="-58" width="18" height="46" rx="8" fill="#b05a3c"/>
+			<!-- body -->
+			<rect x="-38" y="-118" width="74" height="70" rx="14" fill="#d97757"/>
+			<!-- chest panel -->
+			<rect x="-22" y="-100" width="42" height="26" rx="6" fill="#f0b9a2"/>
+			<circle cx="-10" cy="-87" r="5" fill="#8a3d24"/>
+			<circle cx="8" cy="-87" r="5" fill="#8a3d24"/>
+			<!-- forward arm gripping bomb -->
+			<path d="M 32 -100 Q 74 -92 82 -52" stroke="#d97757" stroke-width="16" fill="none" stroke-linecap="round"/>
+			<!-- raised arm with hat -->
+			<path d="M -34 -104 Q -72 -140 -84 -176" stroke="#d97757" stroke-width="16" fill="none" stroke-linecap="round"/>
+			<!-- cowboy hat -->
+			<g transform="translate(-92 -184) rotate(-24)">
+				<ellipse cx="0" cy="10" rx="44" ry="12" fill="#7c5a38"/>
+				<path d="M -22 8 C -22 -14 -14 -26 0 -26 C 14 -26 22 -14 22 8 Z" fill="#8f6a44"/>
+			</g>
+			<!-- head -->
+			<rect x="-30" y="-166" width="60" height="46" rx="12" fill="#e8916f"/>
+			<!-- eyes -->
+			<rect x="-18" y="-152" width="14" height="16" rx="4" fill="#fdf6ec"/>
+			<rect x="6" y="-152" width="14" height="16" rx="4" fill="#fdf6ec"/>
+			<!-- grin -->
+			<path d="M -12 -130 Q 0 -122 12 -130" stroke="#8a3d24" stroke-width="4" fill="none" stroke-linecap="round"/>
+			<!-- antenna -->
+			<line x1="0" y1="-166" x2="0" y2="-184" stroke="#e8916f" stroke-width="5"/>
+			<circle cx="0" cy="-190" r="7" fill="#f0b9a2"/>
+			<!-- near leg -->
+			<rect x="-12" y="-52" width="20" height="60" rx="9" fill="#d97757"/>
+			<rect x="-16" y="4" width="30" height="14" rx="6" fill="#b05a3c"/>
+		</g>
+	</g>
+
+	<!-- title block -->
+	<g font-family="Futura, 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif">
+		<text x="70" y="150" font-size="26" letter-spacing="10" fill="#8fa3b8">MERGEPHP  PRESENTS</text>
+		<text x="66" y="256" font-size="82" font-weight="bold" fill="#f2ead8">DR. CLAUDE-LOVE</text>
+		<line x1="70" y1="296" x2="640" y2="296" stroke="#d97757" stroke-width="4"/>
+		<text x="70" y="356" font-size="38" font-style="italic" fill="#d97757">or: How I Stopped Worrying and</text>
+		<text x="70" y="406" font-size="38" font-style="italic" fill="#d97757">Learned to Love the Robot</text>
+		<text x="70" y="490" font-size="24" letter-spacing="3" fill="#8fa3b8">MATT TRASK</text>
+		<text x="70" y="526" font-size="24" letter-spacing="3" fill="#5f7387">SEPTEMBER 10, 2026</text>
+	</g>
+</svg>
