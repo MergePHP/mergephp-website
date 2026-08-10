@@ -15,8 +15,8 @@ class MeetupGeneratorServiceTest extends TestCase
 
 	public function setUp(): void
 	{
-		$this->directory = vfsStream::setup();
-		$this->generator = new MeetupGeneratorService($this->directory->url());
+		$directory = vfsStream::setup();
+		$this->generator = new MeetupGeneratorService($directory->url());
 		parent::setUp();
 	}
 

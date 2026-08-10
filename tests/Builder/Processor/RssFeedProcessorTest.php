@@ -24,7 +24,7 @@ class RssFeedProcessorTest extends TestCase
 
 	public function setUp(): void
 	{
-		$this->directory = vfsStream::setup();
+		vfsStream::setup();
 		parent::setUp();
 	}
 
