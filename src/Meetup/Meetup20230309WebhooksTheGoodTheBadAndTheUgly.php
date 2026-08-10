@@ -7,7 +7,6 @@ namespace MergePHP\Website\Meetup;
 use DateTimeImmutable;
 use DateTimeZone;
 use MergePHP\Website\AbstractMeetup;
-use MergePHP\Website\Meetups;
 
 class Meetup20230309WebhooksTheGoodTheBadAndTheUgly extends AbstractMeetup
 {
