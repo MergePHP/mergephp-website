@@ -14,8 +14,8 @@ use Symfony\Component\Console\Tester\CommandTester;
 class MeetupGeneratorCommandTest extends TestCase
 {
 	// generate args simulate what the user types in to the command line
-	private const array GENERATE_1_ARGS  = ['Title', 'Description', null        , 'Name', 'Bio', null];
-	private const array GENERATE_2_ARGS  = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', null];
+	private const array GENERATE_1_ARGS  = ['Title', 'Description', ''          , 'Name', 'Bio', ''];
+	private const array GENERATE_2_ARGS  = ['Title', 'Description', '2023-01-01', 'Name', 'Bio', ''];
 	private const array GENERATE_3_ARGS  = [
 		'Title',
 		'Description',
@@ -56,7 +56,7 @@ class MeetupGeneratorCommandTest extends TestCase
 
 		$application = new Application();
 		$command = new MeetupGeneratorCommand($service);
-		$application->add($command);
+		$application->addCommand($command);
 		$this->commandTester = new CommandTester($command);
 	}
 
