@@ -6,16 +6,13 @@ namespace Tests\Builder\Watcher;
 
 use MergePHP\Website\Builder\Watcher\FileWatcher;
 use org\bovigo\vfs\vfsStream;
-use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\TestCase;
 
 class FileWatcherTest extends TestCase
 {
-	private vfsStreamDirectory $root;
-
 	protected function setUp(): void
 	{
-		$this->root = vfsStream::setup('root', null, [
+		vfsStream::setup('root', null, [
 			'src' => [
 				'File1.php' => '<?php // file 1',
 				'File2.php' => '<?php // file 2',
@@ -42,6 +39,8 @@ class FileWatcherTest extends TestCase
 		]);
 
 		$modTimes = $watcher->getFileModTimes();
+
+		$modTimes = self::normalizeVfsPathKeys($modTimes);
 
 		$this->assertCount(4, $modTimes);
 		$this->assertArrayHasKey(vfsStream::url('root/src/File1.php'), $modTimes);
@@ -266,6 +265,8 @@ class FileWatcherTest extends TestCase
 		$after = $watcher->getFileModTimes();
 		$changes = $watcher->detectChanges($before, $after);
 
+		$changes = self::normalizeVfsPathValues($changes);
+
 		$this->assertTrue($watcher->shouldRebuild($changes));
 		$this->assertContains(vfsStream::url('root/src/NewFile.php'), $changes);
 	}
@@ -282,7 +283,32 @@ class FileWatcherTest extends TestCase
 		$after = $watcher->getFileModTimes();
 		$changes = $watcher->detectChanges($before, $after);
 
+		$changes = self::normalizeVfsPathValues($changes);
+
 		$this->assertTrue($watcher->shouldRebuild($changes));
 		$this->assertContains(vfsStream::url('root/src/File1.php'), $changes);
+	}
+
+	/*
+	 * vfsStream always uses / as a path separator
+	 * FileWatcher uses SplFile which uses DIRECTORY_SEPARATOR beyond the root
+	 * Assuming DIRECTORY_SEPARATOR is \ this method transforms an array's values from vfs://root/foo\bar.php
+	 * to vfs://root/foo/bar.php
+	 */
+	private static function normalizeVfsPathValues(array $array): array
+	{
+		return array_map(fn($filename) => str_replace(DIRECTORY_SEPARATOR, '/', $filename), $array);
+	}
+
+	/*
+	 * Fixes array keys
+	 * @see normalizeVfsPathValues
+	 */
+	private static function normalizeVfsPathKeys(array $array): array
+	{
+		return array_combine(
+			array_map(fn($filename) => str_replace(DIRECTORY_SEPARATOR, '/', $filename), array_keys($array)),
+			$array,
+		);
 	}
 }
