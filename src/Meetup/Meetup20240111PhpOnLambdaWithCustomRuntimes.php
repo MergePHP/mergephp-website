@@ -51,4 +51,9 @@ class Meetup20240111PhpOnLambdaWithCustomRuntimes extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=42jCVgaPi4c&t=481';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/qXwTh56zYFMBgz4soZk5cf';
+	}
 }

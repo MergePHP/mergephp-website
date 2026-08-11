@@ -41,4 +41,9 @@ class Meetup20230511LightningTalksMiddlewareCloudRunRestCopilotDusk extends Abst
 	{
 		return 'https://www.youtube.com/watch?v=AcAeIYFilfs';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/iQ6Grgwgaw8uw27tMtrA1h';
+	}
 }

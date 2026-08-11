@@ -47,4 +47,9 @@ class Meetup20201008DeploymentsAndCodescanningWithGithub extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=aoCTeL1oAPk';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/ky2UV8okVNt1DhdBsawSBG';
+	}
 }

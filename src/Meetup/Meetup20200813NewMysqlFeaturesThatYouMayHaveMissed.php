@@ -50,4 +50,9 @@ class Meetup20200813NewMysqlFeaturesThatYouMayHaveMissed extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=8yyMn13Eux8';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/t168qrB89dUiowLicv3Lrg';
+	}
 }

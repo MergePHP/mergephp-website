@@ -50,4 +50,9 @@ class Meetup20221013MicroservicesInYourMonolith extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=hRE_v6G7kts';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/7YD8tTXhbhcx2aXS9eyEug';
+	}
 }

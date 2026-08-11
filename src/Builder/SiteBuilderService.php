@@ -13,6 +13,7 @@ use MergePHP\Website\Builder\Processor\ICalProcessor;
 use MergePHP\Website\Builder\Processor\ImageLinkProcessor;
 use MergePHP\Website\Builder\Processor\MeetupProcessor;
 use MergePHP\Website\Builder\Processor\HomepageProcessor;
+use MergePHP\Website\Builder\Processor\PhpCTvLinkProcessor;
 use MergePHP\Website\Builder\Processor\YouTubeLinkProcessor;
 use MergePHP\Website\Builder\Processor\PageNotFoundProcessor;
 use MergePHP\Website\Builder\Processor\RSSFeedProcessor;
@@ -73,6 +74,7 @@ class SiteBuilderService
 		(new RSSFeedProcessor($this->logger, $buildDir, $collection))->run();
 		(new ICalProcessor($this->logger, $buildDir, $collection))->run();
 		(new YouTubeLinkProcessor($this->logger, $buildDir, $collection))->run();
+		(new PhpCTvLinkProcessor($this->logger, $buildDir, $collection))->run();
 
 		// Atomic swap: move old dist out, move new build in
 		$this->swapDirectories($buildDir, $this->outputDirectory, $oldDir);

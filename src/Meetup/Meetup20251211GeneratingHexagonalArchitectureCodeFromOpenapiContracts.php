@@ -52,4 +52,9 @@ class Meetup20251211GeneratingHexagonalArchitectureCodeFromOpenapiContracts exte
 	{
 		return 'https://www.youtube.com/watch?v=A5WVaFYUb1c';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/fn3JeNpvwNb1WGyLDZbZb1';
+	}
 }

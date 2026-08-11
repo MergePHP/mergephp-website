@@ -50,4 +50,9 @@ class Meetup20240509MergephpCodingCompetition extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=N4DGPtzGD9E';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/jmm55DJrBJeLViauY1wBJG';
+	}
 }

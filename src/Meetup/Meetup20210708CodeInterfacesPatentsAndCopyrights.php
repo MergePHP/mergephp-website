@@ -50,4 +50,9 @@ class Meetup20210708CodeInterfacesPatentsAndCopyrights extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=pyPWxWFrb6M';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/1uVp994XsPLgw5YkAhwpBW';
+	}
 }

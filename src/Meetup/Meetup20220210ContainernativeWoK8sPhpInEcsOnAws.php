@@ -44,4 +44,9 @@ class Meetup20220210ContainernativeWoK8sPhpInEcsOnAws extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=egAjtS-z9xo';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/a2hcMtyDMDQQg8ftBzWtjg';
+	}
 }

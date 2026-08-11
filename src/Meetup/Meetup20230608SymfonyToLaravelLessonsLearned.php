@@ -58,4 +58,9 @@ class Meetup20230608SymfonyToLaravelLessonsLearned extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=mTcKX-4rYM4';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/4kcXTAvySut7beYrPU8pcv';
+	}
 }

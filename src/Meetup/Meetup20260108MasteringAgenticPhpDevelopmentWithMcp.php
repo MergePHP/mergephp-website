@@ -57,4 +57,9 @@ class Meetup20260108MasteringAgenticPhpDevelopmentWithMcp extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=gOwNzKY_0O4';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/bVwfzxrMMJ4YP2cRKxiJvp';
+	}
 }

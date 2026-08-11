@@ -55,4 +55,9 @@ class Meetup20251009RollYourOwnGraphDrivenMcpServer extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=4ojZvNqAAnY';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/2JnvW58mwx9KWf6t8dWgQ6';
+	}
 }

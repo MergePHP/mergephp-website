@@ -50,4 +50,9 @@ class Meetup20221110TakeTheHelmAndDeployAtScale extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=s018FdMR_bU';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/iU1rja31HbbLhjXCrk6JXk';
+	}
 }

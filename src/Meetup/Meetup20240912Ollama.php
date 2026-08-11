@@ -53,4 +53,9 @@ class Meetup20240912Ollama extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=iLK9D9A6iMw';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/8rGuPraJXGeayYatv5q7f2';
+	}
 }

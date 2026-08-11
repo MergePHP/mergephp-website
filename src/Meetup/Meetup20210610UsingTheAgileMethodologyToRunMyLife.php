@@ -47,4 +47,9 @@ class Meetup20210610UsingTheAgileMethodologyToRunMyLife extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=c16ng-kdmFI';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/dfmoz4qxctJcAdKkiRBBgv';
+	}
 }

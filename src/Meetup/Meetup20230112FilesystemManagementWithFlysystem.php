@@ -56,4 +56,9 @@ class Meetup20230112FilesystemManagementWithFlysystem extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=jejZPoVkPHQ';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/hyt7XEcKyAB51VE4cNNC8X';
+	}
 }

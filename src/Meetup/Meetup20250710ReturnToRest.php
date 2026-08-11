@@ -51,4 +51,9 @@ class Meetup20250710ReturnToRest extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=LRceBSGlqnU';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/7i7yitu7Jjz5Ca7nmPAoxA';
+	}
 }

@@ -77,4 +77,9 @@ class Meetup20231214BDDandCodeception extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=qLYDXoxj7qg';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/6BKXPfWgqgZnkhUW1MGMAv';
+	}
 }

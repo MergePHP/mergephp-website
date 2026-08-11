@@ -66,4 +66,9 @@ class Meetup20260514MoreThanJustACacheDataStructureDatabases extends AbstractMee
 		Visit [https://wickedbyte.com](https://wickedbyte.com) for more information or to connect with Andy.
 		END;
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/f8YqgXX9ECUS7fBmPGcKGy';
+	}
 }

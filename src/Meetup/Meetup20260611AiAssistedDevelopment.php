@@ -52,4 +52,9 @@ class Meetup20260611AiAssistedDevelopment extends AbstractMeetup
 			'regular conference speaker, and an occasional author. Mark has a Masters degree in MIS, is CSSLP and ' .
 			'SSCP cybersecurity certified, and volunteers for ISC2 security exam development.';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/arqJLPxjj2KgfaZiEGXa9t';
+	}
 }

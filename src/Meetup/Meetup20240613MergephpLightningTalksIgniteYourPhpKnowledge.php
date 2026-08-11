@@ -57,4 +57,9 @@ class Meetup20240613MergephpLightningTalksIgniteYourPhpKnowledge extends Abstrac
 	{
 		return 'https://www.youtube.com/watch?v=Hjc79EfjDgY';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/mcQTz1vHJRHyHDUKehgyck';
+	}
 }

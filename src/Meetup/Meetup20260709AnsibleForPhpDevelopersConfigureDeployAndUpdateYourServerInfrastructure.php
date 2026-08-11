@@ -51,4 +51,14 @@ class Meetup20260709AnsibleForPhpDevelopersConfigureDeployAndUpdateYourServerInf
 		DevOps Dev. Writer. Open Source, Linux, Python, PHP, Ansible, ❤️ DevOps. ⚽, 🏒, & 🏎  Fan
 		END;
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=r8RarLPcGFY';
+	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/8F3cf6op4QARm37KvAoJmd';
+	}
 }

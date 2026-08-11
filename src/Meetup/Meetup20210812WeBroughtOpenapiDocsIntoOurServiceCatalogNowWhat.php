@@ -60,4 +60,9 @@ class Meetup20210812WeBroughtOpenapiDocsIntoOurServiceCatalogNowWhat extends Abs
 	{
 		return 'https://www.youtube.com/watch?v=P0OZJ-gJIXk';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/3DC2TxHajiLwsVU7WTmzdW';
+	}
 }

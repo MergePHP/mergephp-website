@@ -49,4 +49,9 @@ class Meetup20220414TheAbcsAnd123sOfHttp extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=9--QuEh_Ci8';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/ttZiBNrJxp5ZmTG6KMhFzq';
+	}
 }

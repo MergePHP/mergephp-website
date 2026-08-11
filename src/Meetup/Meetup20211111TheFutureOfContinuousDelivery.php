@@ -59,4 +59,9 @@ class Meetup20211111TheFutureOfContinuousDelivery extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=dQcRaXdTESc';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/hd52Ep8auaPZ4ptCbacAYo';
+	}
 }
