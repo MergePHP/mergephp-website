@@ -13,9 +13,9 @@ use Symfony\Component\Console\Application;
 
 $application = new Application();
 
-$application->add(new MeetupGeneratorCommand(new MeetupGeneratorService(__DIR__ . '/src/Meetup')));
-$application->add(new SiteBuilderCommand(__DIR__ . '/dist'));
-$application->add(new WatchCommand(__DIR__ . '/dist', __DIR__));
+$application->addCommand(new MeetupGeneratorCommand(new MeetupGeneratorService(__DIR__ . '/src/Meetup')));
+$application->addCommand(new SiteBuilderCommand(__DIR__ . '/dist'));
+$application->addCommand(new WatchCommand(__DIR__ . '/dist', __DIR__));
 
 /** @noinspection PhpUnhandledExceptionInspection */
 $application->run();

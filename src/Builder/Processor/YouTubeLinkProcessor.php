@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MergePHP\Website\Builder\Processor;
 
 use MergePHP\Website\Builder\MeetupCollection;
+use MergePHP\Website\Exception\YouTubeLinkException;
 use Psr\Log\LoggerInterface;
 
 class YouTubeLinkProcessor extends HTMLProcessor
@@ -35,7 +36,7 @@ class YouTubeLinkProcessor extends HTMLProcessor
 				continue;
 			}
 			if (!preg_match('/^https:\/\/www.youtube\.com\/watch\?v=[A-Za-z0-9_-]+(?:&t=(\d+))?$/', $link)) {
-				$this->logger->error("{$meetup->getClassName()} does not have a valid YouTube link");
+				throw YouTubeLinkException::create($link, $meetup->getClassName());
 			}
 		}
 	}
