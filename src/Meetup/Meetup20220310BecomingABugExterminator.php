@@ -54,4 +54,9 @@ class Meetup20220310BecomingABugExterminator extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=5728Jp1jfZw';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/5JaCiXQSpBAAx5o83qsQV2';
+	}
 }

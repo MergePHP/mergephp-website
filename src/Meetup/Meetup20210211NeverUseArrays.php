@@ -50,4 +50,9 @@ class Meetup20210211NeverUseArrays extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=oK2q5SCbs5E';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/j8AASoXDzBMjDbmJJLv34i';
+	}
 }

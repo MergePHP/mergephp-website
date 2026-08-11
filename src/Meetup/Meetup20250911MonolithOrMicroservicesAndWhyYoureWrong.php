@@ -63,4 +63,9 @@ class Meetup20250911MonolithOrMicroservicesAndWhyYoureWrong extends AbstractMeet
 	{
 		return 'https://www.youtube.com/watch?v=U1l6VIWHF34';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/d6iGxSBvSu5Y7CzauFesMv';
+	}
 }

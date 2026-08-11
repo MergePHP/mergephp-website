@@ -65,4 +65,9 @@ class Meetup20230810MasteringResilienceMyAccidentalActingAdventure extends Abstr
 	{
 		return 'https://www.youtube.com/watch?v=kr_A9GKsIlo';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/7nuiF5VF8io5x57keBXmUz';
+	}
 }

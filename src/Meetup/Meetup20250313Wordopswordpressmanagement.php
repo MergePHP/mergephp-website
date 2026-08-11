@@ -59,4 +59,9 @@ class Meetup20250313Wordopswordpressmanagement extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=pcSV0Sq-cxo';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/w7rLGi8GrtH3gZs3wrFJmp';
+	}
 }

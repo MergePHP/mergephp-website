@@ -41,4 +41,9 @@ abstract class AbstractMeetup implements MeetupInterface
 	{
 		return null;
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return null;
+	}
 }

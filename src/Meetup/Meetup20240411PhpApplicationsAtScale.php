@@ -56,4 +56,9 @@ class Meetup20240411PhpApplicationsAtScale extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=YtiKIZlzPbc';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/nZ6Tw3Y9kfKYykqbT19Q8t';
+	}
 }

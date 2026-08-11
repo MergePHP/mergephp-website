@@ -64,4 +64,9 @@ class Meetup20260212DomainDrivenPhp extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=G7huvF-TAIs';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/jTgDQqLxjmhfVoummZSqWm';
+	}
 }

@@ -56,4 +56,9 @@ class Meetup20230309WebhooksTheGoodTheBadAndTheUgly extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=PkA1xozje64';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/tpjhENs56m89KPX6xFhkXM';
+	}
 }

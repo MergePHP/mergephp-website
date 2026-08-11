@@ -48,4 +48,9 @@ class Meetup20200709OpenSourcingMentalIllness extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=eFy1sYaDYug';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/33X69ApXh9LpoBm4cwDr46';
+	}
 }

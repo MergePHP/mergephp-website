@@ -55,4 +55,9 @@ class Meetup20220714BeyondTheShireAdvancedLandoTechniques extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=acg33gtq5qc';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/4QxmDQg3pC9rJehZTwUpTx';
+	}
 }

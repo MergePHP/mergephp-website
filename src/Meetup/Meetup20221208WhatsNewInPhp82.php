@@ -53,4 +53,9 @@ class Meetup20221208WhatsNewInPhp82 extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=ceEy8i-zGQI';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/b1bcEhcB4oe17ePABc7MH2';
+	}
 }

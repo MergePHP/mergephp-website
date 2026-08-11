@@ -63,4 +63,9 @@ class Meetup20260312AdvancedPhpunitShenanigans extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=BmZCUzcu2nY';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/aEKX33asVeRapTN8uGsXr8';
+	}
 }

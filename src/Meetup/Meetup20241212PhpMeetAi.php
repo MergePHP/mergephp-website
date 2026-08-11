@@ -53,4 +53,9 @@ class Meetup20241212PhpMeetAi extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=Ul5D8Rmojwk';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/qPmQ7eBt637LsU2Lh6gxyh';
+	}
 }

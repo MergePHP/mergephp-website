@@ -53,6 +53,13 @@ class AbstractMeetupTest extends TestCase
 		$this->assertNull($meetup->getYouTubeLink());
 	}
 
+	public function testItAllowsANullPhpCTvLink(): void
+	{
+		$meetup = new TestMeetup('');
+
+		$this->assertNull($meetup->getPhpCTvLink());
+	}
+
 	public function testItAllowsTheImageAndYouTubeLinkToBeOverridden(): void
 	{
 		$class = new class extends AbstractMeetup

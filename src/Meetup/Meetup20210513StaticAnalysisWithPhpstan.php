@@ -45,4 +45,9 @@ class Meetup20210513StaticAnalysisWithPhpstan extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=XFgylNvyIg8';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/9s7pFMns4ptA8MM7zoUjQT';
+	}
 }

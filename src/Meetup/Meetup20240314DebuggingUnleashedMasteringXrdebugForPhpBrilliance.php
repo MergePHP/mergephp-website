@@ -51,4 +51,9 @@ class Meetup20240314DebuggingUnleashedMasteringXrdebugForPhpBrilliance extends A
 	{
 		return 'https://www.youtube.com/watch?v=5HoCbXVMltE';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/dygvdhi3PxKXfsgGFv3Qmp';
+	}
 }

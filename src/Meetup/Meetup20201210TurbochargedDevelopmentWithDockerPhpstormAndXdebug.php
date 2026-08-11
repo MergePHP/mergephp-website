@@ -45,4 +45,9 @@ class Meetup20201210TurbochargedDevelopmentWithDockerPhpstormAndXdebug extends A
 	{
 		return 'https://www.youtube.com/watch?v=_ve05MVdkx4';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/5QJQjCPyuvPrWtEfMxGt1D';
+	}
 }

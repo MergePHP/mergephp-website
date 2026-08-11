@@ -58,4 +58,9 @@ class Meetup20210909GetLandoAndGetStuffDone extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=ypppG0A3y5g';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/ehcwHJpBZyBBCxihrahH9M';
+	}
 }

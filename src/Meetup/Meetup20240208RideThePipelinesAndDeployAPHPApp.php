@@ -65,4 +65,9 @@ class Meetup20240208RideThePipelinesAndDeployAPHPApp extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=aGS8N94Csv0';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/gFVf1Kok7i4x7ijGSoQbrT';
+	}
 }

@@ -44,4 +44,9 @@ class Meetup20210114JwtsWhatPhpDevsNeedToKnow extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=ezuN5opxqus';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/kWMRM2HGC42v56tK8Ssizd';
+	}
 }

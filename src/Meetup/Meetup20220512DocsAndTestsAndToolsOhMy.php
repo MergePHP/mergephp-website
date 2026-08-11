@@ -49,4 +49,9 @@ class Meetup20220512DocsAndTestsAndToolsOhMy extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=j49eLMYgOEQ';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/unQGS3SoqVkWYKqqNwbBb6';
+	}
 }

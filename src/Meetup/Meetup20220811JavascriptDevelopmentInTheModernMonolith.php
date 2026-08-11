@@ -55,4 +55,9 @@ class Meetup20220811JavascriptDevelopmentInTheModernMonolith extends AbstractMee
 	{
 		return 'https://www.youtube.com/watch?v=7Fd-Q-EDV5g';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/q5vbxB5BfPbBQyXRULrZFL';
+	}
 }

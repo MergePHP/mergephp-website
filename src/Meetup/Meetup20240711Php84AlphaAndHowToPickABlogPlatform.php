@@ -47,4 +47,9 @@ class Meetup20240711Php84AlphaAndHowToPickABlogPlatform extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=d0lenfoh4Z8';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/bfFwV4db56iQWTgPqxSWug';
+	}
 }
