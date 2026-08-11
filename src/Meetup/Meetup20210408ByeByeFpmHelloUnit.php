@@ -46,4 +46,9 @@ class Meetup20210408ByeByeFpmHelloUnit extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=EFCzaOJuYAY';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/iRK5GwgYQcRiUgypLNypdj';
+	}
 }

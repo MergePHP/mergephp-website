@@ -51,4 +51,9 @@ class Meetup20250508PhpscripthtmxPostmodernFrontEndInteractionsInPhp extends Abs
 	{
 		return 'https://www.youtube.com/watch?v=nIHBQQl4H-4';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/2CtFRF13aTi1AfaUGQ9H64';
+	}
 }

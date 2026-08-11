@@ -65,4 +65,9 @@ class Meetup20250410HeapsOfFunInPhp extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=VV8HYhNwPec';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/b4TfeEEdtWRQXBDAEmPfY9';
+	}
 }

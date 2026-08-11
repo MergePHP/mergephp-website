@@ -53,4 +53,9 @@ class Meetup20231012ArchitectureDesignPatternsForPhp extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=8QHMeb3M_-I';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/sa2ZbdAaw7CLvSiDiPev88';
+	}
 }

@@ -54,4 +54,9 @@ class Meetup20230209DockerIsDeadLongLiveContainers extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=EZNlgmZchZ0';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/vVpEas4ePX5ZVZv1upWzq3';
+	}
 }

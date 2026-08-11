@@ -94,4 +94,9 @@ class Meetup20260409StopGuessingStartVerifyingAModernApiDocumentationAndTestingT
 	{
 		return 'https://www.youtube.com/watch?v=YjF2aSd80ok';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/bCZFBAwsGUiwwWkWNhQeB6';
+	}
 }

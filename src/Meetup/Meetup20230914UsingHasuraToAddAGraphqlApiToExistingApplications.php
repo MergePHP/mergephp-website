@@ -51,4 +51,9 @@ class Meetup20230914UsingHasuraToAddAGraphqlApiToExistingApplications extends Ab
 	{
 		return 'https://www.youtube.com/watch?v=bAHzuLgRlBQ';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/c9EbP6bGL4fC9XgKP1zgRo';
+	}
 }

@@ -55,4 +55,9 @@ class Meetup20220113CoolToolsForPhpDevelopment extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=1xIWbT5SEc0';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/iTMXnVV7kFvpykKBDBPxLw';
+	}
 }

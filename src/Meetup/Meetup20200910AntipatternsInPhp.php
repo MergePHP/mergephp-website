@@ -53,4 +53,9 @@ class Meetup20200910AntipatternsInPhp extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=_9nLBUTo1rM';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/5DjGhGB84SArKvtuNdQSct';
+	}
 }

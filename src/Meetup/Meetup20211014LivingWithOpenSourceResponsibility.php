@@ -50,4 +50,9 @@ class Meetup20211014LivingWithOpenSourceResponsibility extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=4_evCB_bixc';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/3okShuQ9kQnzk5At91NfqU';
+	}
 }

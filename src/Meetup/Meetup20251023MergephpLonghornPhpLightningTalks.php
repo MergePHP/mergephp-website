@@ -48,4 +48,9 @@ class Meetup20251023MergephpLonghornPhpLightningTalks extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=S8SDtZce_mk';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/66AHDci5BXr3Pb45EmmmpQ';
+	}
 }

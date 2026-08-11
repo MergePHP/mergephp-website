@@ -60,4 +60,9 @@ class Meetup20230413UsingStaticAnalysisAndSpeedingUpJsonQueries extends Abstract
 	{
 		return 'https://www.youtube.com/watch?v=4FxdRVbegDg';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/oLtvWe1sahGPZhx5RZQidF';
+	}
 }

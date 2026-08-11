@@ -52,4 +52,9 @@ class Meetup20230713WpcliForPhpDevelopers extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=d3Q2PMnn1Bw';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/gwrKtEYQRrYnTjTWqAe4tj';
+	}
 }

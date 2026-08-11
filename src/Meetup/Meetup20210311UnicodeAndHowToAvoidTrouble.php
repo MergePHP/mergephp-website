@@ -51,4 +51,9 @@ class Meetup20210311UnicodeAndHowToAvoidTrouble extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=-veq5CINIYs';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/rWBcTznry4AzpAVrMBBSwG';
+	}
 }

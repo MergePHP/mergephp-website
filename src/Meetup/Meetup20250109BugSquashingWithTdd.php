@@ -51,4 +51,9 @@ class Meetup20250109BugSquashingWithTdd extends AbstractMeetup
 	{
 		return 'https://www.youtube.com/watch?v=MX59V-Q56Q0';
 	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/cSUQGkwMmg5PvnAHCeMwhr';
+	}
 }
