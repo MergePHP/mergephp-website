@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+	<defs>
+		<radialGradient id="bg" cx="30%" cy="30%" r="100%">
+			<stop offset="0%" stop-color="#1b2a3f"/>
+			<stop offset="55%" stop-color="#0f1a2b"/>
+			<stop offset="100%" stop-color="#070d17"/>
+		</radialGradient>
+		<linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color="#16213a"/>
+			<stop offset="100%" stop-color="#0c1526"/>
+		</linearGradient>
+		<linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0%" stop-color="#5eead4" stop-opacity="0"/>
+			<stop offset="50%" stop-color="#5eead4" stop-opacity="0.9"/>
+			<stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
+		</linearGradient>
+		<style>
+			.sans { font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+			.mono { font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; }
+		</style>
+	</defs>
+
+	<!-- background -->
+	<rect x="0" y="0" width="1200" height="675" fill="url(#bg)"/>
+
+	<!-- faint dot grid -->
+	<g fill="#3a4d6a" opacity="0.35">
+		<g id="dotrow">
+			<circle cx="40" cy="40" r="1.5"/><circle cx="100" cy="40" r="1.5"/><circle cx="160" cy="40" r="1.5"/>
+			<circle cx="220" cy="40" r="1.5"/><circle cx="280" cy="40" r="1.5"/><circle cx="340" cy="40" r="1.5"/>
+			<circle cx="400" cy="40" r="1.5"/><circle cx="460" cy="40" r="1.5"/><circle cx="520" cy="40" r="1.5"/>
+			<circle cx="580" cy="40" r="1.5"/><circle cx="640" cy="40" r="1.5"/><circle cx="700" cy="40" r="1.5"/>
+			<circle cx="760" cy="40" r="1.5"/><circle cx="820" cy="40" r="1.5"/><circle cx="880" cy="40" r="1.5"/>
+			<circle cx="940" cy="40" r="1.5"/><circle cx="1000" cy="40" r="1.5"/><circle cx="1060" cy="40" r="1.5"/>
+			<circle cx="1120" cy="40" r="1.5"/><circle cx="1180" cy="40" r="1.5"/>
+		</g>
+		<use href="#dotrow" y="60"/><use href="#dotrow" y="120"/><use href="#dotrow" y="180"/>
+		<use href="#dotrow" y="240"/><use href="#dotrow" y="300"/><use href="#dotrow" y="360"/>
+		<use href="#dotrow" y="420"/><use href="#dotrow" y="480"/><use href="#dotrow" y="540"/>
+		<use href="#dotrow" y="600"/>
+	</g>
+
+	<!-- title block -->
+	<text x="80" y="128" class="sans" font-size="72" font-weight="800" fill="#f5f7fa" letter-spacing="-1.5">Before the First Prompt</text>
+	<text x="82" y="172" class="sans" font-size="24" fill="#9fb0c8">How to think about AI coding agents, and how to keep a team sane once they work.</text>
+
+	<!-- terminal window -->
+	<g>
+		<rect x="80" y="230" width="720" height="300" rx="14" fill="url(#glass)" stroke="#2c3d5c" stroke-width="2"/>
+		<rect x="80" y="230" width="720" height="40" rx="14" fill="#1a2740"/>
+		<rect x="80" y="256" width="720" height="14" fill="#1a2740"/>
+		<circle cx="106" cy="250" r="6" fill="#ff5f57"/>
+		<circle cx="126" cy="250" r="6" fill="#febc2e"/>
+		<circle cx="146" cy="250" r="6" fill="#28c840"/>
+		<text x="440" y="256" class="mono" font-size="14" fill="#6f83a3" text-anchor="middle">agent -- session 1</text>
+
+		<!-- the empty prompt -->
+		<text x="112" y="330" class="mono" font-size="30" fill="#5eead4">&gt;</text>
+		<rect x="146" y="304" width="16" height="34" fill="#e6edf7">
+			<animate attributeName="opacity" values="1;1;0;0" dur="1.2s" repeatCount="indefinite"/>
+		</rect>
+
+		<!-- three mental models that do not hold up -->
+		<g class="mono" font-size="20" fill="#6f83a3">
+			<text x="112" y="400">autocomplete</text>
+			<line x1="112" y1="393" x2="258" y2="393" stroke="#e46b6b" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+			<text x="112" y="440">a junior engineer</text>
+			<line x1="112" y1="433" x2="318" y2="433" stroke="#e46b6b" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+			<text x="112" y="480">a search engine</text>
+			<line x1="112" y1="473" x2="294" y2="473" stroke="#e46b6b" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+		</g>
+		<text x="420" y="480" class="mono" font-size="20" fill="#5eead4">context &gt; cleverness</text>
+		<text x="420" y="440" class="mono" font-size="20" fill="#5eead4">verify &gt; trust</text>
+		<text x="420" y="400" class="mono" font-size="20" fill="#5eead4">small &gt; big</text>
+
+		<!-- glow line under window -->
+		<rect x="120" y="536" width="640" height="2" fill="url(#glow)"/>
+	</g>
+
+	<!-- right side: the progression, one to many -->
+	<g stroke="#2c3d5c" stroke-width="2" fill="none">
+		<path d="M 880 300 C 960 300 960 420 1040 420" opacity="0.8"/>
+		<path d="M 880 300 C 960 300 960 340 1040 340" opacity="0.8"/>
+		<path d="M 880 300 C 960 300 960 500 1040 500" opacity="0.8"/>
+	</g>
+	<g fill="#5eead4">
+		<circle cx="880" cy="300" r="14"/>
+	</g>
+	<g fill="#3a4d6a">
+		<circle cx="1040" cy="340" r="10"/>
+		<circle cx="1040" cy="420" r="10"/>
+		<circle cx="1040" cy="500" r="10"/>
+	</g>
+	<g stroke="#5eead4" stroke-width="3" fill="none" opacity="0.9">
+		<rect x="1000" y="316" width="80" height="48" rx="8"/>
+		<rect x="1000" y="396" width="80" height="48" rx="8"/>
+		<rect x="1000" y="476" width="80" height="48" rx="8"/>
+	</g>
+	<text x="880" y="268" class="sans" font-size="16" fill="#9fb0c8" text-anchor="middle">one engineer</text>
+	<text x="1040" y="560" class="sans" font-size="16" fill="#9fb0c8" text-anchor="middle">a team, with guardrails</text>
+
+	<!-- footer -->
+	<rect x="80" y="592" width="1040" height="1" fill="#2c3d5c"/>
+	<text x="80" y="630" class="sans" font-size="22" font-weight="700" fill="#f5f7fa">MergePHP</text>
+	<text x="205" y="630" class="sans" font-size="22" fill="#9fb0c8">Thursday, October 8, 2026 at 8:00 PM ET</text>
+	<text x="1120" y="630" class="sans" font-size="22" fill="#9fb0c8" text-anchor="end">David Stanley, Gymdesk</text>
+</svg>
