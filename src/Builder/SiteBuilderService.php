@@ -59,7 +59,7 @@ class SiteBuilderService
 		$this->setUpBuildDir($buildDir);
 		$this->wipeDirectory($buildDir);
 
-		$twigData = self::generateCommonTwigVars();
+		$twigData = self::generateCommonTwigVars($collection);
 
 		$clock = SystemClock::fromUTC();
 
@@ -169,15 +169,21 @@ class SiteBuilderService
 		return $meetups;
 	}
 
-	protected static function generateCommonTwigVars(): array
+	protected static function generateCommonTwigVars(MeetupCollection $meetups): array
 	{
 		$meetupLocations = [];
 		foreach (Groups::all() as $group) {
 			$meetupLocations[] = $group->name;
 		}
 
+		// The most recent year with a past meetup, used for the "Meetups" link in the site navigation
+		$pastMeetups = $meetups->withOnlyPast();
+		$latestPastMeetup = count($pastMeetups) ? end($pastMeetups) : null;
+		$archiveYear = $latestPastMeetup?->instance->getDateTime()->format('Y') ?? date('Y');
+
 		return [
 			'meetupLocations' => $meetupLocations,
+			'archiveYear' => $archiveYear,
 		];
 	}
 }

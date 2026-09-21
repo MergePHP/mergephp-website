@@ -25,14 +25,11 @@ class HomepageProcessor extends HTMLProcessor
 	{
 		$this->logger->info('Building homepage');
 		$futureMeetups = $this->meetups->withOnlyFuture();
-		$pastMeetups = $this->meetups->withOnlyPast();
-
 
 		$nextMeetup = count($futureMeetups) ? reset($futureMeetups)->instance : null;
 
 		$data = array_merge($this->twigData, [
-			'archiveYear' => end($pastMeetups)->instance->getDateTime()->format('Y'),
-			'nextMeetup'  => $nextMeetup,
+			'nextMeetup' => $nextMeetup,
 		]);
 
 		$this->logger->debug("Building homepage with reference to {$data['nextMeetup']?->getTitle()}");

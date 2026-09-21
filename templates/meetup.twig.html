@@ -1,4 +1,5 @@
 {% set page_image = meetup.getImageUrl() %}
+{% set currentNav = 'meetups' %}
 {% include('header.twig.html') %}
 
 <div class="container p-0">
@@ -9,13 +10,13 @@
 		<div class="col-md-12">
 
 			<h2 class="mb-4 font-weight-bold">{{ meetup.getTitle() }}</h2>
-			<div class="d-flex mb-3">
-				<time datetime="{{ meetup.getDateTime().format('c') }}" class="mr-3 text-muted" data-localize="date"><i class="fa fa-calendar-alt"></i> {{ meetup.getDateTime().format('F jS, Y') }}</time>
+			<div class="meetup-watch-links mb-4">
+				<time datetime="{{ meetup.getDateTime().format('c') }}" class="mr-2 text-muted" data-localize="date"><i class="fa fa-calendar-alt"></i> {{ meetup.getDateTime().format('F jS, Y') }}</time>
 				{% if meetup.getYouTubeLink() %}
-				<a href="{{ meetup.getYouTubeLink() }}" class="mr-3 text-muted"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+				<a href="{{ meetup.getYouTubeLink() }}" class="btn btn-youtube"><i class="fab fa-youtube"></i> Watch on YouTube</a>
 				{% endif %}
 				{% if meetup.getPhpCTvLink() %}
-				<a href="{{ meetup.getPhpCTvLink() }}" class="mr-3 text-muted"><i class="fas fa-tv"></i> Watch on phpc.tv</a>
+				<a href="{{ meetup.getPhpCTvLink() }}" class="btn btn-outline-primary"><i class="fas fa-tv"></i> Watch on phpc.tv</a>
 				{% endif %}
 			</div>
 

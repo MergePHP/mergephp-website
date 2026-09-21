@@ -1,3 +1,4 @@
+{% set currentNav = 'home' %}
 {% include('header.twig.html') %}
 
 {% if nextMeetup %}
@@ -39,10 +40,20 @@
 <div class="container bg-white pt-5">
 	<div class="row px-3 pb-5">
 		<div class="col-md-12 text-center">
+			<h2 class="font-weight-bold mb-3"><i class="fab fa-youtube text-danger"></i> Missed a meetup?</h2>
+			<p class="mb-4">Every MergePHP talk is recorded. Catch up on years of PHP talks from speakers across the community.</p>
+			<a class="btn btn-youtube btn-lg mb-2 mr-sm-2" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+			<a class="btn btn-outline-primary btn-lg mb-2" href="/meetups/{{ archiveYear }}/">Browse past meetups <i class="fa fa-angle-right ml-1"></i></a>
+		</div>
+	</div>
+</div>
+
+<div class="container bg-white pt-5">
+	<div class="row px-3 pb-5">
+		<div class="col-md-12 text-center">
 			<h3><a href="https://mphp.io/speakers">Speaker Signups</a></h3>
 			<h3><a href="https://mphp.io/suggest">Suggest Speakers</a></h3>
 			<h3><a href="/groups/">Affiliated Groups</a></h3>
-			<h3><a href="/meetups/{{ archiveYear }}/">View all meetups</a></h3>
 		</div>
 	</div>
 </div>
