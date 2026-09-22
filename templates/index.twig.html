@@ -30,7 +30,7 @@
 					<a class="btn btn-youtube btn-block" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i> MergePHP on YouTube</a>
 					{% endif %}
 					{% if nextMeetup.getPhpCTvLink() %}
-					<a class="btn btn-outline-primary btn-block" href="{{ nextMeetup.getPhpCTvLink() }}"><i class="fas fa-tv"></i> Watch on phpc.tv</a>
+					<a class="btn btn-outline-primary btn-block" href="{{ nextMeetup.getPhpCTvLink() }}">{{ include('phpctv-icon.twig.html') }} Watch on phpc.tv</a>
 					{% endif %}
 				</div>
 			</div>

@@ -9932,6 +9932,17 @@ body {
   text-decoration: none;
 }
 
+/* ---- phpc.tv icon (inline SVG, sized to sit with the Font Awesome icons) ---- */
+.phpctv-icon {
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: -0.1em;
+}
+
+.btn .phpctv-icon {
+  margin-right: 2px;
+}
+
 /* ---- Meeting banner ---- */
 .meeting-banner {
   background: #202C45;
