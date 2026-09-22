@@ -2,24 +2,33 @@
 {% set currentNav = 'meetups' %}
 {% include('header.twig.html') %}
 
-<div class="container p-0">
-	<img class="w-100" src="{{ meetup.getImage() }}" alt="{{ meetup.getTitle() }}">
-</div>
 <div class="container bg-white pt-5">
-	<div class="row px-3 pb-5">
-		<div class="col-md-12">
-
+	<div class="row px-3 pb-5 meetup-layout">
+		<header class="col-12">
 			<h2 class="mb-4 font-weight-bold">{{ meetup.getTitle() }}</h2>
-			<div class="meetup-watch-links mb-4">
-				<time datetime="{{ meetup.getDateTime().format('c') }}" class="mr-2 text-muted" data-localize="date"><i class="fa fa-calendar-alt"></i> {{ meetup.getDateTime().format('F jS, Y') }}</time>
-				{% if meetup.getYouTubeLink() %}
-				<a href="{{ meetup.getYouTubeLink() }}" class="btn btn-youtube"><i class="fab fa-youtube"></i> Watch on YouTube</a>
-				{% endif %}
-				{% if meetup.getPhpCTvLink() %}
-				<a href="{{ meetup.getPhpCTvLink() }}" class="btn btn-outline-primary"><i class="fas fa-tv"></i> Watch on phpc.tv</a>
+		</header>
+		<aside class="col-lg-4 order-lg-2 meetup-sidebar">
+			<div class="meetup-sidebar-inner">
+				<img class="w-100 meetup-sidebar-image" src="{{ meetup.getImage() }}" alt="{{ meetup.getTitle() }}">
+				<dl class="meetup-meta">
+					<dt><i class="fa fa-calendar-alt"></i> When</dt>
+					<dd><time datetime="{{ meetup.getDateTime().format('c') }}" data-localize="date">{{ meetup.getDateTime().format('F jS, Y') }}</time></dd>
+					<dt><i class="fa fa-user"></i> Speaker</dt>
+					<dd>{{ meetup.getSpeakerName() }}</dd>
+				</dl>
+				{% if meetup.getYouTubeLink() or meetup.getPhpCTvLink() %}
+				<div class="meetup-sidebar-links">
+					{% if meetup.getYouTubeLink() %}
+					<a href="{{ meetup.getYouTubeLink() }}" class="btn btn-youtube btn-block"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+					{% endif %}
+					{% if meetup.getPhpCTvLink() %}
+					<a href="{{ meetup.getPhpCTvLink() }}" class="btn btn-outline-primary btn-block"><i class="fas fa-tv"></i> Watch on phpc.tv</a>
+					{% endif %}
+				</div>
 				{% endif %}
 			</div>
-
+		</aside>
+		<div class="col-lg-8 order-lg-1 meetup-main">
 			<article>
 				{{ meetup.getDescription()|markdown_to_html }}
 			</article>

@@ -9982,15 +9982,55 @@ body {
   }
 }
 
-.meetup-watch-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
+/* ---- Meetup two-column layout ---- */
+.meetup-sidebar-inner {
+  background: #f1f3ff;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 30px;
 }
 
-.meetup-watch-links time {
-  display: inline-block;
+@media (min-width: 992px) {
+  .meetup-sidebar-inner {
+    position: sticky;
+    top: 80px; /* clear the sticky site header */
+    margin-bottom: 0;
+  }
+}
+
+.meetup-sidebar-image {
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.meetup-meta {
+  margin-bottom: 15px;
+}
+
+.meetup-meta dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6c757d;
+  margin-bottom: 2px;
+}
+
+.meetup-meta dt .fa,
+.meetup-meta dt .fas {
+  margin-right: 4px;
+  color: #a9b8d6;
+}
+
+.meetup-meta dd {
+  margin-bottom: 12px;
+}
+
+.meetup-meta dd:last-child {
+  margin-bottom: 0;
+}
+
+.meetup-sidebar-links .btn + .btn {
+  margin-top: 8px;
 }
 
 /* ---- Footer ---- */
