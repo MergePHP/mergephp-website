@@ -12,6 +12,7 @@ use MergePHP\Website\Builder\Processor\ImageLinkProcessor;
 use MergePHP\Website\Exception\ImageLinkException;
 use MergePHP\Website\Exception\ImageRatioException;
 use MergePHP\Website\Exception\ImageSizeException;
+use MergePHP\Website\Exception\UnreadableImageException;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
@@ -31,6 +32,10 @@ class ImageLinkProcessorTest extends TestCase
 				'large.png'  => file_get_contents(self::FIXTURES_DIR . 'large.png'),
 				'small.gif'  => file_get_contents(self::FIXTURES_DIR . 'small.gif'),
 				'square.png' => file_get_contents(self::FIXTURES_DIR . 'square.png'),
+				'ideal.svg'  => file_get_contents(self::FIXTURES_DIR . 'ideal.svg'),
+				'viewbox-only.svg' => file_get_contents(self::FIXTURES_DIR . 'viewbox-only.svg'),
+				'square.svg' => file_get_contents(self::FIXTURES_DIR . 'square.svg'),
+				'broken.svg' => file_get_contents(self::FIXTURES_DIR . 'broken.svg'),
 			],
 		]);
 		parent::setUp();
@@ -124,6 +129,42 @@ class ImageLinkProcessorTest extends TestCase
 		$processor = new ImageLinkProcessor(new NullLogger(), 'vfs://root', $collection);
 		$processor->run();
 		$this->assertInstanceOf(ImageLinkProcessor::class, $processor);
+	}
+
+	public function testItAllowsSvgImagesWithExplicitDimensions(): void
+	{
+		$collection = self::generateMeetupCollection('/images/ideal.svg');
+		$processor = new ImageLinkProcessor(new NullLogger(), 'vfs://root', $collection);
+		$processor->run();
+		$this->assertInstanceOf(ImageLinkProcessor::class, $processor);
+	}
+
+	public function testItThrowsWhenAnSvgImageHasNoExplicitDimensions(): void
+	{
+		// getimagesize() reads width/height attributes only; a viewBox alone is not enough.
+		$collection = self::generateMeetupCollection('/images/viewbox-only.svg');
+		$processor = new ImageLinkProcessor(new NullLogger(), 'vfs://root', $collection);
+		$this->expectException(UnreadableImageException::class);
+		$this->expectExceptionMessageMatches('/^Unable to read \/images\/viewbox-only\.svg \(defined in .+\)$/');
+		$processor->run();
+	}
+
+	public function testItThrowsWhenAnSvgImageIsTheWrongRatio(): void
+	{
+		$collection = self::generateMeetupCollection('/images/square.svg');
+		$processor = new ImageLinkProcessor(new NullLogger(), 'vfs://root', $collection);
+		$this->expectException(ImageRatioException::class);
+		$this->expectExceptionMessageMatches('/^\/images\/square\.svg in .+ is the wrong ratio; must be \d+:\d+$/');
+		$processor->run();
+	}
+
+	public function testItThrowsWhenAnSvgImageCannotBeParsed(): void
+	{
+		$collection = self::generateMeetupCollection('/images/broken.svg');
+		$processor = new ImageLinkProcessor(new NullLogger(), 'vfs://root', $collection);
+		$this->expectException(UnreadableImageException::class);
+		$this->expectExceptionMessageMatches('/^Unable to read \/images\/broken\.svg \(defined in .+\)$/');
+		$processor->run();
 	}
 
 	private function generateMeetupCollection(

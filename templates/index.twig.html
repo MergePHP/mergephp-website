@@ -1,19 +1,44 @@
+{% set currentNav = 'home' %}
 {% include('header.twig.html') %}
 
 {% if nextMeetup %}
-<div class="container p-0">
-	<img class="w-100" src="{{ nextMeetup.getImage()|e('html_attr') }}" alt="{{ nextMeetup.getTitle()|e('html_attr') }}">
-</div>
 <div class="container bg-white pt-5">
-	<div class="row px-3 pb-5">
-		<div class="col-md-12">
+	<div class="row px-3 pb-5 meetup-layout">
+		<header class="col-12">
 			<p>Join us on
 				<time datetime="{{ nextMeetup.getDateTime().format('c') }}" style="display:inline" data-localize="date">{{ nextMeetup.getDateTime().format('F jS, Y') }}</time>
 				as {{ nextMeetup.getSpeakerName() }} presents</p>
 			<h2 class="mb-4 font-weight-bold">{{ nextMeetup.getTitle() }}</h2>
-			<div class="m-0">
-				{{ nextMeetup.getDescription()|markdown_to_html }}
+		</header>
+		<aside class="col-lg-4 order-lg-2 meetup-sidebar">
+			<div class="meetup-sidebar-inner">
+				<img class="w-100 meetup-sidebar-image" src="{{ nextMeetup.getImage()|e('html_attr') }}" alt="{{ nextMeetup.getTitle()|e('html_attr') }}">
+				<dl class="meetup-meta">
+					<dt><i class="fa fa-calendar-alt"></i> When</dt>
+					<dd>
+						<time datetime="{{ nextMeetup.getDateTime().format('c') }}" data-localize="date">{{ nextMeetup.getDateTime().format('F jS, Y') }}</time><br>
+						{{ nextMeetup.getDateTime()|date('g:i A T', 'America/New_York') }} / {{ nextMeetup.getDateTime()|date('g:i A T', 'America/Los_Angeles') }}
+					</dd>
+					<dt><i class="fa fa-user"></i> Speaker</dt>
+					<dd>{{ nextMeetup.getSpeakerName() }}</dd>
+				</dl>
+				<div class="meetup-sidebar-links">
+					<a class="btn btn-outline-primary btn-block" href="/mergephp.ical"><i class="fa fa-calendar-plus"></i> Subscribe to calendar</a>
+					{% if nextMeetup.getYouTubeLink() %}
+					<a class="btn btn-youtube btn-block" href="{{ nextMeetup.getYouTubeLink() }}"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+					{% else %}
+					<a class="btn btn-youtube btn-block" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i> MergePHP on YouTube</a>
+					{% endif %}
+					{% if nextMeetup.getPhpCTvLink() %}
+					<a class="btn btn-outline-primary btn-block" href="{{ nextMeetup.getPhpCTvLink() }}">{{ include('phpctv-icon.twig.html') }} Watch on phpc.tv</a>
+					{% endif %}
+				</div>
 			</div>
+		</aside>
+		<div class="col-lg-8 order-lg-1 meetup-main">
+			<article>
+				{{ nextMeetup.getDescription()|markdown_to_html }}
+			</article>
 			<h3>Presented by {{ nextMeetup.getSpeakerName() }}</h3>
 			{{ nextMeetup.getSpeakerBio()|markdown_to_html }}
 		</div>
@@ -39,10 +64,21 @@
 <div class="container bg-white pt-5">
 	<div class="row px-3 pb-5">
 		<div class="col-md-12 text-center">
+			<h2 class="font-weight-bold mb-3"><i class="fab fa-youtube text-danger"></i> Missed a meetup?</h2>
+			<p class="mb-4">Every MergePHP talk is recorded. Catch up on years of PHP talks from speakers across the community.</p>
+			<a class="btn btn-youtube btn-lg mb-2 mr-sm-2" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+			<a class="btn btn-outline-primary btn-lg mb-2 mr-sm-2" href="https://phpc.tv/c/mergephp/videos">{{ include('phpctv-icon.twig.html') }} Watch ad-free on phpc.tv</a>
+			<a class="btn btn-outline-primary btn-lg mb-2" href="/meetups/{{ archiveYear }}/">Browse past meetups <i class="fa fa-angle-right ml-1"></i></a>
+		</div>
+	</div>
+</div>
+
+<div class="container bg-white pt-5">
+	<div class="row px-3 pb-5">
+		<div class="col-md-12 text-center">
 			<h3><a href="https://mphp.io/speakers">Speaker Signups</a></h3>
 			<h3><a href="https://mphp.io/suggest">Suggest Speakers</a></h3>
 			<h3><a href="/groups/">Affiliated Groups</a></h3>
-			<h3><a href="/meetups/{{ archiveYear }}/">View all meetups</a></h3>
 		</div>
 	</div>
 </div>

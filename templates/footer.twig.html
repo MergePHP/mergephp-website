@@ -1,20 +1,53 @@
-		<!-- Footer Start -->
-		<div class="container py-4 bg-secondary text-center">
-			<p class="m-0 text-white"><a class="text-white font-weight-bold" href="/groups/">Participating Groups</a>:
-				{% for meetup in meetupLocations %}
-				{{ meetup }}{% if not loop.last %},{% endif %}
-				{% endfor %}
-			</p>
-			<p class="m-0 text-white">
-				&copy; MergePHP {{ 'now' | date('Y') }}. Source code available <a class="text-white font-weight-bold" href="https://www.github.com/mergephp/mergephp-website/">on GitHub</a>. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
-			</p>
-		</div>
-		<!-- Footer End -->
 	</div>
-</div>
+</main>
+
+<!-- Footer Start -->
+<footer class="site-footer">
+	<div class="site-footer-inner">
+		<div class="site-footer-row">
+			<div class="site-footer-col">
+				<h4>MergePHP</h4>
+				<p>A virtual PHP user group that meets the second Thursday of every month at 20:00 Eastern / 17:00 Pacific.</p>
+				<a class="btn btn-youtube" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i> Watch past talks on YouTube</a>
+			</div>
+			<div class="site-footer-col">
+				<h4>Get Involved</h4>
+				<ul class="site-footer-links">
+					<li><a href="https://mphp.io/speakers">Speaker signups</a></li>
+					<li><a href="https://mphp.io/suggest">Suggest a speaker</a></li>
+					<li><a href="/meetups/{{ archiveYear }}/">Past meetups</a></li>
+					<li><a href="/groups/">Affiliated groups</a></li>
+				</ul>
+			</div>
+			<div class="site-footer-col">
+				<h4>Follow</h4>
+				<ul class="site-footer-social">
+					<li><a title="YouTube" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i><span class="sr-only">YouTube</span></a></li>
+					<li><a title="Twitter" href="https://twitter.com/mergephp"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
+					<li><a title="phpc.tv" href="https://phpc.tv/c/mergephp">{{ include('phpctv-icon.twig.html') }}<span class="sr-only">phpc.tv</span></a></li>
+					<li><a title="LinkedIn" href="https://www.linkedin.com/company/mergephp/"><i class="fab fa-linkedin-in"></i><span class="sr-only">LinkedIn</span></a></li>
+					<li><a title="Mastodon" rel="me" href="https://phpc.social/@merge"><i class="fab fa-mastodon"></i><span class="sr-only">Mastodon</span></a></li>
+					<li><a title="iCal Feed" href="/mergephp.ical"><i class="fa fa-calendar"></i><span class="sr-only">iCal Feed</span></a></li>
+					<li><a title="RSS" href="/atom.xml"><i class="fa fa-rss"></i><span class="sr-only">RSS</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="site-footer-groups">
+			<a href="/groups/">Participating Groups</a>:
+			{% for meetup in meetupLocations %}
+			{{ meetup }}{% if not loop.last %},{% endif %}
+			{% endfor %}
+		</div>
+		<div class="site-footer-legal">
+			&copy; MergePHP {{ 'now' | date('Y') }}. Source code available <a href="https://www.github.com/mergephp/mergephp-website/">on GitHub</a>. Designed by <a href="https://htmlcodex.com">HTML Codex</a>.
+		</div>
+	</div>
+</footer>
+<!-- Footer End -->
 
 <!-- Back to Top -->
-<a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<a href="#" class="back-to-top" aria-label="Back to top"><i class="fa fa-angle-double-up"></i></a>
+<script src="/js/site-nav.js" defer></script>
 <script src="/js/localize-dates.js" defer></script>
 <script src="/js/next-meeting.js" defer></script>
 </body>

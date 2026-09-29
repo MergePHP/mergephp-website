@@ -26,27 +26,48 @@
 </head>
 
 <body>
-<div class="wrapper">
-	<div class="sidebar">
-		<div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
-			<a href="/"><img class="mx-auto d-block bg-primary img-fluid mb-4" alt="MergePHP Logo" src="/images/logo.jpg"></a>
-			<p class="mb-4">
-				MergePHP meets the second Thursday of every month at 20:00 Eastern/17:00 Pacific
-			</p>
-			<p class="mb-4">
-				Next meeting:<br><span id="next-meeting-local">your local time</span>
-			</p>
-			<div class="d-flex justify-content-center mb-5">
-				<a class="btn btn-outline-primary mr-2" title="Twitter" href="https://twitter.com/mergephp"><i class="fab fa-twitter"></i></a>
-				<a class="btn btn-outline-primary mr-2" title="YouTube" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i></a>
-				<a class="btn btn-outline-primary mr-2" title="LinkedIn" href="https://www.linkedin.com/company/mergephp/"><i class="fab fa-linkedin-in"></i></a>
-				<a class="btn btn-outline-primary mr-2" title="Mastodon" href="https://phpc.social/@merge"><i class="fab fa-mastodon"></i></a>
-				<a class="btn btn-outline-primary mr-2" title="iCal Feed" href="/mergephp.ical"><i class="fa fa-calendar"></i></a>
-				<a class="btn btn-outline-primary mr-2" title="RSS" href="/atom.xml"><i class="fa fa-rss"></i></a>
-			</div>
-		</div>
-		<div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
-			<i class="fas fa-2x fa-angle-double-right text-primary"></i>
-		</div>
+{% set currentNav = currentNav is defined ? currentNav : '' %}
+<a class="sr-only sr-only-focusable skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+	<div class="site-header-inner">
+		<a class="site-brand" href="/">
+			<img src="/images/logo.jpg" alt="MergePHP" width="48" height="48">
+			<span class="site-brand-name">MergePHP</span>
+		</a>
+
+		<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="nav-toggle-bar"></span>
+			<span class="nav-toggle-bar"></span>
+			<span class="nav-toggle-bar"></span>
+		</button>
+
+		<nav id="site-nav" class="site-nav" aria-label="Main navigation">
+			<ul class="site-nav-links">
+				<li><a href="/"{% if currentNav == 'home' %} class="active" aria-current="page"{% endif %}>Home</a></li>
+				<li><a href="/meetups/{{ archiveYear }}/"{% if currentNav == 'meetups' %} class="active" aria-current="page"{% endif %}>Archive</a></li>
+				<li><a href="/groups/"{% if currentNav == 'groups' %} class="active" aria-current="page"{% endif %}>About</a></li>
+				<li><a href="https://mphp.io/speakers">Speak</a></li>
+			</ul>
+			<ul class="site-nav-social">
+				<li><a title="Twitter" href="https://twitter.com/mergephp"><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
+				<li><a title="phpc.tv" href="https://phpc.tv/c/mergephp">{{ include('phpctv-icon.twig.html') }}<span class="sr-only">phpc.tv</span></a></li>
+				<li><a title="LinkedIn" href="https://www.linkedin.com/company/mergephp/"><i class="fab fa-linkedin-in"></i><span class="sr-only">LinkedIn</span></a></li>
+				<li><a title="Mastodon" rel="me" href="https://phpc.social/@merge"><i class="fab fa-mastodon"></i><span class="sr-only">Mastodon</span></a></li>
+				<li><a title="iCal Feed" href="/mergephp.ical"><i class="fa fa-calendar"></i><span class="sr-only">iCal Feed</span></a></li>
+				<li><a title="RSS" href="/atom.xml"><i class="fa fa-rss"></i><span class="sr-only">RSS</span></a></li>
+			</ul>
+			<a class="btn btn-youtube site-nav-cta" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+		</nav>
 	</div>
-	<div class="content">
+</header>
+
+<div class="meeting-banner">
+	<div class="meeting-banner-inner">
+		<span class="meeting-banner-schedule"><i class="fa fa-calendar-alt"></i> Second Thursday of every month at 20:00 Eastern / 17:00 Pacific</span>
+		<span class="meeting-banner-next">Next meeting: <strong id="next-meeting-local">check your local time</strong></span>
+	</div>
+</div>
+
+<main id="main" class="site-main">
+	<div class="site-content">

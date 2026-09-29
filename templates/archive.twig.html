@@ -1,3 +1,4 @@
+{% set currentNav = 'meetups' %}
 {% include('header.twig.html') %}
 
 <h1>{{ year }} Meetups</h1>
@@ -21,7 +22,15 @@
 				{{ meetup.getDescription()[:500] }}{% if meetup.getDescription()|length > 500 %}&hellip;{% endif %}
 				{% endapply %}
 			</div>
-			<a class="btn btn-link p-0" href="{{ meetup.getPermalink() }}">Read More <i class="fa fa-angle-right"></i></a>
+			<div class="d-flex flex-wrap align-items-center">
+				<a class="btn btn-link p-0 mr-3" href="{{ meetup.getPermalink() }}">Read More <i class="fa fa-angle-right"></i></a>
+				{% if meetup.getYouTubeLink() %}
+				<a class="btn btn-outline-youtube btn-sm" href="{{ meetup.getYouTubeLink() }}"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+				{% endif %}
+				{% if meetup.getPhpCTvLink() %}
+				<a class="btn btn-outline-primary btn-sm ml-2" href="{{ meetup.getPhpCTvLink() }}">{{ include('phpctv-icon.twig.html') }} Watch on phpc.tv</a>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </div>
