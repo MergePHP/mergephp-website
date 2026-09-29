@@ -23,7 +23,7 @@
 					<dd>{{ nextMeetup.getSpeakerName() }}</dd>
 				</dl>
 				<div class="meetup-sidebar-links">
-					<a class="btn btn-outline-primary btn-block" href="/mergephp.ical"><i class="fa fa-calendar-plus"></i> Add to calendar</a>
+					<a class="btn btn-outline-primary btn-block" href="/mergephp.ical"><i class="fa fa-calendar-plus"></i> Subscribe to calendar</a>
 					{% if nextMeetup.getYouTubeLink() %}
 					<a class="btn btn-youtube btn-block" href="{{ nextMeetup.getYouTubeLink() }}"><i class="fab fa-youtube"></i> Watch on YouTube</a>
 					{% else %}
@@ -67,6 +67,7 @@
 			<h2 class="font-weight-bold mb-3"><i class="fab fa-youtube text-danger"></i> Missed a meetup?</h2>
 			<p class="mb-4">Every MergePHP talk is recorded. Catch up on years of PHP talks from speakers across the community.</p>
 			<a class="btn btn-youtube btn-lg mb-2 mr-sm-2" href="https://www.youtube.com/c/MergePHP"><i class="fab fa-youtube"></i> Watch on YouTube</a>
+			<a class="btn btn-outline-primary btn-lg mb-2 mr-sm-2" href="https://phpc.tv/c/mergephp/videos">{{ include('phpctv-icon.twig.html') }} Watch ad-free on phpc.tv</a>
 			<a class="btn btn-outline-primary btn-lg mb-2" href="/meetups/{{ archiveYear }}/">Browse past meetups <i class="fa fa-angle-right ml-1"></i></a>
 		</div>
 	</div>

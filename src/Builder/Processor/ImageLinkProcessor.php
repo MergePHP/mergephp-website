@@ -80,7 +80,7 @@ class ImageLinkProcessor extends HTMLProcessor
 			return;
 		}
 
-		$info = self::readImageInfo($this->outputDirectory . $image);
+		@$info = getimagesize($this->outputDirectory . $image);
 
 		if ($info === false) {
 			throw UnreadableImageException::create($image, $meetup::class);
@@ -132,45 +132,5 @@ class ImageLinkProcessor extends HTMLProcessor
 		if ($ratio != '1.77') {
 			throw ImageRatioException::create($image, $meetup::class, self::RATIO);
 		}
-	}
-
-	/**
-	 * getimagesize() has no SVG support, so read the dimensions from the SVG root element instead.
-	 * @return array{0: float|int, 1: float|int, mime: string}|false
-	 */
-	protected static function readImageInfo(string $path): array|false
-	{
-		if (strtolower(pathinfo($path, PATHINFO_EXTENSION)) !== 'svg') {
-			$info = @getimagesize($path);
-			return $info === false ? false : [$info[0], $info[1], 'mime' => $info['mime']];
-		}
-
-		$contents = @file_get_contents($path);
-		if ($contents === false) {
-			return false;
-		}
-
-		$previous = libxml_use_internal_errors(true);
-		$svg = simplexml_load_string($contents);
-		libxml_use_internal_errors($previous);
-		if ($svg === false || $svg->getName() !== 'svg') {
-			return false;
-		}
-
-		$width = (float) $svg['width'];
-		$height = (float) $svg['height'];
-		if ($width <= 0 || $height <= 0) {
-			$viewBox = preg_split('/[\s,]+/', trim((string) $svg['viewBox']));
-			if (count($viewBox) !== 4) {
-				return false;
-			}
-			$width = (float) $viewBox[2];
-			$height = (float) $viewBox[3];
-		}
-		if ($width <= 0 || $height <= 0) {
-			return false;
-		}
-
-		return [$width, $height, 'mime' => 'image/svg+xml'];
 	}
 }

@@ -27,6 +27,9 @@
 				{% if meetup.getYouTubeLink() %}
 				<a class="btn btn-outline-youtube btn-sm" href="{{ meetup.getYouTubeLink() }}"><i class="fab fa-youtube"></i> Watch on YouTube</a>
 				{% endif %}
+				{% if meetup.getPhpCTvLink() %}
+				<a class="btn btn-outline-primary btn-sm ml-2" href="{{ meetup.getPhpCTvLink() }}">{{ include('phpctv-icon.twig.html') }} Watch on phpc.tv</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>

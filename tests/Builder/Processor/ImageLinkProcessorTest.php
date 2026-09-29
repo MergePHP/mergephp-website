@@ -139,12 +139,14 @@ class ImageLinkProcessorTest extends TestCase
 		$this->assertInstanceOf(ImageLinkProcessor::class, $processor);
 	}
 
-	public function testItReadsSvgDimensionsFromTheViewBoxWhenWidthAndHeightAreMissing(): void
+	public function testItThrowsWhenAnSvgImageHasNoExplicitDimensions(): void
 	{
+		// getimagesize() reads width/height attributes only; a viewBox alone is not enough.
 		$collection = self::generateMeetupCollection('/images/viewbox-only.svg');
 		$processor = new ImageLinkProcessor(new NullLogger(), 'vfs://root', $collection);
+		$this->expectException(UnreadableImageException::class);
+		$this->expectExceptionMessageMatches('/^Unable to read \/images\/viewbox-only\.svg \(defined in .+\)$/');
 		$processor->run();
-		$this->assertInstanceOf(ImageLinkProcessor::class, $processor);
 	}
 
 	public function testItThrowsWhenAnSvgImageIsTheWrongRatio(): void
