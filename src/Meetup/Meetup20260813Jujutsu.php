@@ -50,4 +50,14 @@ class Meetup20260813Jujutsu extends AbstractMeetup
 		return "Nick Vahalik has been writing PHP for over two decades and has a passion for lazy development and " .
 			"whatever helps make software development more enjoyable.";
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=Auvi5C6PDxc';
+	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/1jMBWMqrjaDmXNzuANWJjd';
+	}
 }
