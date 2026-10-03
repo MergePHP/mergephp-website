@@ -53,4 +53,14 @@ class Meetup20260910DrClaudeLoveOrHowIStoppedWorryingAndLearnedToLoveTheRobot ex
 			'Gymdesk, and is probably listening to a vinyl record of a band from his youth when he isn\'t ' .
 			'building stuff with Claude. You can find him at [matthewtrask.com](https://matthewtrask.com)';
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=572so9NutEM';
+	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/mo7qqxM3Avs8KjdhVQQRyJ';
+	}
 }
