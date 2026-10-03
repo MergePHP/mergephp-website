@@ -48,4 +48,9 @@ class Meetup20261112PHP86InsideScoop extends AbstractMeetup
 		veteran release manager for PHP 8.6. See <https://scherzer.dev/> for more.
 		END;
 	}
+
+	public function getImage(): string
+	{
+		return '/images/php-86-the-inside-scoop.svg';
+	}
 }
