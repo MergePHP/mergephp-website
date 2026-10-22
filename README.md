@@ -9,8 +9,8 @@ Prerequisites
 
 This project's dependencies are installed with [composer](https://getcomposer.org/).
 
-You must have PHP 8.5 running on your machine (or be willing to build in a container with 8.5
-installed)
+You must have PHP 8.5.12 or newer running on your machine (or be willing to
+build in a container with 8.5.12 installed)
 
 Installation
 ------------
