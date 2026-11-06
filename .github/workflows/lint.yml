@@ -19,6 +19,9 @@ jobs:
             -   name: Setup PHP
                 uses: shivammathur/setup-php@v2
 
+            -   name: Validate composer.json
+                run: composer validate
+
             -   name: Install PHP dependencies
                 run: composer install
 
