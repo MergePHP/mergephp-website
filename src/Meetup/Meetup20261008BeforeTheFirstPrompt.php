@@ -65,4 +65,14 @@ class Meetup20261008BeforeTheFirstPrompt extends AbstractMeetup
 			'under it. He lives in Kansas City. You can find him on ' .
 			'[LinkedIn](https://www.linkedin.com/in/davidstanley01/).';
 	}
+
+	public function getYouTubeLink(): string
+	{
+		return 'https://www.youtube.com/watch?v=XlFqXGxVDiQ';
+	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/gWS5TVJLTWQcjvefmBosk9';
+	}
 }
