@@ -9,12 +9,8 @@
 			"homepage": "https://www.tim-bond.com/"
 		}
 	],
-	"config": {
-		"platform": {
-			"php": "^8.5.12"
-		}
-	},
 	"require": {
+		"php": "^8.5.12",
 		"ext-dom": "*",
 		"ext-mbstring": "*",
 		"ext-readline": "*",
