@@ -40,7 +40,7 @@
 			"Composer\\Config::disableProcessTimeout",
 			"php -S localhost:8000 -t dist/"
 		],
-		"test": "phpunit --colors=always --testdox tests",
+		"test": "phpunit --colors=always --testdox tests --display-phpunit-deprecations --display-deprecations --display-warnings --display-skipped",
 		"watch": [
 			"Composer\\Config::disableProcessTimeout",
 			"php console.php watch"
