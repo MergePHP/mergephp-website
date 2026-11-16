@@ -53,4 +53,14 @@ class Meetup20261112PHP86InsideScoop extends AbstractMeetup
 	{
 		return '/images/php-86-the-inside-scoop.svg';
 	}
+
+	public function getYouTubeLink(): ?string
+	{
+		return 'https://www.youtube.com/watch?v=ZLbsgFhBTGw';
+	}
+
+	public function getPhpCTvLink(): ?string
+	{
+		return 'https://phpc.tv/w/hZaY8kKX156EVb2UfXFiZ3';
+	}
 }
