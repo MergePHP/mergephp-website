@@ -6,6 +6,7 @@ namespace Tests\Builder\Processor;
 
 use DateTimeImmutable;
 use DateTimeZone;
+use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\AbstractMeetup;
 use MergePHP\Website\Builder\MeetupCollection;
 use MergePHP\Website\Builder\MeetupEntry;
@@ -24,7 +25,7 @@ class ICalProcessorTest extends TestCase
 
 	public function testItGeneratesAnIcalFeed(): void
 	{
-		$collection = new MeetupCollection();
+		$collection = new MeetupCollection(SystemClock::fromUTC());
 		$collection->append(
 			new MeetupEntry(
 				new class extends AbstractMeetup
