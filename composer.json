@@ -10,7 +10,7 @@
 		}
 	],
 	"require": {
-		"php": "^8.5.12",
+		"php": "~8.5.12",
 		"ext-dom": "*",
 		"ext-mbstring": "*",
 		"ext-readline": "*",
