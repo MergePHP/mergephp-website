@@ -1,0 +1,196 @@
+name: Post next meetup on socials
+
+on:
+    schedule:
+        # Every Thursday at 5pm Pacific; the gate job keeps only the first one of the month, since cron cannot
+        # combine a day-of-month range with a weekday
+        - cron: "0 17 * * THU"
+          timezone: "America/Los_Angeles"
+
+permissions:
+    contents: read
+
+jobs:
+    gate:
+        name: Check for first Thursday
+        runs-on: ubuntu-latest
+        outputs:
+            proceed: ${{ steps.first-thursday.outputs.proceed }}
+        steps:
+            -   name: Check the day of the month
+                id: first-thursday
+                run: |
+                    if [ "$(TZ=America/Los_Angeles date +%-d)" -le 7 ]; then
+                        echo "proceed=true" >> "$GITHUB_OUTPUT"
+                    else
+                        echo "proceed=false" >> "$GITHUB_OUTPUT"
+                    fi
+
+    build:
+        name: Build
+        needs: gate
+        if: needs.gate.outputs.proceed == 'true'
+        runs-on: ubuntu-latest
+        outputs:
+            meetup-title: ${{ steps.next-meetup.outputs.title }}
+            meetup-image: ${{ steps.next-meetup.outputs.image }}
+            meetup-message: ${{ steps.next-meetup.outputs.message }}
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v7
+                with:
+                    fetch-depth: 0
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.5'
+
+            -   name: Install PHP dependencies
+                run: composer install
+
+            -   name: Build site
+                run: composer build
+
+            -   name: Check for upcoming meetups
+                id: check-meetups
+                run: |
+                    count=$(jq 'length' dist/api/v1/meetups/upcoming.json)
+                    if [ "$count" -eq 0 ]; then
+                        echo "has-meetups=false" >> "$GITHUB_OUTPUT"
+                    else
+                        echo "has-meetups=true" >> "$GITHUB_OUTPUT"
+                    fi
+
+            -   name: Extract next meetup info
+                id: next-meetup
+                if: steps.check-meetups.outputs.has-meetups == 'true'
+                run: |
+                    upcoming=dist/api/v1/meetups/upcoming.json
+                    title=$(jq -r '.[0].title' "$upcoming")
+                    image=$(jq -r '.[0].image' "$upcoming")
+                    link=$(jq -r '.[0].youTubeLink // "https://www.youtube.com/@MergePHP/streams"' "$upcoming")
+                    date=$(jq -r '.[0].dateTime' "$upcoming")
+                    weekday=$(TZ=America/New_York date -d "$date" '+%A')
+                    month=$(TZ=America/New_York date -d "$date" '+%B')
+                    day=$(TZ=America/New_York date -d "$date" '+%-d')
+                    eastern_time=$(TZ=America/New_York date -d "$date" '+%-I%p')
+                    pacific_time=$(TZ=America/Los_Angeles date -d "$date" '+%-I%p')
+                    case $day in
+                        1|21|31) suffix="st" ;;
+                        2|22) suffix="nd" ;;
+                        3|23) suffix="rd" ;;
+                        *) suffix="th" ;;
+                    esac
+                    message="Join us at our next meetup: ${title} on ${weekday} ${month} ${day}${suffix} ${eastern_time} Eastern/${pacific_time} Pacific ${link}"
+                    {
+                        echo "title=${title}"
+                        echo "image=${image}"
+                        echo "message=${message}"
+                    } >> "$GITHUB_OUTPUT"
+
+            -   name: Alert if no meetups found
+                if: steps.check-meetups.outputs.has-meetups == 'false'
+                uses: ./.github/actions/send-discord-message
+                with:
+                    webhook-url: ${{ secrets.DISCORD_ADMIN_URL }}
+                    payload: '{"content": "No upcoming meetups; no socials to blast"}'
+
+    post:
+        name: Post
+        needs: build
+        if: needs.build.outputs.meetup-title != ''
+        uses: ./.github/workflows/_post-to-social.yml
+        with:
+            message: ${{ needs.build.outputs.meetup-message }}
+            image_url: ${{ needs.build.outputs.meetup-image }}
+        secrets: inherit
+
+    log-urls:
+        needs: post
+        if: always() && needs.post.result != 'skipped'
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Log post URLs
+                env:
+                    MASTODON_URL: ${{ needs.post.outputs.mastodon_url }}
+                    LINKEDIN_URL: ${{ needs.post.outputs.linkedin_url }}
+                    TWITTER_URL: ${{ needs.post.outputs.twitter_url }}
+                run: |
+                    echo "::notice title=Mastodon::${MASTODON_URL}"
+                    echo "::notice title=LinkedIn::${LINKEDIN_URL}"
+                    echo "::notice title=Twitter::${TWITTER_URL}"
+
+    discord-failure:
+        name: Report failures
+        needs: [ build, post ]
+        if: >-
+            always()
+            && needs.post.result != 'skipped'
+            && (
+                needs.post.result != 'success'
+                || needs.post.outputs.mastodon_outcome != 'success'
+                || needs.post.outputs.linkedin_outcome != 'success'
+                || needs.post.outputs.twitter_outcome != 'success'
+                || needs.post.outputs.discord_outcome != 'success'
+            )
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout actions
+                uses: actions/checkout@v7
+                with:
+                    sparse-checkout: .github/actions
+
+            -   name: Build failure notification
+                id: notification
+                env:
+                    MEETUP_TITLE: ${{ needs.build.outputs.meetup-title }}
+                    MEETUP_IMAGE: ${{ needs.build.outputs.meetup-image }}
+                    MASTODON: ${{ needs.post.outputs.mastodon_outcome }}
+                    LINKEDIN: ${{ needs.post.outputs.linkedin_outcome }}
+                    TWITTER: ${{ needs.post.outputs.twitter_outcome }}
+                    DISCORD: ${{ needs.post.outputs.discord_outcome }}
+                    RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+                run: |
+                    payload=$(jq -nc \
+                        --arg title "$MEETUP_TITLE" \
+                        --arg image "$MEETUP_IMAGE" \
+                        --arg mastodon "$MASTODON" \
+                        --arg linkedin "$LINKEDIN" \
+                        --arg twitter "$TWITTER" \
+                        --arg discord "$DISCORD" \
+                        --arg runUrl "$RUN_URL" \
+                        'def mark($outcome): if $outcome == "success" then "✅" else "❌" end;
+                        {
+                            flags: 32768,
+                            components: [{
+                                type: 17,
+                                components: [
+                                    {type: 10, content: $title},
+                                    {type: 12, items: [{media: {url: $image}}]},
+                                    {type: 10, content: (
+                                        [
+                                            "\(mark($mastodon)) Mastodon",
+                                            "\(mark($linkedin)) LinkedIn",
+                                            "\(mark($twitter)) Twitter",
+                                            "\(mark($discord)) phpc.social Discord"
+                                        ] | join("\n")
+                                    )},
+                                    {type: 1, components: [{
+                                        type: 2,
+                                        style: 5,
+                                        label: "View workflow",
+                                        emoji: {name: "🔗", animated: false},
+                                        url: $runUrl,
+                                        action_set_id: "857567435"
+                                    }]}
+                                ]
+                            }]
+                        }')
+                    echo "payload=${payload}" >> "$GITHUB_OUTPUT"
+
+            -   name: Send failure Discord notification
+                uses: ./.github/actions/send-discord-message
+                with:
+                    webhook-url: ${{ secrets.DISCORD_ADMIN_URL }}
+                    payload: ${{ steps.notification.outputs.payload }}

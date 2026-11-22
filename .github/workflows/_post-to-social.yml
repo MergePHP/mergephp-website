@@ -1,0 +1,203 @@
+name: Post to Social Media
+
+on:
+    workflow_call:
+        inputs:
+            message:
+                description: 'The message to post'
+                required: true
+                type: string
+            image_url:
+                description: 'Optional URL of an image hosted on www.mergephp.com; the matching file in public/images is used'
+                required: false
+                type: string
+        outputs:
+            mastodon_outcome:
+                description: 'Outcome of the Mastodon post'
+                value: ${{ jobs.post.outputs.mastodon_outcome }}
+            mastodon_url:
+                description: 'URL of Mastodon post'
+                value: ${{ jobs.post.outputs.mastodon_url }}
+            linkedin_outcome:
+                description: 'Outcome of the LinkedIn post'
+                value: ${{ jobs.post.outputs.linkedin_outcome }}
+            linkedin_url:
+                description: 'URL of LinkedIn post'
+                value: ${{ jobs.post.outputs.linkedin_url }}
+            twitter_outcome:
+                description: 'Outcome of the Twitter post'
+                value: ${{ jobs.post.outputs.twitter_outcome }}
+            twitter_url:
+                description: 'URL of Twitter post'
+                value: ${{ jobs.post.outputs.twitter_url }}
+            discord_outcome:
+                description: 'Outcome of the Discord post'
+                value: ${{ jobs.post.outputs.discord_outcome }}
+
+permissions:
+    contents: read
+
+jobs:
+    post:
+        name: Post
+        runs-on: ubuntu-latest
+        outputs:
+            mastodon_outcome: ${{ steps.mastodon.outcome }}
+            mastodon_url: ${{ steps.mastodon.outputs.url }}
+            linkedin_outcome: ${{ steps.linkedin.outcome }}
+            linkedin_url: ${{ steps.linkedin-url.outputs.url }}
+            twitter_outcome: ${{ steps.twitter.outcome }}
+            twitter_url: ${{ steps.twitter-url.outputs.url }}
+            discord_outcome: ${{ steps.discord.outcome }}
+        steps:
+            -   name: Checkout images and actions
+                uses: actions/checkout@v7
+                with:
+                    sparse-checkout: |
+                        .github/actions
+                        public/images
+
+            -   name: Prepare image
+                id: image
+                env:
+                    IMAGE_URL: ${{ inputs.image_url }}
+                run: |
+                    prefix="https://www.mergephp.com/"
+                    source=""
+                    image_path=""
+                    reason=""
+
+                    if [ -z "$IMAGE_URL" ]; then
+                        :
+                    elif [[ ! "$IMAGE_URL" =~ ^https://www\.mergephp\.com/images/[A-Za-z0-9._/-]+$ || "$IMAGE_URL" == *..* ]]; then
+                        reason="the URL is not an image on www.mergephp.com"
+                    elif [ ! -f "public/${IMAGE_URL#"$prefix"}" ]; then
+                        reason="no matching file exists in public/images"
+                    else
+                        source="public/${IMAGE_URL#"$prefix"}"
+                    fi
+
+                    if [ -n "$source" ]; then
+                        case "${source,,}" in
+                            *.png | *.jpg | *.jpeg | *.gif)
+                                image_path="$source"
+                                ;;
+                            *)
+                                mkdir -p .social-image
+                                converted=".social-image/$(basename "${source%.*}").png"
+                                if npm install --prefix "$RUNNER_TEMP/sharp-cli" --ignore-scripts --no-audit --no-fund --silent sharp-cli@6.1.0 \
+                                    && "$RUNNER_TEMP/sharp-cli/node_modules/.bin/sharp" -i "$source" -o "$converted" -f png > /dev/null; then
+                                    image_path="$converted"
+                                else
+                                    reason="converting $source to PNG failed"
+                                fi
+                                ;;
+                        esac
+                    fi
+
+                    {
+                        echo "path=${image_path}"
+                        echo "reason=${reason}"
+                    } >> "$GITHUB_OUTPUT"
+
+            -   name: Build skipped image notice
+                id: notice
+                if: steps.image.outputs.reason != ''
+                env:
+                    IMAGE_URL: ${{ inputs.image_url }}
+                    REASON: ${{ steps.image.outputs.reason }}
+                run: |
+                    payload=$(jq -nc --arg image "$IMAGE_URL" --arg reason "$REASON" \
+                        '{content: "Social posts are going out without an image (\($reason)): \($image)"}')
+                    echo "payload=${payload}" >> "$GITHUB_OUTPUT"
+
+            -   name: Report skipped image to Discord admin
+                if: steps.image.outputs.reason != ''
+                continue-on-error: true
+                uses: ./.github/actions/send-discord-message
+                with:
+                    webhook-url: ${{ secrets.DISCORD_ADMIN_URL }}
+                    payload: ${{ steps.notice.outputs.payload }}
+
+            -   name: Send toot to Mastodon
+                id: mastodon
+                if: always()
+                continue-on-error: true
+                uses: cbrgm/mastodon-github-action@v2
+                with:
+                    access-token: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+                    url: ${{ secrets.MASTODON_URL }}
+                    message: ${{ inputs.message }}
+                    visibility: "public"
+                    media-paths: ${{ steps.image.outputs.path }}
+
+            -   name: Post to LinkedIn
+                id: linkedin
+                if: always()
+                continue-on-error: true
+                uses: julioliraup/linkedin-post@v1.0.1
+                with:
+                    linkedin_access_token: ${{ secrets.LINKEDIN_TOKEN }}
+                    linkedin_person_urn: ${{ secrets.LINKEDIN_URN }}
+                    image_path: ${{ steps.image.outputs.path }}
+                    post_text: ${{ inputs.message }}
+
+            -   name: Build LinkedIn post URL
+                id: linkedin-url
+                if: steps.linkedin.outcome == 'success'
+                env:
+                    POST_ID: ${{ steps.linkedin.outputs.post_id }}
+                run: echo "url=https://www.linkedin.com/feed/update/${POST_ID}" >> "$GITHUB_OUTPUT"
+
+            -   name: Post to Twitter
+                id: twitter
+                if: always()
+                continue-on-error: true
+                uses: snow-actions/tweet@v1.4.0
+                env:
+                    CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+                    CONSUMER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
+                    ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+                    ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+                with:
+                    status: ${{ inputs.message }}
+                    media_paths: ${{ steps.image.outputs.path }}
+
+            -   name: Build Twitter post URL
+                id: twitter-url
+                if: steps.twitter.outcome == 'success'
+                env:
+                    RESPONSE: ${{ steps.twitter.outputs.response }}
+                run: |
+                    id=$(jq -r '.id_str' <<< "$RESPONSE")
+                    echo "url=https://twitter.com/i/status/${id}" >> "$GITHUB_OUTPUT"
+
+            -   name: Build Discord payload
+                id: discord-payload
+                if: always()
+                env:
+                    MESSAGE: ${{ inputs.message }}
+                    IMAGE_PATH: ${{ steps.image.outputs.path }}
+                run: |
+                    name=""
+                    if [ -n "$IMAGE_PATH" ]; then
+                        name=$(basename "$IMAGE_PATH")
+                    fi
+                    payload=$(jq -nc --arg message "$MESSAGE" --arg name "$name" '{
+                        flags: 32768,
+                        components: (
+                            (if $name != "" then [{type: 12, items: [{media: {url: "attachment://\($name)"}}]}] else [] end)
+                            + [{type: 10, content: $message}]
+                        )
+                    } + (if $name != "" then {attachments: [{id: 0, filename: $name}]} else {} end)')
+                    echo "payload=${payload}" >> "$GITHUB_OUTPUT"
+
+            -   name: Send Discord message
+                id: discord
+                if: always()
+                continue-on-error: true
+                uses: ./.github/actions/send-discord-message
+                with:
+                    webhook-url: ${{ secrets.DISCORD_PHPC_URL }}
+                    payload: ${{ steps.discord-payload.outputs.payload }}
+                    file: ${{ steps.image.outputs.path }}
