@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: MergePHP Meetups API
+  version: 1.0.0
+  summary: Read-only JSON feeds of MergePHP meetups
+  description: |
+    MergePHP is a collection of PHP user groups that meet monthly.  This API
+    publishes the meetup catalog.
+
+    All lists are sorted by meetup date, oldest first.  The first entry of
+    `upcoming.json` is therefore the next meetup.
+  license:
+    name: MIT
+    identifier: MIT
+servers:
+  - url: https://www.mergephp.com
+    description: Production
+tags:
+  - name: Meetups
+    description: The meetup catalog
+paths:
+  /api/v1/meetups/all.json:
+    get:
+      tags: [Meetups]
+      operationId: listAllMeetups
+      summary: List every meetup
+      description: Every past and upcoming meetup, oldest first.
+      responses:
+        '200':
+          $ref: '#/components/responses/MeetupList'
+  /api/v1/meetups/upcoming.json:
+    get:
+      tags: [Meetups]
+      operationId: listUpcomingMeetups
+      summary: List upcoming meetups
+      description: |
+        Meetups that start after the time the site was deployed, oldest first.
+        The list is empty when there are no meetups scheduled in the future.
+      responses:
+        '200':
+          $ref: '#/components/responses/MeetupList'
+  /api/v1/meetups/past.json:
+    get:
+      tags: [Meetups]
+      operationId: listPastMeetups
+      summary: List past meetups
+      description: Meetups that started before the time the site was deployed, oldest first.
+      responses:
+        '200':
+          $ref: '#/components/responses/MeetupList'
+components:
+  responses:
+    MeetupList:
+      description: A list of meetups
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Meetup'
+  schemas:
+    Meetup:
+      type: object
+      required:
+        - title
+        - permalink
+        - description
+        - dateTime
+        - image
+        - speakerName
+        - speakerBio
+        - youTubeLink
+        - phpCTvLink
+      properties:
+        title:
+          type: string
+          description: The title of the talk.
+          examples:
+            - How to Build An OpenAPI Doc
+        permalink:
+          type: string
+          format: uri
+          description: Absolute URL of the meetup's page on the MergePHP website.
+          examples:
+            - https://www.mergephp.com/meetups/2010/09/02/a-beverly-hills-tv-show.html
+        description:
+          type: string
+          description: The description of the talk, as written on the meetup's page.  May contain line breaks.
+        dateTime:
+          type: string
+          format: date-time
+          description: |
+            When the meetup starts.
+          examples:
+            - '2026-12-10T20:00:00-05:00'
+        image:
+          type: string
+          format: uri
+          description: |
+            Absolute URL of the meetup's image.  The image may be in any format used on the website, including
+            JPG, PNG, SVG, and WebP.
+          examples:
+            - https://www.mergephp.com/images/placeholder.svg
+        speakerName:
+          type: string
+          description: The name of the speaker.
+        speakerBio:
+          type: string
+          description: A short biography of the speaker.
+        youTubeLink:
+          type:
+            - string
+            - 'null'
+          format: uri
+          description: Link to the live stream/recording on YouTube, or `null` if there is no link available yet.
+          examples:
+            - https://www.youtube.com/watch?v=example
+        phpCTvLink:
+          type:
+            - string
+            - 'null'
+          format: uri
+          description: Link to the recording on PHPC.tv, or `null` if there is no link available yet.
+          examples:
+            - https://www.phpc.tv/w/example

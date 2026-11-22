@@ -77,6 +77,13 @@ Finally, run the tests:
 composer test
 ```
 
+API
+---
+The build also publishes the meetup catalog as JSON files under `/api/v1/meetups/`
+(`all.json`, `upcoming.json`, and `past.json`).  The API is documented with OpenAPI in
+[`public/openapi.yaml`](public/openapi.yaml), which is served from the root of the live site at
+[https://www.mergephp.com/openapi.yaml](https://www.mergephp.com/openapi.yaml).
+
 Directory structure
 -------------------
 ### dist
