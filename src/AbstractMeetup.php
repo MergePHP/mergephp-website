@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace MergePHP\Website;
 
-abstract class AbstractMeetup implements MeetupInterface
+use JsonSerializable;
+
+abstract class AbstractMeetup implements MeetupInterface, JsonSerializable
 {
+	private const string BASE_URL = 'https://www.mergephp.com';
+
 	public function getSlug(): string
 	{
 		$slug = $this->getTitle();
@@ -33,7 +37,7 @@ abstract class AbstractMeetup implements MeetupInterface
 		if (str_starts_with($this->getImage(), 'http')) {
 			return $this->getImage();
 		} else {
-			return 'https://www.mergephp.com' . $this->getImage();
+			return self::BASE_URL . $this->getImage();
 		}
 	}
 
@@ -45,5 +49,20 @@ abstract class AbstractMeetup implements MeetupInterface
 	public function getPhpCTvLink(): ?string
 	{
 		return null;
+	}
+
+	final public function jsonSerialize(): array
+	{
+		return [
+			'title' => $this->getTitle(),
+			'permalink' => self::BASE_URL . $this->getPermalink(),
+			'description' => $this->getDescription(),
+			'dateTime' => $this->getDateTime()->format('c'),
+			'image' => $this->getImageUrl(),
+			'speakerName' => $this->getSpeakerName(),
+			'speakerBio' => $this->getSpeakerBio(),
+			'youTubeLink' => $this->getYouTubeLink(),
+			'phpCTvLink' => $this->getPhpCTvLink(),
+		];
 	}
 }

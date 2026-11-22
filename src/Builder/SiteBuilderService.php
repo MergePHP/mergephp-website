@@ -7,6 +7,7 @@ namespace MergePHP\Website\Builder;
 use DateTimeImmutable;
 use FilesystemIterator;
 use Lcobucci\Clock\SystemClock;
+use MergePHP\Website\Builder\Processor\ApiProcessor;
 use MergePHP\Website\Builder\Processor\ArchiveProcessor;
 use MergePHP\Website\Builder\Processor\GroupsPageProcessor;
 use MergePHP\Website\Builder\Processor\ICalProcessor;
@@ -75,6 +76,7 @@ class SiteBuilderService
 		(new ICalProcessor($this->logger, $buildDir, $collection))->run();
 		(new YouTubeLinkProcessor($this->logger, $buildDir, $collection))->run();
 		(new PhpCTvLinkProcessor($this->logger, $buildDir, $collection))->run();
+		(new ApiProcessor($this->logger, $buildDir, $collection))->run();
 
 		// Atomic swap: move old dist out, move new build in
 		$this->swapDirectories($buildDir, $this->outputDirectory, $oldDir);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use DateTimeImmutable;
+use DateTimeZone;
 use MergePHP\Website\AbstractMeetup;
 use PHPUnit\Framework\TestCase;
 use Tests\fixtures\TestMeetup;
@@ -125,5 +126,60 @@ class AbstractMeetupTest extends TestCase
 		};
 
 		$this->assertEquals('/meetups/2020/07/04/meetup-title.html', $class->getPermalink());
+	}
+
+	public function testItGeneratesAnArrayForJsonSerialization(): void
+	{
+		$instance = new class extends AbstractMeetup
+		{
+			public function getTitle(): string
+			{
+				return 'Meetup Title';
+			}
+
+			public function getDescription(): string
+			{
+				return 'Meetup\nDescription';
+			}
+
+			public function getDateTime(): DateTimeImmutable
+			{
+				return new DateTimeImmutable('2020-07-04', new DateTimeZone('America/New_York'));
+			}
+
+			public function getSpeakerName(): string
+			{
+				return 'Speaker name';
+			}
+
+			public function getSpeakerBio(): string
+			{
+				return 'Speaker bio';
+			}
+
+			public function getYouTubeLink(): ?string
+			{
+				return 'https://www.youtube.com/watch?v=example';
+			}
+
+			public function getPhpCTvLink(): ?string
+			{
+				return 'https://phpc.tv/w/example';
+			}
+		};
+
+		$expected = [
+			'title' => 'Meetup Title',
+			'permalink' => 'https://www.mergephp.com/meetups/2020/07/04/meetup-title.html',
+			'description' => 'Meetup\nDescription',
+			'dateTime' => '2020-07-04T00:00:00-04:00',
+			'image' => 'https://www.mergephp.com/images/placeholder.webp',
+			'speakerName' => 'Speaker name',
+			'speakerBio' => 'Speaker bio',
+			'youTubeLink' => 'https://www.youtube.com/watch?v=example',
+			'phpCTvLink' => 'https://phpc.tv/w/example',
+		];
+
+		$this->assertSame($expected, $instance->jsonSerialize());
 	}
 }
