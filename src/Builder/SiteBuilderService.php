@@ -20,6 +20,7 @@ use MergePHP\Website\Builder\Processor\RSSFeedProcessor;
 use MergePHP\Website\Builder\Processor\SitemapProcessor;
 use MergePHP\Website\Builder\Processor\StaticFileProcessor;
 use MergePHP\Website\Groups;
+use Psr\Clock\ClockInterface;
 use Psr\Log\LoggerInterface;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -48,7 +49,8 @@ class SiteBuilderService
 
 	public function build(): void
 	{
-		$collection = self::generateMeetupCollection();
+		$clock = SystemClock::fromUTC();
+		$collection = self::generateMeetupCollection($clock);
 		$this->logger->debug("Loaded {$collection->count()} meetups");
 
 		// Build to a temporary directory, then swap atomically
@@ -60,8 +62,6 @@ class SiteBuilderService
 		$this->wipeDirectory($buildDir);
 
 		$twigData = self::generateCommonTwigVars($collection);
-
-		$clock = SystemClock::fromUTC();
 
 		(new StaticFileProcessor($this->logger, $buildDir, self::APP_ROOT . '/public'))->run();
 		(new HomepageProcessor($this->logger, $buildDir, $collection, $this->twig, $twigData))->run();
@@ -155,9 +155,9 @@ class SiteBuilderService
 		}
 	}
 
-	protected static function generateMeetupCollection(): MeetupCollection
+	protected static function generateMeetupCollection(ClockInterface $clock): MeetupCollection
 	{
-		$meetups = new MeetupCollection();
+		$meetups = new MeetupCollection($clock);
 		foreach (glob(self::APP_ROOT . '/src/Meetup/*.php') as $filename) {
 			$fileInfo = new SplFileInfo($filename);
 			$fileModificationTime = new DateTimeImmutable("@{$fileInfo->getMTime()}");

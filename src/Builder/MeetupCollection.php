@@ -6,16 +6,19 @@ namespace MergePHP\Website\Builder;
 
 use ArrayAccess;
 use Countable;
-use DateTimeImmutable;
-use DateTimeZone;
 use Iterator;
 use MergePHP\Website\Exception\NotImplementedException;
+use Psr\Clock\ClockInterface;
 
 class MeetupCollection implements Iterator, Countable, ArrayAccess
 {
 	/** @var MeetupEntry[] */
 	private array $array = [];
 	private int $pointer = 0;
+
+	public function __construct(private readonly ClockInterface $clock)
+	{
+	}
 
 	public function sort(): void
 	{
@@ -66,12 +69,10 @@ class MeetupCollection implements Iterator, Countable, ArrayAccess
 
 	/**
 	 * @return MeetupEntry[]
-	 * @noinspection PhpDocMissingThrowsInspection
 	 */
 	public function withOnlyPast(): array
 	{
-		/** @noinspection PhpUnhandledExceptionInspection */
-		$NOW = new DateTimeImmutable('now', new DateTimeZone('America/New_York'));
+		$NOW = $this->clock->now();
 		return array_filter($this->array, (function (MeetupEntry $meetupEntry) use ($NOW) {
 			return $meetupEntry->instance->getDateTime() < $NOW;
 		}));
@@ -79,12 +80,10 @@ class MeetupCollection implements Iterator, Countable, ArrayAccess
 
 	/**
 	 * @return MeetupEntry[]
-	 * @noinspection PhpDocMissingThrowsInspection
 	 */
 	public function withOnlyFuture(): array
 	{
-		/** @noinspection PhpUnhandledExceptionInspection */
-		$NOW = new DateTimeImmutable('now', new DateTimeZone('America/New_York'));
+		$NOW = $this->clock->now();
 		return array_filter($this->array, (function (MeetupEntry $meetupEntry) use ($NOW) {
 			return $meetupEntry->instance->getDateTime() > $NOW;
 		}));

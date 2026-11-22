@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Builder\Processor;
 
 use DateTimeImmutable;
+use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\AbstractMeetup;
 use MergePHP\Website\Builder\MeetupCollection;
 use MergePHP\Website\Builder\MeetupEntry;
@@ -171,7 +172,7 @@ class ImageLinkProcessorTest extends TestCase
 		string $imageLink,
 		?DateTimeImmutable $meetupDateTime = null,
 	): MeetupCollection {
-		$collection = new MeetupCollection();
+		$collection = new MeetupCollection(SystemClock::fromUTC());
 		$collection->append(new MeetupEntry(
 			new class ($imageLink, $meetupDateTime) extends AbstractMeetup {
 				public function __construct(private readonly string $imageLink, private $meetupDateTime = null)

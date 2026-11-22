@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Builder\Processor;
 
 use DateTimeImmutable;
+use Lcobucci\Clock\SystemClock;
 use MergePHP\Website\AbstractMeetup;
 use MergePHP\Website\Builder\MeetupCollection;
 use MergePHP\Website\Builder\MeetupEntry;
@@ -30,7 +31,7 @@ class RssFeedProcessorTest extends TestCase
 
 	public function testItGeneratesARSSFeed(): void
 	{
-		$collection = new MeetupCollection();
+		$collection = new MeetupCollection(SystemClock::fromUTC());
 		$collection->append(new MeetupEntry(self::generateMeetup(), new DateTimeImmutable(self::MODIFIED_DATE_STRING)));
 		$processor = new RSSFeedProcessor(new NullLogger(), "vfs://root/", $collection);
 		$now = (new DateTimeImmutable())->format('c');
@@ -52,7 +53,7 @@ class RssFeedProcessorTest extends TestCase
 
 	public function testItThrowsWhenADescriptionContainsAPreTag(): void
 	{
-		$collection = new MeetupCollection();
+		$collection = new MeetupCollection(SystemClock::fromUTC());
 		$meetup = self::generateMeetup('Foo<pre>bar</pre>baz');
 		$collection->append(new MeetupEntry($meetup, new DateTimeImmutable(self::MODIFIED_DATE_STRING)));
 		$processor = new RSSFeedProcessor(new NullLogger(), "vfs://root/", $collection);
@@ -64,7 +65,7 @@ class RssFeedProcessorTest extends TestCase
 	{
 		$imageLink = '/images/placeholder.webp';
 
-		$collection = new MeetupCollection();
+		$collection = new MeetupCollection(SystemClock::fromUTC());
 		$meetup = self::generateMeetup();
 		$this->assertEquals($imageLink, $meetup->getImage(), 'Did the default url change on AbstractMeetup::getImage?');
 		$collection->append(new MeetupEntry($meetup, new DateTimeImmutable(self::MODIFIED_DATE_STRING)));
