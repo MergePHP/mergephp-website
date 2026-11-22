@@ -1,0 +1,40 @@
+name: Post custom message to socials
+
+on:
+    workflow_dispatch:
+        inputs:
+            message:
+                description: 'The message to post'
+                required: true
+                type: string
+            image_url:
+                description: 'Optional URL of an image hosted on www.mergephp.com'
+                required: false
+                type: string
+
+permissions:
+    contents: read
+
+jobs:
+    post:
+        name: Post
+        uses: ./.github/workflows/_post-to-social.yml
+        with:
+            message: ${{ inputs.message }}
+            image_url: ${{ inputs.image_url }}
+        secrets: inherit
+
+    log-urls:
+        needs: post
+        if: always() && needs.post.result != 'skipped'
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Log post URLs
+                env:
+                    MASTODON_URL: ${{ needs.post.outputs.mastodon_url }}
+                    LINKEDIN_URL: ${{ needs.post.outputs.linkedin_url }}
+                    TWITTER_URL: ${{ needs.post.outputs.twitter_url }}
+                run: |
+                    echo "::notice title=Mastodon::${MASTODON_URL}"
+                    echo "::notice title=LinkedIn::${LINKEDIN_URL}"
+                    echo "::notice title=Twitter::${TWITTER_URL}"
